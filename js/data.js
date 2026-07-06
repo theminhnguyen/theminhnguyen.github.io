@@ -19,7 +19,7 @@ const PROJECTS = [
       'Verlauf, Favoriten & Kategorien',
       'Installierbar als App (PWA)',
     ],
-    shots: [],
+    shots: ['assets/shots/korbi-1.jpg', 'assets/shots/korbi-2.jpg'],
     shotType: 'mobile',
     tags: ['Next.js 15', 'Supabase', 'Realtime', 'PWA'],
     category: 'apps',
