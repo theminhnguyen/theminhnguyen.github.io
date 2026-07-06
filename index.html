@@ -155,16 +155,26 @@
       <h2 class="cta-title">Ein Produkt geweckt dein Interesse?</h2>
       <p class="cta-sub">
         Ob Lizenz, Weiterentwicklung, White-Label oder eine ganz neue Idee –
-        schreib mir. Ich baue schnell und mit Liebe zum Detail.
+        schreib mir. Ich melde mich schnell.
       </p>
-      <div class="cta-actions">
-        <a class="btn btn-primary" href="mailto:?subject=Interesse%20an%20deinen%20Produkten">
-          Kontakt aufnehmen ↗
-        </a>
-        <a class="btn btn-ghost" href="https://github.com/theminhnguyen" target="_blank" rel="noopener">
-          Auf GitHub ansehen
-        </a>
-      </div>
+      <form id="contact-form" class="contact-form" novalidate>
+        <input type="hidden" name="access_key" value="fe100f8f-c555-4935-b249-c63e3b1af5fd" />
+        <input type="hidden" name="subject" value="Neue Anfrage über minh.studio" />
+        <input type="hidden" name="from_name" value="minh.studio" />
+        <!-- Honeypot gegen Spam-Bots (für Menschen unsichtbar) -->
+        <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <div class="cf-row">
+          <input class="cf-input" type="text" name="name" required autocomplete="name" placeholder="Dein Name" />
+          <input class="cf-input" type="email" name="email" required autocomplete="email" placeholder="Deine E-Mail (für die Antwort)" />
+        </div>
+        <textarea class="cf-input" name="message" required rows="4" placeholder="Worum geht's? Deine Nachricht …"></textarea>
+        <button class="btn btn-primary cf-submit" type="submit">
+          <span class="cf-label">Nachricht senden</span>
+          <span class="btn-arrow">↗</span>
+        </button>
+        <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
+      </form>
+      <a class="cf-github" href="https://github.com/theminhnguyen" target="_blank" rel="noopener">oder auf GitHub ansehen ↗</a>
     </div>
   </section>
 

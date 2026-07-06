@@ -364,6 +364,44 @@
     });
   }
 
+  /* ---------- Kontaktformular (Web3Forms – Adresse bleibt serverseitig) ---------- */
+  const cform = document.getElementById('contact-form');
+  if (cform) {
+    const cstatus = document.getElementById('cf-status');
+    const csubmit = cform.querySelector('.cf-submit');
+    const clabel = cform.querySelector('.cf-label');
+    cform.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      cstatus.className = 'cf-status';
+      cstatus.textContent = '';
+      if (!cform.checkValidity()) { cform.reportValidity(); return; }
+      csubmit.disabled = true;
+      const orig = clabel.textContent;
+      clabel.textContent = 'Wird gesendet …';
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(cform),
+        });
+        const json = await res.json();
+        if (json.success) {
+          cform.reset();
+          cstatus.className = 'cf-status ok';
+          cstatus.textContent = '✓ Danke! Deine Nachricht ist unterwegs – ich melde mich bald.';
+        } else {
+          throw new Error(json.message || 'Fehler');
+        }
+      } catch (err) {
+        cstatus.className = 'cf-status err';
+        cstatus.textContent = '✗ Das hat leider nicht geklappt. Bitte später nochmal versuchen.';
+      } finally {
+        csubmit.disabled = false;
+        clabel.textContent = orig;
+      }
+    });
+  }
+
   /* ---------- Jahr im Footer ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
 })();

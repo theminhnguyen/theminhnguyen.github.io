@@ -642,6 +642,23 @@ section { position: relative; z-index: 2; }
 .cta-sub { color: var(--text-dim); max-width: 560px; margin: 0 auto 30px; font-size: 1.06rem; position: relative; }
 .cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; position: relative; }
 
+/* Kontaktformular */
+.contact-form { position: relative; display: flex; flex-direction: column; gap: 12px; max-width: 520px; margin: 26px auto 0; text-align: left; }
+.cf-row { display: flex; gap: 12px; }
+@media (max-width: 520px) { .cf-row { flex-direction: column; } }
+.cf-input { width: 100%; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--border-strong); background: rgba(255,255,255,0.04); color: var(--text); font-family: var(--font-body); font-size: 0.98rem; transition: border-color 0.2s ease, background 0.2s ease; }
+.cf-input::placeholder { color: var(--text-faint); }
+.cf-input:focus { outline: none; border-color: var(--accent); background: rgba(255,255,255,0.06); }
+textarea.cf-input { resize: vertical; min-height: 112px; }
+.cf-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.cf-submit { justify-content: center; margin-top: 4px; cursor: pointer; border: none; }
+.cf-submit:disabled { opacity: 0.65; cursor: progress; }
+.cf-status { font-size: 0.92rem; margin: 2px 0 0; min-height: 1.2em; text-align: center; }
+.cf-status.ok { color: #4ade80; }
+.cf-status.err { color: #f87171; }
+.cf-github { display: inline-block; margin-top: 16px; color: var(--text-dim); font-size: 0.92rem; transition: color 0.2s ease; position: relative; }
+.cf-github:hover { color: var(--text); }
+
 /* ---------- Footer ---------- */
 .footer { border-top: 1px solid var(--border); margin-top: 40px; padding: 36px clamp(18px, 5vw, 40px); position: relative; z-index: 2; }
 .footer-inner { max-width: var(--maxw); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
