@@ -105,11 +105,15 @@
   function cardHTML(p) {
     const mockup = (MOCKUPS[p.id] || (() => ''))();
 
-    // Alle Produkte haben eine animierte Demo
+    // In-Page-Demo + Link zur echten App (falls vorhanden), sonst Anfragen
     const actions = [
       `<button class="card-btn primary" data-demo="${p.id}">▶ Demo ansehen</button>`,
-      `<a class="card-btn" href="#kontakt">Anfragen</a>`,
     ];
+    if (p.live) {
+      actions.push(`<a class="card-btn" href="${p.live}" target="_blank" rel="noopener">Live testen ↗</a>`);
+    } else {
+      actions.push(`<a class="card-btn" href="#kontakt">Anfragen</a>`);
+    }
 
     // Overlay auf der Vorschau-Bühne öffnet dieselbe Demo
     const previewOverlay =
@@ -187,6 +191,7 @@
   const lbTitle = document.getElementById('lightbox-title');
   const lbStage = document.getElementById('lightbox-stage');
   const lbContact = document.getElementById('lightbox-contact');
+  const lbLive = document.getElementById('lightbox-live');
   const lbClose = document.getElementById('lightbox-close');
 
   const byId = (id) => PROJECTS.find((p) => p.id === id);
@@ -247,6 +252,7 @@
     const p = byId(id);
     if (!p) return;
     lbTitle.textContent = p.name + ' · Demo';
+    if (p.live) { lbLive.href = p.live; lbLive.style.display = ''; } else { lbLive.style.display = 'none'; }
     lbStage.innerHTML = demoSceneHTML(p);
     lb.classList.add('open');
     lb.setAttribute('aria-hidden', 'false');

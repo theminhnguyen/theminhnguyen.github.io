@@ -4,6 +4,7 @@
  *
  * category: apps | health | games | tools   (steuert die Filter)
  * features: Bullet-Punkte für die Demo-Großvorschau
+ * live:     URL zur echten App (oder null, wenn keine)
  */
 const PROJECTS = [
   {
@@ -24,6 +25,7 @@ const PROJECTS = [
     tags: ['Next.js 15', 'Supabase', 'Realtime', 'PWA'],
     category: 'apps',
     categoryLabel: 'Alltag',
+    live: 'https://korbi-app.vercel.app',
     accent: '#f97316',
     accent2: '#fb7185',
     featured: true,
@@ -46,6 +48,7 @@ const PROJECTS = [
     tags: ['Three.js', 'WebGL', 'VRM', 'Canvas'],
     category: 'apps',
     categoryLabel: 'Kreativ',
+    live: 'https://theminhnguyen.github.io/wonderdeck/',
     accent: '#8b5cf6',
     accent2: '#22d3ee',
     featured: true,
@@ -68,6 +71,7 @@ const PROJECTS = [
     tags: ['Web Bluetooth', 'IndexedDB', 'Single-File'],
     category: 'health',
     categoryLabel: 'Health',
+    live: 'https://theminhnguyen.github.io/whoopi-dashboard/',
     accent: '#ef4444',
     accent2: '#f59e0b',
     featured: false,
@@ -90,6 +94,7 @@ const PROJECTS = [
     tags: ['Canvas', 'Game Engine', 'Zero-Backend'],
     category: 'games',
     categoryLabel: 'Fun',
+    live: 'https://theminhnguyen.github.io/pixelpost/',
     accent: '#ec4899',
     accent2: '#a3e635',
     featured: false,
@@ -112,6 +117,7 @@ const PROJECTS = [
     tags: ['Socket.io', 'Node.js', 'Realtime', 'Game'],
     category: 'games',
     categoryLabel: 'Multiplayer',
+    live: 'https://virtual-world-multiplayer.onrender.com',
     accent: '#10b981',
     accent2: '#3b82f6',
     featured: false,
@@ -134,6 +140,7 @@ const PROJECTS = [
     tags: ['Leaflet', 'OpenStreetMap', 'PWA', 'Offline'],
     category: 'apps',
     categoryLabel: 'Travel',
+    live: 'https://theminhnguyen.github.io/tripmate/',
     accent: '#06b6d4',
     accent2: '#6366f1',
     featured: false,
@@ -156,6 +163,7 @@ const PROJECTS = [
     tags: ['Next.js', 'Supabase', 'SaaS'],
     category: 'apps',
     categoryLabel: 'Business',
+    live: 'https://kudosedge.vercel.app',
     accent: '#eab308',
     accent2: '#f97316',
     featured: false,
@@ -178,6 +186,7 @@ const PROJECTS = [
     tags: ['Python', 'PyObjC', 'Swift', 'macOS'],
     category: 'tools',
     categoryLabel: 'Dev-Tool',
+    live: null,
     accent: '#d97757',
     accent2: '#8b5cf6',
     featured: false,
