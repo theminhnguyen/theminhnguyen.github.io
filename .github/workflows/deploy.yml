@@ -1,0 +1,54 @@
+name: Deploy to GitHub Pages
+
+# Läuft bei jedem Push auf main – und kann manuell gestartet werden.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Rechte, die der Deploy braucht
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Immer nur ein Deploy gleichzeitig; laufende abbrechen
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache-Busting – Assets mit Commit-Hash versionieren
+        run: |
+          V="${GITHUB_SHA::8}"
+          echo "Cache-Bust-Version: $V"
+          # CSS/JS-Referenzen in index.html bekommen ?v=<hash>,
+          # damit Browser nach jeder Änderung garantiert neu laden.
+          sed -i \
+            -e "s|href=\"css/styles.css\"|href=\"css/styles.css?v=${V}\"|g" \
+            -e "s|src=\"js/data.js\"|src=\"js/data.js?v=${V}\"|g" \
+            -e "s|src=\"js/main.js\"|src=\"js/main.js?v=${V}\"|g" \
+            index.html
+          echo "── Ergebnis ──"
+          grep -E "styles.css|data.js|main.js" index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
