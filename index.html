@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minh · Vibe-Coded Products</title>
+  <meta name="description" content="Ein Studio aus einer Person: acht vibe-codete Produkte – von Live-Sync-Apps über Health-Dashboards bis zu Multiplayer-Welten. Alle im Browser erlebbar." />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:title" content="Minh · Vibe-Coded Products" />
+  <meta property="og:description" content="Acht Produkte, gebaut im Vibe-Coding-Stil. Live testen, direkt im Browser." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://theminhnguyen.github.io" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
+</head>
+<body>
+  <!-- Maus-Glow, folgt dem Cursor -->
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Animierter Hintergrund -->
+  <div class="bg-field" aria-hidden="true">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <a class="nav-brand" href="#top">
+      <span class="nav-mark">✦</span>
+      <span>minh<span class="nav-dot">.</span>studio</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#produkte">Produkte</a>
+      <a href="#story">Story</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="nav-cta" href="https://github.com/theminhnguyen" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-badge reveal">
+        <span class="pulse-dot"></span>
+        Ein-Personen-Studio · Vibe-Coded
+      </div>
+      <h1 class="hero-title reveal">
+        Ideen, die
+        <span class="grad-text">im Browser</span>
+        lebendig werden.
+      </h1>
+      <p class="hero-sub reveal">
+        Acht Produkte, gebaut ohne klassisches Coding – vom Live-Sync-Einkaufszettel
+        über Health-Dashboards bis zur begehbaren 3D-Präsentation. Kein Slide-Deck,
+        sondern echte Software zum Anfassen.
+      </p>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary" href="#produkte">
+          Produkte entdecken
+          <span class="btn-arrow">↓</span>
+        </a>
+        <a class="btn btn-ghost" href="#kontakt">Zusammenarbeiten</a>
+      </div>
+
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-num" data-count="8">0</span>
+          <span class="stat-label">Produkte</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="7">0</span>
+          <span class="stat-label">Live erlebbar</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num" data-count="18">0</span>
+          <span class="stat-label">Technologien</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Neugier</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- Tech-Ticker -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track" id="ticker-track"></div>
+  </div>
+
+  <!-- Produkte -->
+  <section class="products" id="produkte">
+    <div class="section-head reveal">
+      <span class="section-kicker">// Die Produkte</span>
+      <h2 class="section-title">Alles selbst gebaut. Alles zum Ausprobieren.</h2>
+      <p class="section-lead">
+        Jede Kachel ist ein fertiges Produkt. Fahr mit der Maus drüber, starte die
+        Live-Vorschau direkt hier oder öffne die App in voller Größe.
+      </p>
+    </div>
+
+    <div class="filters reveal" id="filters" role="tablist" aria-label="Produkte filtern"></div>
+
+    <div class="grid" id="product-grid"></div>
+  </section>
+
+  <!-- Story / Warum -->
+  <section class="story" id="story">
+    <div class="story-inner">
+      <div class="story-text reveal">
+        <span class="section-kicker">// Der Ansatz</span>
+        <h2 class="section-title">Vom Gefühl zum Produkt.</h2>
+        <p>
+          Ich beschreibe, was ich will – und lasse es entstehen. Keine
+          Programmier­ausbildung, sondern Neugier, Geschmack und ein Auge fürs
+          Detail. Aus dieser Arbeitsweise sind echte, benutzbare Produkte
+          geworden.
+        </p>
+        <p>
+          Der Fokus liegt auf Dingen, die man <em>sofort</em> erleben kann:
+          im Browser, ohne Installation, ohne Konto-Zwang. Datenschutz-freundlich,
+          oft komplett offline-fähig.
+        </p>
+      </div>
+      <ul class="story-points">
+        <li class="reveal"><strong>Erlebbar statt erklärt.</strong> Fast alles läuft live im Browser – ein Klick genügt.</li>
+        <li class="reveal"><strong>Privat by design.</strong> Viele Apps speichern lokal, ohne Server, ohne Tracking.</li>
+        <li class="reveal"><strong>Von A bis Z.</strong> Idee, Design, Umsetzung und Deployment – aus einer Hand.</li>
+        <li class="reveal"><strong>Breite Palette.</strong> Health, Games, Produktivität, Dev-Tools – ein Werkzeugkasten aus Neugier.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Kontakt / CTA -->
+  <section class="cta" id="kontakt">
+    <div class="cta-card reveal">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <span class="section-kicker">// Let's talk</span>
+      <h2 class="cta-title">Ein Produkt geweckt dein Interesse?</h2>
+      <p class="cta-sub">
+        Ob Lizenz, Weiterentwicklung, White-Label oder eine ganz neue Idee –
+        schreib mir. Ich baue schnell und mit Liebe zum Detail.
+      </p>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="mailto:?subject=Interesse%20an%20deinen%20Produkten">
+          Kontakt aufnehmen ↗
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/theminhnguyen" target="_blank" rel="noopener">
+          Auf GitHub ansehen
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="nav-mark">✦</span> minh<span class="nav-dot">.</span>studio
+      </div>
+      <p class="footer-note">Gebaut im Vibe-Coding-Stil · <span id="year"></span></p>
+      <a class="footer-top" href="#top">Nach oben ↑</a>
+    </div>
+  </footer>
+
+  <!-- Lightbox für Live-Vorschau im Vollbild -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-bar">
+      <span class="lightbox-title" id="lightbox-title"></span>
+      <div class="lightbox-actions">
+        <a class="lightbox-open" id="lightbox-open" target="_blank" rel="noopener">In neuem Tab ↗</a>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Schließen">✕</button>
+      </div>
+    </div>
+    <div class="lightbox-frame-wrap">
+      <div class="lightbox-loader" id="lightbox-loader"><span></span><span></span><span></span></div>
+      <iframe class="lightbox-frame" id="lightbox-frame" title="Live-Vorschau" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
