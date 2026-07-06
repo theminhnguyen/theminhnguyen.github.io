@@ -195,11 +195,42 @@
     const mockup = (MOCKUPS[p.id] || (() => ''))();
     const feats = (p.features || []).map((f) => `<li>${f}</li>`).join('');
     const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
+    const shots = p.shots || [];
+    const type = p.shotType || 'desktop';
+
+    // Medien: echte Screenshots zuerst, dann die animierte Illustration
+    const media = [...shots.map((src) => ({ kind: 'shot', src })), { kind: 'mock' }];
+
+    const stage = media
+      .map((m, i) => {
+        const act = i === 0 ? ' active' : '';
+        if (m.kind === 'shot') {
+          return `<figure class="gal-item${act}" data-idx="${i}"><div class="frame frame-${type}"><img loading="lazy" src="${m.src}" alt="${p.name} – echter Screenshot"></div></figure>`;
+        }
+        return `<figure class="gal-item${act}" data-idx="${i}"><div class="mock-holder">${mockup}</div></figure>`;
+      })
+      .join('');
+
+    const thumbs = media
+      .map((m, i) => {
+        const act = i === 0 ? ' active' : '';
+        const inner =
+          m.kind === 'shot'
+            ? `<img src="${m.src}" alt="">`
+            : `<span class="thumb-mock">${p.emoji}</span>`;
+        return `<button class="gal-thumb${act}" data-idx="${i}" data-kind="${m.kind}" aria-label="Ansicht ${i + 1}">${inner}</button>`;
+      })
+      .join('');
+
+    const startBadge = media[0].kind === 'shot' ? 'Echter Screenshot' : 'Animierte Demo';
+    const thumbsRow = media.length > 1 ? `<div class="demo-thumbs">${thumbs}</div>` : '';
+
     return `
       <div class="demo-scene" style="--card-accent:${p.accent};--card-accent-2:${p.accent2}">
         <div class="demo-visual">
-          <span class="demo-badge"><span class="dot"></span>Animierte Demo</span>
-          <div class="demo-mock">${mockup}</div>
+          <span class="demo-badge" id="demo-badge"><span class="dot"></span>${startBadge}</span>
+          <div class="demo-gallery">${stage}</div>
+          ${thumbsRow}
         </div>
         <aside class="demo-info">
           <span class="demo-emoji">${p.emoji}</span>
@@ -237,6 +268,17 @@
   lbClose.addEventListener('click', closeDemo);
   lb.addEventListener('click', (e) => { if (e.target === lb) closeDemo(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('open')) closeDemo(); });
+
+  // Galerie: zwischen Screenshots & Illustration umschalten
+  lbStage.addEventListener('click', (e) => {
+    const thumb = e.target.closest('.gal-thumb');
+    if (!thumb) return;
+    const idx = thumb.dataset.idx;
+    lbStage.querySelectorAll('.gal-thumb').forEach((t) => t.classList.toggle('active', t === thumb));
+    lbStage.querySelectorAll('.gal-item').forEach((it) => it.classList.toggle('active', it.dataset.idx === idx));
+    const badge = document.getElementById('demo-badge');
+    if (badge) badge.innerHTML = `<span class="dot"></span>${thumb.dataset.kind === 'mock' ? 'Animierte Demo' : 'Echter Screenshot'}`;
+  });
 
   /* ---------- Reveal on Scroll ---------- */
   const revealables = () => document.querySelectorAll('.reveal, .card');

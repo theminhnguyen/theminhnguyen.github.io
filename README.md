@@ -2,7 +2,7 @@
 
 Eine cinematische Landingpage, die meine im **Vibe-Coding-Stil** gebauten Produkte
 an einem Ort bündelt. Die Quell-Repos sind privat – jedes Produkt wird stattdessen
-mit einer **animierten Demo-Großvorschau** direkt auf der Seite gezeigt.
+mit **echten Screenshots** und einer animierten Illustration direkt auf der Seite gezeigt.
 
 **Live:** https://theminhnguyen.github.io
 
@@ -23,7 +23,7 @@ mit einer **animierten Demo-Großvorschau** direkt auf der Seite gezeigt.
 
 - 🎨 Dark, futuristisches Design mit Gradient-Mesh, Glow & Cursor-Licht
 - 🃏 Bento-Grid mit individuellen, animierten CSS-Mockups pro Produkt
-- ▶️ **Animierte Demo-Großvorschau** pro Produkt (Lightbox) – komplett eigenständig, ohne externe Apps
+- ▶️ **Demo-Galerie** pro Produkt (Lightbox): echte Screenshots in Geräte-Rahmen (Browser/Phone) + animierte Illustration
 - 🧲 3D-Tilt auf den Karten, Scroll-Reveals, animierter Tech-Ticker & Zähler
 - 🔎 Filter nach Kategorie (Apps, Health, Games, Dev-Tools)
 - 📱 Voll responsive, `prefers-reduced-motion`-freundlich
