@@ -77,8 +77,8 @@
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
-          <span class="stat-num" data-count="7">0</span>
-          <span class="stat-label">Live erlebbar</span>
+          <span class="stat-num" data-count="8">0</span>
+          <span class="stat-label">Live-Demos</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
@@ -109,8 +109,8 @@
       <span class="section-kicker">// Die Produkte</span>
       <h2 class="section-title">Alles selbst gebaut. Alles zum Ausprobieren.</h2>
       <p class="section-lead">
-        Jede Kachel ist ein fertiges Produkt. Fahr mit der Maus drüber, starte die
-        Live-Vorschau direkt hier oder öffne die App in voller Größe.
+        Jede Kachel ist ein fertiges Produkt. Fahr mit der Maus drüber und starte
+        die animierte Demo-Vorschau – direkt hier auf der Seite.
       </p>
     </div>
 
@@ -138,7 +138,7 @@
         </p>
       </div>
       <ul class="story-points">
-        <li class="reveal"><strong>Erlebbar statt erklärt.</strong> Fast alles läuft live im Browser – ein Klick genügt.</li>
+        <li class="reveal"><strong>Erlebbar statt erklärt.</strong> Jedes Produkt hat eine animierte Demo – ein Klick genügt.</li>
         <li class="reveal"><strong>Privat by design.</strong> Viele Apps speichern lokal, ohne Server, ohne Tracking.</li>
         <li class="reveal"><strong>Von A bis Z.</strong> Idee, Design, Umsetzung und Deployment – aus einer Hand.</li>
         <li class="reveal"><strong>Breite Palette.</strong> Health, Games, Produktivität, Dev-Tools – ein Werkzeugkasten aus Neugier.</li>
@@ -178,19 +178,16 @@
     </div>
   </footer>
 
-  <!-- Lightbox für Live-Vorschau im Vollbild -->
+  <!-- Lightbox für die Demo-Großvorschau -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="lightbox-bar">
       <span class="lightbox-title" id="lightbox-title"></span>
       <div class="lightbox-actions">
-        <a class="lightbox-open" id="lightbox-open" target="_blank" rel="noopener">In neuem Tab ↗</a>
+        <a class="lightbox-open" id="lightbox-contact" href="#kontakt">Interesse? Anfragen ↗</a>
         <button class="lightbox-close" id="lightbox-close" aria-label="Schließen">✕</button>
       </div>
     </div>
-    <div class="lightbox-frame-wrap">
-      <div class="lightbox-loader" id="lightbox-loader"><span></span><span></span><span></span></div>
-      <iframe class="lightbox-frame" id="lightbox-frame" title="Live-Vorschau" loading="lazy"></iframe>
-    </div>
+    <div class="lightbox-stage" id="lightbox-stage"></div>
   </div>
 
   <script src="js/data.js"></script>

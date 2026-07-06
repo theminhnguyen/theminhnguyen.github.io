@@ -102,39 +102,20 @@
   /* ---------- Karten rendern ---------- */
   const grid = document.getElementById('product-grid');
 
-  const statusMeta = {
-    live: { cls: 'status-live', label: 'Live' },
-    private: { cls: 'status-private', label: 'Privat' },
-  };
-
   function cardHTML(p) {
-    const st = statusMeta[p.status] || statusMeta.live;
     const mockup = (MOCKUPS[p.id] || (() => ''))();
 
-    // Aktionen je nach Verfügbarkeit
-    const actions = [];
-    if (p.live) {
-      actions.push(
-        `<a class="card-btn primary" href="${p.live}" target="_blank" rel="noopener">App öffnen ↗</a>`
-      );
-    }
-    if (p.code) {
-      actions.push(
-        `<a class="card-btn" href="${p.code}" target="_blank" rel="noopener">Code ↗</a>`
-      );
-    }
-    if (!p.live && !p.code) {
-      actions.push(
-        `<a class="card-btn primary" href="#kontakt">Details anfragen ↗</a>`
-      );
-    }
+    // Alle Produkte haben eine animierte Demo
+    const actions = [
+      `<button class="card-btn primary" data-demo="${p.id}">▶ Demo ansehen</button>`,
+      `<a class="card-btn" href="#kontakt">Anfragen</a>`,
+    ];
 
-    // Live-Vorschau-Overlay nur, wenn eine Live-URL existiert
-    const previewOverlay = p.live
-      ? `<button class="stage-preview-btn" data-preview="${p.live}" data-title="${p.name}" aria-label="Live-Vorschau von ${p.name}">
-           <span class="play">▶</span> Live-Vorschau
-         </button>`
-      : '';
+    // Overlay auf der Vorschau-Bühne öffnet dieselbe Demo
+    const previewOverlay =
+      `<button class="stage-preview-btn" data-demo="${p.id}" aria-label="Demo von ${p.name} ansehen">
+         <span class="play">▶</span> Demo ansehen
+       </button>`;
 
     const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
 
@@ -142,7 +123,7 @@
       <article class="card ${p.featured ? 'featured' : ''}" data-category="${p.category}"
         style="--card-accent:${p.accent};--card-accent-2:${p.accent2};--card-glow:${hexToGlow(p.accent)}">
         <span class="card-accent-line"></span>
-        <span class="card-status ${st.cls}"><span class="dot"></span>${st.label}</span>
+        <span class="card-status status-demo"><span class="dot"></span>Demo</span>
         <div class="card-body">
           <div class="card-stage">
             ${mockup}
@@ -201,41 +182,61 @@
   const tickerHTML = TECH_TICKER.map((t) => `<span class="ticker-item">${t}</span>`).join('');
   track.innerHTML = tickerHTML + tickerHTML; // verdoppeln für nahtlose Schleife
 
-  /* ---------- Live-Vorschau (Lightbox) ---------- */
+  /* ---------- Demo-Großvorschau (Lightbox) ---------- */
   const lb = document.getElementById('lightbox');
-  const lbFrame = document.getElementById('lightbox-frame');
   const lbTitle = document.getElementById('lightbox-title');
-  const lbOpen = document.getElementById('lightbox-open');
-  const lbLoader = document.getElementById('lightbox-loader');
+  const lbStage = document.getElementById('lightbox-stage');
+  const lbContact = document.getElementById('lightbox-contact');
   const lbClose = document.getElementById('lightbox-close');
 
-  function openPreview(url, title) {
-    lbTitle.textContent = title + ' · Live-Vorschau';
-    lbOpen.href = url;
-    lbLoader.style.display = 'flex';
-    lbFrame.src = url;
+  const byId = (id) => PROJECTS.find((p) => p.id === id);
+
+  function demoSceneHTML(p) {
+    const mockup = (MOCKUPS[p.id] || (() => ''))();
+    const feats = (p.features || []).map((f) => `<li>${f}</li>`).join('');
+    const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
+    return `
+      <div class="demo-scene" style="--card-accent:${p.accent};--card-accent-2:${p.accent2}">
+        <div class="demo-visual">
+          <span class="demo-badge"><span class="dot"></span>Animierte Demo</span>
+          <div class="demo-mock">${mockup}</div>
+        </div>
+        <aside class="demo-info">
+          <span class="demo-emoji">${p.emoji}</span>
+          <h3 class="demo-name">${p.name}</h3>
+          <p class="demo-tagline">${p.tagline}</p>
+          <p class="demo-desc">${p.description}</p>
+          <ul class="demo-features">${feats}</ul>
+          <div class="demo-tags">${tags}</div>
+        </aside>
+      </div>`;
+  }
+
+  function openDemo(id) {
+    const p = byId(id);
+    if (!p) return;
+    lbTitle.textContent = p.name + ' · Demo';
+    lbStage.innerHTML = demoSceneHTML(p);
     lb.classList.add('open');
     lb.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
-  function closePreview() {
+  function closeDemo() {
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    setTimeout(() => { lbFrame.src = 'about:blank'; }, 300);
+    setTimeout(() => { lbStage.innerHTML = ''; }, 300);
   }
 
   grid.addEventListener('click', (e) => {
-    const btn = e.target.closest('.stage-preview-btn');
+    const btn = e.target.closest('[data-demo]');
     if (!btn) return;
-    openPreview(btn.dataset.preview, btn.dataset.title);
+    openDemo(btn.dataset.demo);
   });
-  lbFrame.addEventListener('load', () => {
-    if (lbFrame.src && lbFrame.src !== 'about:blank') lbLoader.style.display = 'none';
-  });
-  lbClose.addEventListener('click', closePreview);
-  lb.addEventListener('click', (e) => { if (e.target === lb) closePreview(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('open')) closePreview(); });
+  lbContact.addEventListener('click', closeDemo);
+  lbClose.addEventListener('click', closeDemo);
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeDemo(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('open')) closeDemo(); });
 
   /* ---------- Reveal on Scroll ---------- */
   const revealables = () => document.querySelectorAll('.reveal, .card');
