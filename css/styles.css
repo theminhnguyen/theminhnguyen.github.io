@@ -735,6 +735,10 @@ section { position: relative; z-index: 2; }
 .frame-mobile { height: min(56vh, 440px); border-radius: 30px; overflow: hidden; border: 7px solid #16161f; box-shadow: 0 26px 54px -20px rgba(0,0,0,0.9); background: #000; position: relative; }
 .frame-mobile img { display: block; height: 100%; width: auto; }
 
+/* Rahmenloses Bild (z. B. native Apps, bereits gestaltete Szenen) */
+.frame-raw { width: 100%; max-width: 660px; border-radius: 16px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 26px 54px -24px rgba(0,0,0,0.75); }
+.frame-raw img { display: block; width: 100%; height: auto; }
+
 /* Thumbnails */
 .demo-thumbs { display: flex; gap: 9px; flex-wrap: wrap; justify-content: center; }
 .gal-thumb { width: 56px; height: 40px; border-radius: 9px; overflow: hidden; border: 1px solid var(--border-strong); background: var(--surface); cursor: pointer; padding: 0; display: grid; place-items: center; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; }
