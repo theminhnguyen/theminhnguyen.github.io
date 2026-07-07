@@ -608,6 +608,16 @@ section { position: relative; z-index: 2; }
 .m-spark { display: flex; align-items: flex-end; gap: 3px; height: 30px; margin-top: 8px; }
 .m-spark i { flex: 1; border-radius: 2px 2px 0 0; background: color-mix(in srgb, var(--card-accent) 60%, transparent); }
 
+/* boop: Ball am Seil, der schwingt */
+.m-boop { position: relative; width: 78%; max-width: 320px; aspect-ratio: 16 / 11; }
+.m-boop-bar { position: absolute; top: 0; left: 0; right: 0; height: 15px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-strong); border-radius: 7px; }
+.m-boop-icon { position: absolute; right: 8px; top: 3px; width: 8px; height: 8px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #ffe58a, var(--card-accent)); box-shadow: 0 0 8px var(--card-glow, rgba(245,179,1,0.6)); }
+.m-boop-pivot { position: absolute; top: 17px; left: 50%; width: 0; transform-origin: top center; animation: boopSwing 3.6s ease-in-out infinite; }
+.m-boop-rope { display: block; width: 3px; height: 58px; margin: 0 auto; border-radius: 2px; background: linear-gradient(#d9b24a, #b8912f); }
+.m-boop-ball { position: absolute; top: 50px; left: 50%; transform: translateX(-50%); font-size: 44px; line-height: 1; filter: drop-shadow(0 8px 12px rgba(0,0,0,0.42)); }
+@keyframes boopSwing { 0%, 100% { transform: rotate(-17deg); } 50% { transform: rotate(17deg); } }
+@media (prefers-reduced-motion: reduce) { .m-boop-pivot { animation: none; transform: rotate(-6deg); } }
+
 /* ---------- Story ---------- */
 .story { padding: clamp(70px, 10vw, 120px) clamp(18px, 5vw, 40px); max-width: var(--maxw); margin: 0 auto; }
 .story-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 6vw, 70px); align-items: center; }

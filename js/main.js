@@ -87,6 +87,15 @@
         </div>
       </div>`,
 
+    boop: () => `
+      <div class="mock m-boop">
+        <div class="m-boop-bar"><span class="m-boop-icon"></span></div>
+        <div class="m-boop-pivot">
+          <span class="m-boop-rope"></span>
+          <span class="m-boop-ball">🙂</span>
+        </div>
+      </div>`,
+
     'claude-usage-monitor': () => `
       <div class="mock m-menubar">
         <div class="m-mb-top"><span class="dot-g"></span><span class="m-line" style="width:40%;height:7px"></span><b>68%</b></div>
