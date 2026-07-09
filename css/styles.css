@@ -571,6 +571,19 @@ section { position: relative; z-index: 2; }
 @keyframes wander3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-18px,22px)} }
 .m-tag { position: absolute; bottom: 8px; left: 8px; font-family: var(--font-mono); font-size: 9px; color: #fff; background: rgba(0,0,0,0.5); padding: 2px 7px; border-radius: 5px; }
 
+/* streetpulse: Straßenszene mit Erkennungs-Boxen */
+.m-street { position: relative; height: 152px; padding: 0; overflow: hidden; background: linear-gradient(180deg, #26374d, #101a26); }
+.m-lane { position: absolute; left: 0; right: 0; top: 60%; height: 2px; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.4) 0 16px, transparent 16px 34px); }
+.m-veh { position: absolute; height: 22px; border-radius: 4px; animation: sp-drive 3.8s linear infinite; }
+.m-veh b { position: absolute; inset: -5px -3px; border: 1.5px solid #4f9dff; border-radius: 5px; box-shadow: 0 0 8px rgba(79,157,255,0.6); }
+.m-veh.v1 { width: 46px; top: 50%; background: #e05a4d; }
+.m-veh.v2 { width: 58px; top: 28%; background: #4f9dff; animation-duration: 4.6s; animation-delay: -1.6s; }
+.m-veh.v2 b { border-color: #34d399; box-shadow: 0 0 8px rgba(52,211,153,0.6); }
+.m-veh.v3 { width: 26px; top: 70%; background: #f0b429; animation-duration: 3s; animation-delay: -0.9s; }
+@keyframes sp-drive { from { left: -70px; } to { left: 112%; } }
+.m-scan { position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(56,189,248,0.9); box-shadow: 0 0 12px rgba(56,189,248,0.85); animation: sp-scan 2.9s ease-in-out infinite; }
+@keyframes sp-scan { 0%, 100% { left: 6%; } 50% { left: 92%; } }
+
 /* tripmate: Karte mit Pins */
 .m-map { position: relative; width: 90%; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-strong); background: linear-gradient(135deg, #10263a, #0c1f2e); box-shadow: 0 20px 44px -18px rgba(0,0,0,0.9); }
 .m-map .road { position: absolute; background: rgba(255,255,255,0.09); }

@@ -6,6 +6,21 @@
 
   /* ---------- Individuelle CSS-Mockups pro Produkt ---------- */
   const MOCKUPS = {
+    streetpulse: () => `
+      <div class="mock">
+        <div class="mock-window">
+          <div class="mock-bar"><i></i><i></i><i></i></div>
+          <div class="mock-screen m-street">
+            <span class="m-lane"></span>
+            <span class="m-veh v1"><b></b></span>
+            <span class="m-veh v2"><b></b></span>
+            <span class="m-veh v3"><b></b></span>
+            <span class="m-scan"></span>
+            <span class="m-tag">🚗 12 · 🚶 5 · ~38 km/h</span>
+          </div>
+        </div>
+      </div>`,
+
     korbi: () => `
       <div class="mock">
         <div class="mock-window">

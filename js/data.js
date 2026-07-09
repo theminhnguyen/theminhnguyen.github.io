@@ -8,6 +8,29 @@
  */
 const PROJECTS = [
   {
+    id: 'streetpulse',
+    name: 'StreetPulse',
+    emoji: '🚦',
+    tagline: 'Der Puls deiner Straße.',
+    description:
+      'Zählt per Webcam den Verkehr vor der Tür – Autos, Fußgänger, Räder, Roller, Hunde & Co. – inklusive Tempo-Schätzung. KI-Objekterkennung läuft komplett im Browser (TensorFlow.js), mit Zähllinie, Tempo-Statistik, Tagesbericht und teilbarem Report. Kein Bild verlässt den Rechner.',
+    features: [
+      'KI-Objekterkennung live im Browser (TensorFlow.js / COCO-SSD)',
+      'Zählt Autos, Fußgänger, Räder, Roller, Hunde …',
+      'Tempo-Statistik (85-%-Wert) & Zähllinie mit Richtung',
+      'Intelligenter Tagesbericht, Report & 100 % lokal',
+    ],
+    shots: [],
+    shotType: 'desktop',
+    tags: ['TensorFlow.js', 'COCO-SSD', 'Canvas', 'IndexedDB'],
+    category: 'apps',
+    categoryLabel: 'KI & Verkehr',
+    live: 'https://theminhnguyen.github.io/streetpulse/',
+    accent: '#4f9dff',
+    accent2: '#34d399',
+    featured: true,
+  },
+  {
     id: 'korbi',
     name: 'Korbi',
     emoji: '🧡',
@@ -228,4 +251,5 @@ const TECH_TICKER = [
   'Next.js', 'React', 'Supabase', 'Three.js', 'WebGL', 'Socket.io',
   'Web Bluetooth', 'TypeScript', 'Tailwind', 'Node.js', 'Canvas',
   'PWA', 'Leaflet', 'IndexedDB', 'PyObjC', 'Swift', 'Realtime', 'Vercel',
+  'TensorFlow.js', 'COCO-SSD', 'Computer Vision',
 ];
