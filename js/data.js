@@ -13,10 +13,10 @@ const PROJECTS = [
     emoji: '🚦',
     tagline: 'Der Puls deiner Straße.',
     description:
-      'Zählt per Webcam den Verkehr vor der Tür – Autos, Fußgänger, Räder, Roller, Hunde & Co. – inklusive Tempo-Schätzung. KI-Objekterkennung läuft komplett im Browser (TensorFlow.js), mit Zähllinie, Tempo-Statistik, Tagesbericht und teilbarem Report. Kein Bild verlässt den Rechner.',
+      'Zählt per Webcam den Verkehr vor der Tür – Autos, Fußgänger und LKW – inklusive Tempo-Schätzung. KI-Objekterkennung läuft komplett im Browser (TensorFlow.js), mit Zähllinie, Tempo-Statistik, Tagesbericht und teilbarem Report. Kein Bild verlässt den Rechner.',
     features: [
       'KI-Objekterkennung live im Browser (TensorFlow.js / COCO-SSD)',
-      'Zählt Autos, Fußgänger, Räder, Roller, Hunde …',
+      'Zählt Autos, Fußgänger & LKW – mit Tempo-Schätzung',
       'Tempo-Statistik (85-%-Wert) & Zähllinie mit Richtung',
       'Intelligenter Tagesbericht, Report & 100 % lokal',
     ],
