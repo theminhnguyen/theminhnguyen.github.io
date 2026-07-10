@@ -111,6 +111,19 @@
         </div>
       </div>`,
 
+    'hogwarts-3d': () => `
+      <div class="mock m-castle">
+        <span class="m-cs-moon"></span>
+        <span class="m-cs-star s1"></span><span class="m-cs-star s2"></span><span class="m-cs-star s3"></span>
+        <span class="m-cs-star s4"></span><span class="m-cs-star s5"></span>
+        <div class="m-cs-hill"></div>
+        <div class="m-cs-tower t1"><i></i><b></b></div>
+        <div class="m-cs-keep"><b class="w1"></b><b class="w2"></b><b class="w3"></b></div>
+        <div class="m-cs-tower t2"><i></i><b></b></div>
+        <div class="m-cs-tower t3"><i></i><b></b></div>
+        <span class="m-cs-snitch">✦</span>
+      </div>`,
+
     'claude-usage-monitor': () => `
       <div class="mock m-menubar">
         <div class="m-mb-top"><span class="dot-g"></span><span class="m-line" style="width:40%;height:7px"></span><b>68%</b></div>

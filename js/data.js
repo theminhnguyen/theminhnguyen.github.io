@@ -77,6 +77,29 @@ const PROJECTS = [
     featured: true,
   },
   {
+    id: 'hogwarts-3d',
+    name: 'Hogwarts 3D',
+    emoji: '🏰',
+    tagline: 'Ein Schloss zum Erkunden.',
+    description:
+      'Begehbare 3D-Welt im Browser: Schloss mit Großem Saal und schwebenden Kerzen, See mit Bootshaus, Wald, Quidditch-Feld – komplett prozedural erzeugt, ohne ein einziges Asset. Mit Tag/Nacht-Zyklus, 12 versteckten Schnätzen und Lumos-Zauber. Nicht-kommerzielles Fan-Projekt.',
+    features: [
+      'Frei begehbares 3D-Schloss in Ego-Perspektive',
+      'Voller Tag/Nacht-Zyklus: Sonne, Mond, Sterne, Abendrot',
+      '12 goldene Schnätze mit HUD-Kompass & Speicherstand',
+      'Null Assets: Texturen, Gelände & Sound prozedural erzeugt',
+    ],
+    shots: [],
+    shotType: 'desktop',
+    tags: ['Three.js', 'WebGL', 'WebAudio', 'Prozedural'],
+    category: 'games',
+    categoryLabel: '3D-Welt',
+    live: 'https://theminhnguyen.github.io/hogwarts-3d/',
+    accent: '#d4a437',
+    accent2: '#8b5cf6',
+    featured: true,
+  },
+  {
     id: 'whoopi-dashboard',
     name: 'WHOOPI',
     emoji: '🫀',
@@ -251,5 +274,5 @@ const TECH_TICKER = [
   'Next.js', 'React', 'Supabase', 'Three.js', 'WebGL', 'Socket.io',
   'Web Bluetooth', 'TypeScript', 'Tailwind', 'Node.js', 'Canvas',
   'PWA', 'Leaflet', 'IndexedDB', 'PyObjC', 'Swift', 'Realtime', 'Vercel',
-  'TensorFlow.js', 'COCO-SSD', 'Computer Vision',
+  'TensorFlow.js', 'COCO-SSD', 'Computer Vision', 'WebAudio',
 ];

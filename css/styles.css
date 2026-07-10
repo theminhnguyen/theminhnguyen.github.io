@@ -621,6 +621,34 @@ section { position: relative; z-index: 2; }
 .m-spark { display: flex; align-items: flex-end; gap: 3px; height: 30px; margin-top: 8px; }
 .m-spark i { flex: 1; border-radius: 2px 2px 0 0; background: color-mix(in srgb, var(--card-accent) 60%, transparent); }
 
+/* hogwarts-3d: Schloss-Silhouette bei Nacht */
+.m-castle { position: relative; width: 88%; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-strong); background: linear-gradient(180deg, #0a0e22 0%, #131a38 55%, #1d2547 100%); box-shadow: 0 20px 44px -18px rgba(0,0,0,0.9); }
+.m-cs-moon { position: absolute; top: 14px; right: 20px; width: 26px; height: 26px; border-radius: 50%; background: radial-gradient(circle at 38% 34%, #f4f7ff, #c7d2ee); box-shadow: 0 0 22px rgba(200,215,255,0.5); }
+.m-cs-star { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: #dfe6ff; animation: csTwinkle 2.6s ease-in-out infinite; }
+.m-cs-star.s1 { top: 18px; left: 14%; }
+.m-cs-star.s2 { top: 34px; left: 34%; animation-delay: 0.5s; }
+.m-cs-star.s3 { top: 12px; left: 56%; animation-delay: 1s; }
+.m-cs-star.s4 { top: 46px; left: 76%; animation-delay: 1.4s; }
+.m-cs-star.s5 { top: 58px; left: 8%; animation-delay: 0.8s; }
+@keyframes csTwinkle { 50% { opacity: 0.2; } }
+.m-cs-hill { position: absolute; bottom: -36px; left: -10%; right: -10%; height: 72px; border-radius: 50% 50% 0 0; background: #0c1226; }
+.m-cs-tower { position: absolute; bottom: 30px; width: 26px; background: linear-gradient(180deg, #2a3050, #1a2038); border: 1px solid rgba(255,255,255,0.07); border-bottom: none; }
+.m-cs-tower i { position: absolute; top: -26px; left: -7px; border-left: 20px solid transparent; border-right: 20px solid transparent; border-bottom: 26px solid #222a4e; }
+.m-cs-tower.t1 { left: 15%; height: 64px; }
+.m-cs-tower.t2 { right: 24%; height: 90px; }
+.m-cs-tower.t3 { right: 8%; height: 56px; }
+.m-cs-keep { position: absolute; bottom: 30px; left: 33%; width: 86px; height: 58px; background: linear-gradient(180deg, #262c4a, #181e38); border: 1px solid rgba(255,255,255,0.07); border-bottom: none; }
+.m-cs-keep::before { content: ""; position: absolute; top: -22px; left: 9px; border-left: 34px solid transparent; border-right: 34px solid transparent; border-bottom: 22px solid #202749; }
+.m-cs-tower b, .m-cs-keep b { position: absolute; width: 5px; height: 8px; border-radius: 1.5px; background: #ffd27a; box-shadow: 0 0 8px rgba(255,190,90,0.8); animation: csWindow 3.4s ease-in-out infinite; }
+.m-cs-tower b { left: 10px; top: 26px; }
+.m-cs-keep .w1 { left: 15px; top: 20px; }
+.m-cs-keep .w2 { left: 40px; top: 26px; animation-delay: 0.9s; }
+.m-cs-keep .w3 { left: 64px; top: 18px; animation-delay: 1.7s; }
+@keyframes csWindow { 50% { opacity: 0.5; } }
+.m-cs-snitch { position: absolute; top: 44%; left: 16%; font-size: 12px; color: #ffd24a; text-shadow: 0 0 10px rgba(255,210,74,0.9); animation: csSnitch 5.5s ease-in-out infinite; }
+@keyframes csSnitch { 0%, 100% { transform: translate(0, 0); } 25% { transform: translate(48px, -14px); } 55% { transform: translate(96px, 8px); } 80% { transform: translate(32px, 18px); } }
+@media (prefers-reduced-motion: reduce) { .m-cs-snitch, .m-cs-star, .m-cs-tower b, .m-cs-keep b { animation: none; } }
+
 /* boop: Ball am Seil, der schwingt */
 .m-boop { position: relative; width: 78%; max-width: 320px; aspect-ratio: 16 / 11; }
 .m-boop-bar { position: absolute; top: 0; left: 0; right: 0; height: 15px; background: rgba(255,255,255,0.06); border: 1px solid var(--border-strong); border-radius: 7px; }
