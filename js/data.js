@@ -8,6 +8,29 @@
  */
 const PROJECTS = [
   {
+    id: 'localflow',
+    name: 'LocalFlow',
+    emoji: '🎙️',
+    tagline: 'Sprechen statt tippen. 100 % lokal.',
+    description:
+      'Diktier-App wie Wispr Flow – aber komplett lokal und kostenlos: Taste halten, sprechen, loslassen, und der Text erscheint an der Cursor-Position, in jeder Mac-App. Whisper läuft auf der Apple-GPU, ein lokales LLM poliert auf Wunsch den Text, das iPhone wird zum Fernmikrofon. Kein Abo, keine Cloud, kein Konto.',
+    features: [
+      'Systemweit diktieren: ⌥ halten, sprechen – Text landet am Cursor',
+      'Whisper large-v3-turbo lokal auf der Apple-GPU – offline & 0 €',
+      'iPhone als Fernmikrofon: Diktat erscheint direkt am Mac',
+      '✨ KI-Feinschliff per lokalem LLM (Ollama) & Freihand-Modus',
+    ],
+    shots: [],
+    shotType: 'raw',
+    tags: ['Python', 'Whisper (MLX)', 'Ollama', 'PWA'],
+    category: 'apps',
+    categoryLabel: 'Produktivität',
+    live: 'https://github.com/theminhnguyen/localflow',
+    accent: '#5b8cff',
+    accent2: '#3ecf8e',
+    featured: true,
+  },
+  {
     id: 'streetpulse',
     name: 'StreetPulse',
     emoji: '🚦',
@@ -275,4 +298,5 @@ const TECH_TICKER = [
   'Web Bluetooth', 'TypeScript', 'Tailwind', 'Node.js', 'Canvas',
   'PWA', 'Leaflet', 'IndexedDB', 'PyObjC', 'Swift', 'Realtime', 'Vercel',
   'TensorFlow.js', 'COCO-SSD', 'Computer Vision', 'WebAudio',
+  'Whisper', 'MLX', 'Ollama',
 ];

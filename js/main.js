@@ -6,6 +6,21 @@
 
   /* ---------- Individuelle CSS-Mockups pro Produkt ---------- */
   const MOCKUPS = {
+    localflow: () => `
+      <div class="mock">
+        <div class="mock-window">
+          <div class="mock-bar"><i></i><i></i><i></i></div>
+          <div class="mock-screen m-lf">
+            <div class="m-lf-head"><span class="m-lf-rec"></span>Aufnahme · ⌥ gehalten</div>
+            <div class="m-lf-wave">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="m-lf-text"><span class="m-lf-type">Hallo, das ist ein Diktat – lokal auf dem Mac.</span></div>
+            <span class="m-tag">🎙 Whisper · 0 € · offline</span>
+          </div>
+        </div>
+      </div>`,
+
     streetpulse: () => `
       <div class="mock">
         <div class="mock-window">
@@ -147,7 +162,8 @@
       `<button class="card-btn primary" data-demo="${p.id}">▶ Demo ansehen</button>`,
     ];
     if (p.live) {
-      actions.push(`<a class="card-btn" href="${p.live}" target="_blank" rel="noopener">Live testen ↗</a>`);
+      const label = p.live.includes('github.com') ? 'Auf GitHub ansehen ↗' : 'Live testen ↗';
+      actions.push(`<a class="card-btn" href="${p.live}" target="_blank" rel="noopener">${label}</a>`);
     } else {
       actions.push(`<a class="card-btn" href="#kontakt">Anfragen</a>`);
     }
@@ -289,7 +305,11 @@
     const p = byId(id);
     if (!p) return;
     lbTitle.textContent = p.name + ' · Demo';
-    if (p.live) { lbLive.href = p.live; lbLive.style.display = ''; } else { lbLive.style.display = 'none'; }
+    if (p.live) {
+      lbLive.href = p.live;
+      lbLive.textContent = p.live.includes('github.com') ? 'Auf GitHub ↗' : 'Live testen ↗';
+      lbLive.style.display = '';
+    } else { lbLive.style.display = 'none'; }
     lbStage.innerHTML = demoSceneHTML(p);
     lb.classList.add('open');
     lb.setAttribute('aria-hidden', 'false');
