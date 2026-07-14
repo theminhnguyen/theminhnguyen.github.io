@@ -6,6 +6,41 @@
 
   /* ---------- Individuelle CSS-Mockups pro Produkt ---------- */
   const MOCKUPS = {
+    mediavault: () => `
+      <div class="mock">
+        <div class="mock-window">
+          <div class="mock-bar"><i></i><i></i><i></i></div>
+          <div class="mock-screen" style="background:linear-gradient(160deg,#1a1826,#0f0d19);padding:14px;gap:10px;display:flex;flex-direction:column">
+            <div style="display:flex;gap:8px;align-items:center">
+              <span style="width:22px;height:22px;border-radius:7px;background:linear-gradient(135deg,#818cf8,#6366f1)"></span>
+              <b style="color:#edecf5;font-size:13px;letter-spacing:.2px">MediaVault</b>
+            </div>
+            <div style="display:flex;gap:6px">
+              <span style="font-size:9px;color:#16151f;background:#edecf5;padding:3px 9px;border-radius:999px;font-weight:600">Alle</span>
+              <span style="font-size:9px;color:#9995ad;border:1px solid #2a2740;padding:3px 9px;border-radius:999px">Filme</span>
+              <span style="font-size:9px;color:#9995ad;border:1px solid #2a2740;padding:3px 9px;border-radius:999px">Mangas</span>
+            </div>
+            <div style="display:flex;gap:9px;background:#1a1826;border:1px solid #2a2740;border-radius:12px;padding:8px">
+              <span style="width:34px;height:50px;border-radius:6px;background:linear-gradient(135deg,#c8763a,#e8a24a)"></span>
+              <div style="flex:1;display:flex;flex-direction:column;gap:5px;justify-content:center">
+                <span style="font-size:8px;color:#818cf8;font-weight:700">▦ Film</span>
+                <span style="height:7px;width:75%;background:#3a3654;border-radius:4px"></span>
+                <span style="font-size:8px;color:#fbbf24;background:rgba(234,138,12,.16);padding:2px 7px;border-radius:999px;align-self:flex-start">ab 16.12.2026</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:9px;background:#1a1826;border:1px solid #2a2740;border-radius:12px;padding:8px">
+              <span style="width:34px;height:50px;border-radius:6px;background:linear-gradient(135deg,#ec4899,#a855f7)"></span>
+              <div style="flex:1;display:flex;flex-direction:column;gap:5px;justify-content:center">
+                <span style="font-size:8px;color:#f472b6;font-weight:700">▤ Manga</span>
+                <span style="height:7px;width:60%;background:#3a3654;border-radius:4px"></span>
+                <span style="font-size:8px;color:#60a5fa;background:rgba(37,99,235,.16);padding:2px 7px;border-radius:999px;align-self:flex-start">Laufend</span>
+              </div>
+            </div>
+            <span class="m-tag">🎬 Auto-recherchiert · KI</span>
+          </div>
+        </div>
+      </div>`,
+
     localflow: () => `
       <div class="mock">
         <div class="mock-window">
@@ -361,6 +396,18 @@
   revealables().forEach((el) => io.observe(el));
 
   /* ---------- Zähler-Animation ---------- */
+  // Produkt-/Demo-Zahlen dynamisch aus den echten Daten setzen, damit sie
+  // beim Hinzufügen neuer Produkte automatisch stimmen (kein Hardcoden).
+  if (typeof PROJECTS !== 'undefined') {
+    const nProducts = PROJECTS.length;
+    const nDemos = PROJECTS.filter((p) => p.live).length;
+    document.querySelectorAll('[data-count-src="products"]').forEach((el) => {
+      el.dataset.count = String(nProducts);
+    });
+    document.querySelectorAll('[data-count-src="demos"]').forEach((el) => {
+      el.dataset.count = String(nDemos);
+    });
+  }
   const counters = document.querySelectorAll('[data-count]');
   const cio = new IntersectionObserver((entries) => {
     entries.forEach((en) => {

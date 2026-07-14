@@ -10,6 +10,7 @@ mit **echten Screenshots** und einer animierten Illustration direkt auf der Seit
 
 | Produkt | Was es ist |
 |---|---|
+| **MediaVault** | Tracker für Filme/Serien/Bücher/Mangas mit KI-Auto-Recherche (Next.js + Supabase) |
 | **Korbi** | Einkaufsliste mit Live-Sync (Next.js + Supabase) |
 | **WonderDeck** | Cinematisches Präsentations-Tool mit 3D-Galerie |
 | **WHOOPI** | Whoop-4.0-Live-Dashboard über Web Bluetooth |

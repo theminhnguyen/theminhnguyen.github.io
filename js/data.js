@@ -8,6 +8,30 @@
  */
 const PROJECTS = [
   {
+    id: 'mediavault',
+    name: 'MediaVault',
+    emoji: '🎬',
+    tagline: 'Filme, Serien, Bücher & Mangas – automatisch recherchiert.',
+    description:
+      'Persönlicher Medien-Tracker als PWA: Titel eintippen – auch ungenau wie „der neue Dune“ –, die KI erkennt, was gemeint ist, und holt Cover, Beschreibung und Erscheinungsdatum automatisch aus TMDB, Google Books & AniList. Zukünftige Releases inklusive: Ein täglicher Cloud-Check schickt dir eine Push-Benachrichtigung, sobald ein geplanter Titel erscheint. Sortiert nach Typ und Fortschritt (Geplant → Dabei → Fertig). Alles gratis, offline-fähig, installierbar.',
+    features: [
+      'Freitext-Suche mit KI (Gemini): erkennt Titel & Typ auch bei unscharfer Eingabe',
+      'Auto-Recherche von Cover, Beschreibung & Erscheinungsdatum (TMDB · Google Books · AniList)',
+      'Zukünftige Releases: Push aufs Handy, sobald ein geplanter Titel erscheint',
+      'Filter nach Film/Serie/Buch/Manga + Status Geplant → Dabei → Fertig',
+      'Live-Sync über Geräte, offline-fähig, installierbar als App (PWA)',
+    ],
+    shots: ['assets/shots/mediavault-1.jpg', 'assets/shots/mediavault-2.jpg'],
+    shotType: 'mobile',
+    tags: ['Next.js 15', 'Supabase', 'Gemini', 'TMDB', 'AniList', 'PWA'],
+    category: 'apps',
+    categoryLabel: 'Entertainment',
+    live: 'https://mediavault-sooty-beta.vercel.app',
+    accent: '#6366f1',
+    accent2: '#a855f7',
+    featured: true,
+  },
+  {
     id: 'localflow',
     name: 'LocalFlow',
     emoji: '🎙️',
@@ -299,5 +323,5 @@ const TECH_TICKER = [
   'Web Bluetooth', 'TypeScript', 'Tailwind', 'Node.js', 'Canvas',
   'PWA', 'Leaflet', 'IndexedDB', 'PyObjC', 'Swift', 'Realtime', 'Vercel',
   'TensorFlow.js', 'COCO-SSD', 'Computer Vision', 'WebAudio',
-  'Whisper', 'MLX', 'Ollama',
+  'Whisper', 'MLX', 'Ollama', 'Gemini', 'TMDB', 'AniList',
 ];
