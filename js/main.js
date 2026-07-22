@@ -4,6 +4,25 @@
 (() => {
   'use strict';
 
+  /* ---------- Kleine Helfer ---------- */
+
+  // Schützt vor kaputtem Markup (und XSS), falls Produktdaten je aus
+  // einer externen Quelle kommen. Kostet nichts, verhindert böse Überraschungen.
+  const esc = (v) =>
+    String(v ?? '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+  const NUM_WORDS = [
+    'Null', 'Ein', 'Zwei', 'Drei', 'Vier', 'Fünf', 'Sechs', 'Sieben', 'Acht',
+    'Neun', 'Zehn', 'Elf', 'Zwölf', 'Dreizehn', 'Vierzehn', 'Fünfzehn',
+    'Sechzehn', 'Siebzehn', 'Achtzehn', 'Neunzehn', 'Zwanzig',
+  ];
+  const numWord = (n) => NUM_WORDS[n] || String(n);
+
   /* ---------- Individuelle CSS-Mockups pro Produkt ---------- */
   const MOCKUPS = {
     mediavault: () => `
@@ -186,36 +205,53 @@
       </div>`,
   };
 
+  /* ---------- Verfügbarkeit eines Produkts ---------- */
+  // Ein Produkt kann eine echte Web-App sein ('app'), nur ein Download
+  // ('download') oder gar nichts Öffentliches (null). Danach richten sich
+  // Badge, Button-Beschriftung und der Live-Demo-Zähler.
+  const KIND = {
+    app:      { badge: 'Live',        cls: 'status-live',     action: 'Live testen ↗',   lightbox: 'Live testen ↗' },
+    download: { badge: 'Download',    cls: 'status-download', action: 'Zum Download ↗',  lightbox: 'Download ↗' },
+    none:     { badge: 'Auf Anfrage', cls: 'status-soon',     action: 'Anfragen',        lightbox: '' },
+  };
+  const kindOf = (p) => KIND[p.liveKind || 'none'] || KIND.none;
+
   /* ---------- Karten rendern ---------- */
   const grid = document.getElementById('product-grid');
 
   function cardHTML(p) {
     const mockup = (MOCKUPS[p.id] || (() => ''))();
+    const k = kindOf(p);
 
-    // In-Page-Demo + Link zur echten App (falls vorhanden), sonst Anfragen
     const actions = [
-      `<button class="card-btn primary" data-demo="${p.id}">▶ Demo ansehen</button>`,
+      `<button class="card-btn primary" data-demo="${esc(p.id)}">▶ Demo ansehen</button>`,
     ];
     if (p.live) {
-      const label = p.live.includes('github.com') ? 'Auf GitHub ansehen ↗' : 'Live testen ↗';
-      actions.push(`<a class="card-btn" href="${p.live}" target="_blank" rel="noopener">${label}</a>`);
+      actions.push(
+        `<a class="card-btn" href="${esc(p.live)}" target="_blank" rel="noopener">${k.action}</a>`
+      );
     } else {
-      actions.push(`<a class="card-btn" href="#kontakt">Anfragen</a>`);
+      actions.push(`<a class="card-btn" href="#kontakt">${k.action}</a>`);
     }
 
-    // Overlay auf der Vorschau-Bühne öffnet dieselbe Demo
+    // Overlay auf der Vorschau-Bühne öffnet dieselbe Demo. Rein dekorativ –
+    // es dupliziert den sichtbaren Button darunter, deshalb aus Tab-Reihenfolge
+    // und Screenreader-Ausgabe genommen.
     const previewOverlay =
-      `<button class="stage-preview-btn" data-demo="${p.id}" aria-label="Demo von ${p.name} ansehen">
+      `<button class="stage-preview-btn" data-demo="${esc(p.id)}" tabindex="-1" aria-hidden="true">
          <span class="play">▶</span> Demo ansehen
        </button>`;
 
-    const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
+    const tags = p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('');
+    const accountHint = p.account
+      ? `<span class="need-account" title="Zum Ausprobieren ist ein Konto nötig">🔑 Konto nötig</span>`
+      : '';
 
     return `
-      <article class="card ${p.featured ? 'featured' : ''}" data-category="${p.category}"
-        style="--card-accent:${p.accent};--card-accent-2:${p.accent2};--card-glow:${hexToGlow(p.accent)}">
+      <article class="card ${p.featured ? 'featured' : ''}" data-category="${esc(p.category)}"
+        style="--card-accent:${esc(p.accent)};--card-accent-2:${esc(p.accent2)};--card-glow:${hexToGlow(p.accent)}">
         <span class="card-accent-line"></span>
-        <span class="card-status status-demo"><span class="dot"></span>Demo</span>
+        <span class="card-status ${k.cls}"><span class="dot"></span>${k.badge}</span>
         <div class="card-body">
           <div class="card-stage">
             ${mockup}
@@ -223,26 +259,28 @@
           </div>
           <div class="card-content">
             <div class="card-top">
-              <span class="card-emoji">${p.emoji}</span>
+              <span class="card-emoji">${esc(p.emoji)}</span>
               <div>
-                <div class="card-name">${p.name}</div>
-                <div class="card-cat">${p.categoryLabel}</div>
+                <div class="card-name">${esc(p.name)}</div>
+                <div class="card-cat">${esc(p.categoryLabel)}</div>
               </div>
             </div>
-            <p class="card-tagline">${p.tagline}</p>
-            <p class="card-desc">${p.description}</p>
+            <p class="card-tagline">${esc(p.tagline)}</p>
+            <p class="card-desc">${esc(p.description)}</p>
             <div class="card-tags">${tags}</div>
-            <div class="card-actions">${actions.join('')}</div>
+            <div class="card-actions">${actions.join('')}${accountHint}</div>
           </div>
         </div>
       </article>`;
   }
 
   function hexToGlow(hex) {
-    const c = hex.replace('#', '');
-    const r = parseInt(c.substring(0, 2), 16);
-    const g = parseInt(c.substring(2, 4), 16);
-    const b = parseInt(c.substring(4, 6), 16);
+    const m = /^#?([0-9a-f]{6})$/i.exec(String(hex || ''));
+    if (!m) return 'rgba(139,92,246,0.45)'; // Fallback: Standard-Akzent
+    const c = m[1];
+    const r = parseInt(c.slice(0, 2), 16);
+    const g = parseInt(c.slice(2, 4), 16);
+    const b = parseInt(c.slice(4, 6), 16);
     return `rgba(${r},${g},${b},0.45)`;
   }
 
@@ -250,28 +288,42 @@
   const ordered = [...PROJECTS].sort((a, b) => (b.featured === true) - (a.featured === true));
   grid.innerHTML = ordered.map(cardHTML).join('');
 
+  /* ---------- Bento-Layout: keine halbe Karte allein in der letzten Reihe ---------- */
+  // Normale Karten belegen je eine halbe Reihe. Bleibt am Ende eine übrig
+  // (ungerade Anzahl – z. B. beim Filtern), bekommt sie die volle Breite.
+  function layoutGrid() {
+    const visible = [...grid.querySelectorAll('.card:not(.featured):not(.hide)')];
+    grid.querySelectorAll('.card.span-full').forEach((c) => c.classList.remove('span-full'));
+    if (visible.length % 2 === 1) visible[visible.length - 1].classList.add('span-full');
+  }
+  layoutGrid();
+
   /* ---------- Filter ---------- */
   const filterBar = document.getElementById('filters');
   filterBar.innerHTML = FILTERS.map(
     (f, i) =>
-      `<button class="filter-chip ${i === 0 ? 'active' : ''}" data-filter="${f.id}" role="tab">${f.label}</button>`
+      `<button type="button" class="filter-chip ${i === 0 ? 'active' : ''}" data-filter="${esc(f.id)}" aria-pressed="${i === 0}">${esc(f.label)}</button>`
   ).join('');
 
   filterBar.addEventListener('click', (e) => {
     const chip = e.target.closest('.filter-chip');
     if (!chip) return;
-    filterBar.querySelectorAll('.filter-chip').forEach((c) => c.classList.remove('active'));
-    chip.classList.add('active');
+    filterBar.querySelectorAll('.filter-chip').forEach((c) => {
+      const on = c === chip;
+      c.classList.toggle('active', on);
+      c.setAttribute('aria-pressed', String(on));
+    });
     const f = chip.dataset.filter;
     grid.querySelectorAll('.card').forEach((card) => {
       const show = f === 'all' || card.dataset.category === f;
       card.classList.toggle('hide', !show);
     });
+    layoutGrid();
   });
 
   /* ---------- Tech-Ticker ---------- */
   const track = document.getElementById('ticker-track');
-  const tickerHTML = TECH_TICKER.map((t) => `<span class="ticker-item">${t}</span>`).join('');
+  const tickerHTML = TECH_TICKER.map((t) => `<span class="ticker-item">${esc(t)}</span>`).join('');
   track.innerHTML = tickerHTML + tickerHTML; // verdoppeln für nahtlose Schleife
 
   /* ---------- Demo-Großvorschau (Lightbox) ---------- */
@@ -286,8 +338,8 @@
 
   function demoSceneHTML(p) {
     const mockup = (MOCKUPS[p.id] || (() => ''))();
-    const feats = (p.features || []).map((f) => `<li>${f}</li>`).join('');
-    const tags = p.tags.map((t) => `<span class="tag">${t}</span>`).join('');
+    const feats = (p.features || []).map((f) => `<li>${esc(f)}</li>`).join('');
+    const tags = p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('');
     const shots = p.shots || [];
     const type = p.shotType || 'desktop';
 
@@ -298,7 +350,7 @@
       .map((m, i) => {
         const act = i === 0 ? ' active' : '';
         if (m.kind === 'shot') {
-          return `<figure class="gal-item${act}" data-idx="${i}"><div class="frame frame-${type}"><img loading="lazy" src="${m.src}" alt="${p.name} – echter Screenshot"></div></figure>`;
+          return `<figure class="gal-item${act}" data-idx="${i}"><div class="frame frame-${esc(type)}"><img loading="lazy" src="${esc(m.src)}" alt="${esc(p.name)} – echter Screenshot"></div></figure>`;
         }
         return `<figure class="gal-item${act}" data-idx="${i}"><div class="mock-holder">${mockup}</div></figure>`;
       })
@@ -309,52 +361,84 @@
         const act = i === 0 ? ' active' : '';
         const inner =
           m.kind === 'shot'
-            ? `<img src="${m.src}" alt="">`
-            : `<span class="thumb-mock">${p.emoji}</span>`;
-        return `<button class="gal-thumb${act}" data-idx="${i}" data-kind="${m.kind}" aria-label="Ansicht ${i + 1}">${inner}</button>`;
+            ? `<img src="${esc(m.src)}" alt="">`
+            : `<span class="thumb-mock">${esc(p.emoji)}</span>`;
+        return `<button type="button" class="gal-thumb${act}" data-idx="${i}" data-kind="${m.kind}" aria-label="Ansicht ${i + 1}">${inner}</button>`;
       })
       .join('');
 
     const startBadge = media[0].kind === 'shot' ? 'Echter Screenshot' : 'Animierte Demo';
     const thumbsRow = media.length > 1 ? `<div class="demo-thumbs">${thumbs}</div>` : '';
 
+    const notes = [];
+    if (p.account) {
+      notes.push(`<p class="demo-note">🔑 Zum Ausprobieren ist ein kostenloses Konto nötig (Google oder E-Mail-Link).</p>`);
+    }
+    if (p.fanProject) {
+      notes.push(`<p class="demo-note">⚖️ Nicht-kommerzielles Fan-Projekt – steht nicht zur Lizenzierung.</p>`);
+    }
+
     return `
-      <div class="demo-scene" style="--card-accent:${p.accent};--card-accent-2:${p.accent2}">
+      <div class="demo-scene" style="--card-accent:${esc(p.accent)};--card-accent-2:${esc(p.accent2)};--card-glow:${hexToGlow(p.accent)}">
         <div class="demo-visual">
           <span class="demo-badge" id="demo-badge"><span class="dot"></span>${startBadge}</span>
           <div class="demo-gallery">${stage}</div>
           ${thumbsRow}
         </div>
         <aside class="demo-info">
-          <span class="demo-emoji">${p.emoji}</span>
-          <h3 class="demo-name">${p.name}</h3>
-          <p class="demo-tagline">${p.tagline}</p>
-          <p class="demo-desc">${p.description}</p>
+          <span class="demo-emoji">${esc(p.emoji)}</span>
+          <h3 class="demo-name">${esc(p.name)}</h3>
+          <p class="demo-tagline">${esc(p.tagline)}</p>
+          <p class="demo-desc">${esc(p.description)}</p>
           <ul class="demo-features">${feats}</ul>
           <div class="demo-tags">${tags}</div>
+          ${notes.join('')}
         </aside>
       </div>`;
   }
 
+  // Aufräum-Timer der Lightbox. Ohne das Handle würde ein schnelles
+  // Schließen-und-wieder-Öffnen die frisch gerenderte Bühne leer räumen.
+  let stageClearTimer = null;
+
   function openDemo(id) {
     const p = byId(id);
     if (!p) return;
+
+    clearTimeout(stageClearTimer);
+    stageClearTimer = null;
+
     lbTitle.textContent = p.name + ' · Demo';
-    if (p.live) {
+
+    const k = kindOf(p);
+    if (p.live && k.lightbox) {
       lbLive.href = p.live;
-      lbLive.textContent = p.live.includes('github.com') ? 'Auf GitHub ↗' : 'Live testen ↗';
-      lbLive.style.display = '';
-    } else { lbLive.style.display = 'none'; }
+      lbLive.textContent = k.lightbox;
+      lbLive.hidden = false;
+    } else {
+      lbLive.removeAttribute('href');
+      lbLive.hidden = true;
+    }
+
+    // Fan-Projekte bekommen keinen Lizenz-/Anfrage-CTA
+    lbContact.hidden = !!p.fanProject;
+
     lbStage.innerHTML = demoSceneHTML(p);
     lb.classList.add('open');
     lb.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    lbClose.focus();
   }
+
   function closeDemo() {
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    setTimeout(() => { lbStage.innerHTML = ''; }, 300);
+    clearTimeout(stageClearTimer);
+    stageClearTimer = setTimeout(() => {
+      lbStage.innerHTML = '';
+      stageClearTimer = null;
+    }, 300);
   }
 
   grid.addEventListener('click', (e) => {
@@ -365,7 +449,9 @@
   lbContact.addEventListener('click', closeDemo);
   lbClose.addEventListener('click', closeDemo);
   lb.addEventListener('click', (e) => { if (e.target === lb) closeDemo(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && lb.classList.contains('open')) closeDemo(); });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lb.classList.contains('open')) closeDemo();
+  });
 
   // Galerie: zwischen Screenshots & Illustration umschalten
   lbStage.addEventListener('click', (e) => {
@@ -379,7 +465,6 @@
   });
 
   /* ---------- Reveal on Scroll ---------- */
-  const revealables = () => document.querySelectorAll('.reveal, .card');
   document.querySelectorAll('.card').forEach((c) => c.classList.add('reveal'));
 
   const io = new IntersectionObserver(
@@ -393,27 +478,35 @@
     },
     { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
   );
-  revealables().forEach((el) => io.observe(el));
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 
   /* ---------- Zähler-Animation ---------- */
-  // Produkt-/Demo-Zahlen dynamisch aus den echten Daten setzen, damit sie
-  // beim Hinzufügen neuer Produkte automatisch stimmen (kein Hardcoden).
-  if (typeof PROJECTS !== 'undefined') {
-    const nProducts = PROJECTS.length;
-    const nDemos = PROJECTS.filter((p) => p.live).length;
-    document.querySelectorAll('[data-count-src="products"]').forEach((el) => {
-      el.dataset.count = String(nProducts);
-    });
-    document.querySelectorAll('[data-count-src="demos"]').forEach((el) => {
-      el.dataset.count = String(nDemos);
-    });
-  }
+  // Alle drei Zahlen kommen aus den echten Daten, damit sie beim Hinzufügen
+  // neuer Produkte oder Technologien automatisch stimmen (kein Hardcoden).
+  const nProducts = PROJECTS.length;
+  // Nur echte, im Browser lauffähige Apps zählen als "Live-Demo" – ein
+  // GitHub-Release ist ein Download, keine Demo.
+  const nDemos = PROJECTS.filter((p) => p.liveKind === 'app').length;
+  const nTech = TECH_TICKER.length;
+
+  const COUNT_SOURCES = { products: nProducts, demos: nDemos, tech: nTech };
+  document.querySelectorAll('[data-count-src]').forEach((el) => {
+    const v = COUNT_SOURCES[el.dataset.countSrc];
+    if (typeof v === 'number') el.dataset.count = String(v);
+  });
+
+  // Fließtext, der die Produktzahl nennt, ebenfalls aus den Daten speisen
+  document.querySelectorAll('[data-count-word="products"]').forEach((el) => {
+    el.textContent = numWord(nProducts);
+  });
+
   const counters = document.querySelectorAll('[data-count]');
   const cio = new IntersectionObserver((entries) => {
     entries.forEach((en) => {
       if (!en.isIntersecting) return;
       const el = en.target;
       const target = parseInt(el.dataset.count, 10);
+      if (!Number.isFinite(target)) { cio.unobserve(el); return; }
       let cur = 0;
       const step = Math.max(1, Math.round(target / 28));
       const tick = () => {
@@ -449,8 +542,9 @@
     }
   });
 
-  // Sanfter 3D-Tilt auf Karten (nur mit Zeiger)
-  if (window.matchMedia('(hover: hover)').matches) {
+  // Sanfter 3D-Tilt auf Karten (nur mit Zeiger und ohne reduzierte Bewegung)
+  const wantsMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (window.matchMedia('(hover: hover)').matches && wantsMotion) {
     grid.addEventListener('mousemove', (e) => {
       const card = e.target.closest('.card');
       if (!card) return;
@@ -459,10 +553,10 @@
       const py = (e.clientY - r.top) / r.height - 0.5;
       card.style.transform = `perspective(900px) rotateX(${(-py * 4).toFixed(2)}deg) rotateY(${(px * 5).toFixed(2)}deg) translateY(-4px)`;
     });
-    grid.addEventListener('mouseleave', (e) => {
-      const card = e.target.closest && e.target.closest('.card');
-      if (card) card.style.transform = '';
-    }, true);
+
+    // Nur ein Handler pro Karte. Ein Capture-Listener auf dem Grid würde auch
+    // bei jedem Verlassen eines *Kind*-Elements feuern und den Tilt mitten im
+    // Hover zurücksetzen (sichtbares Zucken).
     grid.querySelectorAll('.card').forEach((card) => {
       card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });

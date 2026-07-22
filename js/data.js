@@ -2,9 +2,14 @@
  * Produktdaten für die Showcase-Seite.
  * Jedes Objekt beschreibt ein "vibe-codetes" Produkt.
  *
- * category: apps | health | games | tools   (steuert die Filter)
- * features: Bullet-Punkte für die Demo-Großvorschau
- * live:     URL zur echten App (oder null, wenn keine)
+ * category:  apps | health | games | tools   (steuert die Filter)
+ * features:  Bullet-Punkte für die Demo-Großvorschau
+ * live:      URL zur echten App/zum Download (oder null, wenn keine)
+ * liveKind:  'app'      → im Browser lauffähige Anwendung  (zählt als Live-Demo)
+ *            'download' → Download/Release-Seite           (zählt NICHT als Live-Demo)
+ *            null       → nichts Öffentliches verfügbar
+ * account:   true, wenn zum Ausprobieren ein Konto/Login nötig ist
+ * fanProject: true bei nicht-kommerziellen Fan-Projekten (kein Lizenz-CTA)
  */
 const PROJECTS = [
   {
@@ -27,6 +32,8 @@ const PROJECTS = [
     category: 'apps',
     categoryLabel: 'Entertainment',
     live: 'https://mediavault-sooty-beta.vercel.app',
+    liveKind: 'app',
+    account: true,
     accent: '#6366f1',
     accent2: '#a855f7',
     featured: true,
@@ -47,10 +54,11 @@ const PROJECTS = [
     ],
     shots: [],
     shotType: 'raw',
-    tags: ['Python', 'Whisper (MLX)', 'LM Studio', 'Ollama', 'PWA'],
+    tags: ['Python', 'Whisper (MLX)', 'LM Studio', 'Ollama', 'macOS'],
     category: 'apps',
     categoryLabel: 'Produktivität',
     live: 'https://github.com/theminhnguyen/localflow/releases/latest',
+    liveKind: 'download',
     accent: '#5b8cff',
     accent2: '#3ecf8e',
     featured: true,
@@ -74,6 +82,7 @@ const PROJECTS = [
     category: 'apps',
     categoryLabel: 'KI & Verkehr',
     live: 'https://theminhnguyen.github.io/streetpulse/',
+    liveKind: 'app',
     accent: '#4f9dff',
     accent2: '#34d399',
     featured: true,
@@ -97,6 +106,8 @@ const PROJECTS = [
     category: 'apps',
     categoryLabel: 'Alltag',
     live: 'https://korbi-app.vercel.app',
+    liveKind: 'app',
+    account: true,
     accent: '#f97316',
     accent2: '#fb7185',
     featured: true,
@@ -120,6 +131,7 @@ const PROJECTS = [
     category: 'apps',
     categoryLabel: 'Kreativ',
     live: 'https://theminhnguyen.github.io/wonderdeck/',
+    liveKind: 'app',
     accent: '#8b5cf6',
     accent2: '#22d3ee',
     featured: true,
@@ -143,6 +155,8 @@ const PROJECTS = [
     category: 'games',
     categoryLabel: '3D-Welt',
     live: 'https://theminhnguyen.github.io/hogwarts-3d/',
+    liveKind: 'app',
+    fanProject: true,
     accent: '#d4a437',
     accent2: '#8b5cf6',
     featured: true,
@@ -166,6 +180,7 @@ const PROJECTS = [
     category: 'health',
     categoryLabel: 'Health',
     live: 'https://theminhnguyen.github.io/whoopi-dashboard/',
+    liveKind: 'app',
     accent: '#ef4444',
     accent2: '#f59e0b',
     featured: false,
@@ -189,6 +204,7 @@ const PROJECTS = [
     category: 'games',
     categoryLabel: 'Fun',
     live: 'https://theminhnguyen.github.io/pixelpost/',
+    liveKind: 'app',
     accent: '#ec4899',
     accent2: '#a3e635',
     featured: false,
@@ -212,6 +228,7 @@ const PROJECTS = [
     category: 'games',
     categoryLabel: 'Multiplayer',
     live: 'https://virtual-world-multiplayer.onrender.com',
+    liveKind: 'app',
     accent: '#10b981',
     accent2: '#3b82f6',
     featured: false,
@@ -235,6 +252,7 @@ const PROJECTS = [
     category: 'apps',
     categoryLabel: 'Travel',
     live: 'https://theminhnguyen.github.io/tripmate/',
+    liveKind: 'app',
     accent: '#06b6d4',
     accent2: '#6366f1',
     featured: false,
@@ -258,6 +276,8 @@ const PROJECTS = [
     category: 'apps',
     categoryLabel: 'Business',
     live: 'https://kudosedge.vercel.app',
+    liveKind: 'app',
+    // TODO: prüfen – falls die Demo einen Login erzwingt, hier `account: true` setzen.
     accent: '#eab308',
     accent2: '#f97316',
     featured: false,
@@ -281,6 +301,7 @@ const PROJECTS = [
     category: 'games',
     categoryLabel: 'Fun',
     live: null,
+    liveKind: null,
     accent: '#f5b301',
     accent2: '#fb7185',
     featured: false,
@@ -304,6 +325,7 @@ const PROJECTS = [
     category: 'tools',
     categoryLabel: 'Dev-Tool',
     live: null,
+    liveKind: null,
     accent: '#d97757',
     accent2: '#8b5cf6',
     featured: false,
@@ -318,6 +340,10 @@ const FILTERS = [
   { id: 'tools', label: 'Dev-Tools' },
 ];
 
+/**
+ * Kuratierte Technologie-Liste. Speist sowohl den Ticker als auch den
+ * Zähler "Technologien" im Hero – dadurch können beide nicht auseinanderlaufen.
+ */
 const TECH_TICKER = [
   'Next.js', 'React', 'Supabase', 'Three.js', 'WebGL', 'Socket.io',
   'Web Bluetooth', 'TypeScript', 'Tailwind', 'Node.js', 'Canvas',
