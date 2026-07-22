@@ -12,10 +12,12 @@ permissions:
   pages: write
   id-token: write
 
-# Immer nur ein Deploy gleichzeitig; laufende abbrechen
+# Immer nur ein Deploy gleichzeitig. Laufende NICHT abbrechen, damit ein
+# bereits gestartetes Deployment sauber zu Ende läuft (Empfehlung von GitHub
+# für den Pages-Workflow).
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
