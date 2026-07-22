@@ -3,15 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Cache-Control" content="no-cache, must-revalidate" />
   <title>Minh · Vibe-Coded Products</title>
-  <meta name="description" content="Ein Studio aus einer Person: dreizehn vibe-codete Produkte – von der lokalen KI-Diktier-App über einen KI-Medien-Tracker bis zum begehbaren 3D-Schloss. Alle im Browser erlebbar." />
+  <meta name="description" content="Ein Studio aus einer Person: vibe-codete Produkte – von der lokalen KI-Diktier-App über einen KI-Medien-Tracker bis zum begehbaren 3D-Schloss. Alle im Browser erlebbar." />
+  <meta name="theme-color" content="#06060b" />
 
   <!-- Open Graph / Social -->
   <meta property="og:title" content="Minh · Vibe-Coded Products" />
-  <meta property="og:description" content="Dreizehn Produkte, gebaut im Vibe-Coding-Stil. Live testen, direkt im Browser." />
+  <meta property="og:description" content="Produkte, gebaut im Vibe-Coding-Stil. Live testen, direkt im Browser." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://theminhnguyen.github.io" />
+  <meta property="og:image" content="https://theminhnguyen.github.io/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="minh.studio – Ideen, die im Browser lebendig werden." />
+  <meta property="og:locale" content="de_DE" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Minh · Vibe-Coded Products" />
+  <meta name="twitter:description" content="Produkte, gebaut im Vibe-Coding-Stil. Live testen, direkt im Browser." />
+  <meta name="twitter:image" content="https://theminhnguyen.github.io/assets/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,6 +30,8 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
 </head>
 <body>
+  <a class="skip-link" href="#produkte">Zum Inhalt springen</a>
+
   <!-- Maus-Glow, folgt dem Cursor -->
   <div class="cursor-glow" aria-hidden="true"></div>
 
@@ -38,7 +49,7 @@
       <span class="nav-mark">✦</span>
       <span>minh<span class="nav-dot">.</span>studio</span>
     </a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Hauptnavigation">
       <a href="#produkte">Produkte</a>
       <a href="#story">Story</a>
       <a href="#kontakt">Kontakt</a>
@@ -59,7 +70,7 @@
         lebendig werden.
       </h1>
       <p class="hero-sub reveal">
-        Dreizehn Produkte, gebaut ohne klassisches Coding – von der lokalen
+        <span data-count-word="products">Dreizehn</span> Produkte, gebaut ohne klassisches Coding – von der lokalen
         KI-Diktier-App über einen KI-Medien-Tracker bis zum begehbaren 3D-Schloss.
         Kein Slide-Deck, sondern echte Software zum Anfassen.
       </p>
@@ -83,7 +94,7 @@
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
-          <span class="stat-num" data-count="25">0</span>
+          <span class="stat-num" data-count="28" data-count-src="tech">0</span>
           <span class="stat-label">Technologien</span>
         </div>
         <div class="stat-sep"></div>
@@ -115,7 +126,7 @@
       </p>
     </div>
 
-    <div class="filters reveal" id="filters" role="tablist" aria-label="Produkte filtern"></div>
+    <div class="filters reveal" id="filters" role="group" aria-label="Produkte nach Kategorie filtern"></div>
 
     <div class="grid" id="product-grid"></div>
   </section>
@@ -134,8 +145,8 @@
         </p>
         <p>
           Der Fokus liegt auf Dingen, die man <em>sofort</em> erleben kann:
-          im Browser, ohne Installation, ohne Konto-Zwang. Datenschutz-freundlich,
-          oft komplett offline-fähig.
+          im Browser, ohne Installation. Die meisten laufen ganz ohne Konto und
+          speichern nur lokal – wo doch eine Anmeldung nötig ist, steht es an der Karte.
         </p>
       </div>
       <ul class="story-points">
@@ -152,7 +163,7 @@
     <div class="cta-card reveal">
       <div class="cta-glow" aria-hidden="true"></div>
       <span class="section-kicker">// Let's talk</span>
-      <h2 class="cta-title">Ein Produkt geweckt dein Interesse?</h2>
+      <h2 class="cta-title">Hat ein Produkt dein Interesse geweckt?</h2>
       <p class="cta-sub">
         Ob Lizenz, Weiterentwicklung, White-Label oder eine ganz neue Idee –
         schreib mir. Ich melde mich schnell.
@@ -162,12 +173,19 @@
         <input type="hidden" name="subject" value="Neue Anfrage über minh.studio" />
         <input type="hidden" name="from_name" value="minh.studio" />
         <!-- Honeypot gegen Spam-Bots (für Menschen unsichtbar) -->
-        <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off" />
         <div class="cf-row">
-          <input class="cf-input" type="text" name="name" required autocomplete="name" placeholder="Dein Name" />
-          <input class="cf-input" type="email" name="email" required autocomplete="email" placeholder="Deine E-Mail (für die Antwort)" />
+          <div class="cf-field">
+            <label class="sr-only" for="cf-name">Dein Name</label>
+            <input class="cf-input" id="cf-name" type="text" name="name" required autocomplete="name" placeholder="Dein Name" />
+          </div>
+          <div class="cf-field">
+            <label class="sr-only" for="cf-email">Deine E-Mail-Adresse</label>
+            <input class="cf-input" id="cf-email" type="email" name="email" required autocomplete="email" placeholder="Deine E-Mail (für die Antwort)" />
+          </div>
         </div>
-        <textarea class="cf-input" name="message" required rows="4" placeholder="Worum geht's? Deine Nachricht …"></textarea>
+        <label class="sr-only" for="cf-message">Deine Nachricht</label>
+        <textarea class="cf-input" id="cf-message" name="message" required rows="4" placeholder="Worum geht's? Deine Nachricht …"></textarea>
         <button class="btn btn-primary cf-submit" type="submit">
           <span class="cf-label">Nachricht senden</span>
           <span class="btn-arrow">↗</span>
@@ -190,13 +208,13 @@
   </footer>
 
   <!-- Lightbox für die Demo-Großvorschau -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" aria-hidden="true">
     <div class="lightbox-bar">
       <span class="lightbox-title" id="lightbox-title"></span>
       <div class="lightbox-actions">
-        <a class="lightbox-open" id="lightbox-live" target="_blank" rel="noopener">Live testen ↗</a>
+        <a class="lightbox-open" id="lightbox-live" target="_blank" rel="noopener" hidden>Live testen ↗</a>
         <a class="lightbox-open" id="lightbox-contact" href="#kontakt">Interesse? Anfragen ↗</a>
-        <button class="lightbox-close" id="lightbox-close" aria-label="Schließen">✕</button>
+        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Demo schließen">✕</button>
       </div>
     </div>
     <div class="lightbox-stage" id="lightbox-stage"></div>
