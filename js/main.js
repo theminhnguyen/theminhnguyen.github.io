@@ -212,6 +212,7 @@
   const KIND = {
     app:      { badge: 'Live',        cls: 'status-live',     action: 'Live testen ↗',   lightbox: 'Live testen ↗' },
     download: { badge: 'Download',    cls: 'status-download', action: 'Zum Download ↗',  lightbox: 'Download ↗' },
+    concept:  { badge: 'Konzept',     cls: 'status-soon',     action: 'Konzept ansehen ↗', lightbox: 'Konzept ansehen ↗' },
     none:     { badge: 'Auf Anfrage', cls: 'status-soon',     action: 'Anfragen',        lightbox: '' },
   };
   const kindOf = (p) => KIND[p.liveKind || 'none'] || KIND.none;

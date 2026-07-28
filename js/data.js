@@ -330,6 +330,31 @@ const PROJECTS = [
     accent2: '#8b5cf6',
     featured: false,
   },
+  {
+    id: 'sidetrack',
+    name: 'SideTrack',
+    emoji: '🗂️',
+    tagline: 'Nebenprojekte im Blick – auch wenn das Tagesgeschäft dazwischenfunkt.',
+    description:
+      'Internes Team-Tool, um Nebenprojekte parallel zum Tagesgeschäft zu tracken: T-Shirt-Schätzungen statt Stunden, 1-Klick-Snooze für Deadlines mit Audit-Log (wer hat wann warum verschoben?), eine Tagesgeschäft-Ampel pro Person und ein interaktives Gantt mit Abhängigkeiten. Dazu ein 1-Klick-Statusbericht für Team-Updates sowie PowerPoint-Export. Aktuell liegt das vollständige technische Konzept vor (Datenmodell, Architektur, Entwicklungsplan) – die Umsetzung folgt.',
+    features: [
+      'T-Shirt-Größen (S/M/L/XL) statt Stundenschätzung',
+      '1-Klick-Snooze mit Audit-Log: wer hat wann warum verschoben',
+      'Tagesgeschäft-Ampel (Rot/Gelb/Grün) pro Teammitglied',
+      'Interaktives Gantt mit Abhängigkeiten & Meilensteinen',
+      '1-Klick-Statusbericht + PowerPoint-Export',
+    ],
+    shots: [],
+    shotType: 'desktop',
+    tags: ['React', 'TypeScript', 'Zustand', 'Gantt', 'PPTX-Export'],
+    category: 'tools',
+    categoryLabel: 'Konzept',
+    live: 'https://github.com/theminhnguyen/sidetrack',
+    liveKind: 'concept',
+    accent: '#22c55e',
+    accent2: '#0ea5e9',
+    featured: false,
+  },
 ];
 
 const FILTERS = [
