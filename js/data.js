@@ -336,7 +336,7 @@ const PROJECTS = [
     emoji: '🗂️',
     tagline: 'Nebenprojekte im Blick – auch wenn das Tagesgeschäft dazwischenfunkt.',
     description:
-      'Internes Team-Tool, um Nebenprojekte parallel zum Tagesgeschäft zu tracken: T-Shirt-Schätzungen statt Stunden, 1-Klick-Snooze für Deadlines mit Audit-Log (wer hat wann warum verschoben?), eine Tagesgeschäft-Ampel pro Person und ein interaktives Gantt mit Abhängigkeiten. Dazu ein 1-Klick-Statusbericht für Team-Updates sowie PowerPoint-Export. Aktuell liegt das vollständige technische Konzept vor (Datenmodell, Architektur, Entwicklungsplan) – die Umsetzung folgt.',
+      'Internes Team-Tool, um Nebenprojekte parallel zum Tagesgeschäft zu tracken: T-Shirt-Schätzungen statt Stunden, 1-Klick-Snooze für Deadlines mit Audit-Log (wer hat wann warum verschoben?), eine Tagesgeschäft-Ampel pro Person und ein interaktives Gantt mit Abhängigkeiten. Dazu ein 1-Klick-Statusbericht für Team-Updates sowie PowerPoint-Export. Team- und Task-Verwaltung, Snooze-Logik samt Konflikt-Erkennung sowie Hell/Dunkel-Modus sind bereits gebaut – Gantt-Ansicht und Exporte folgen.',
     features: [
       'T-Shirt-Größen (S/M/L/XL) statt Stundenschätzung',
       '1-Klick-Snooze mit Audit-Log: wer hat wann warum verschoben',
@@ -348,9 +348,9 @@ const PROJECTS = [
     shotType: 'desktop',
     tags: ['React', 'TypeScript', 'Zustand', 'Gantt', 'PPTX-Export'],
     category: 'tools',
-    categoryLabel: 'Konzept',
+    categoryLabel: 'In Entwicklung',
     live: 'https://github.com/theminhnguyen/sidetrack',
-    liveKind: 'concept',
+    liveKind: 'building',
     accent: '#22c55e',
     accent2: '#0ea5e9',
     featured: false,

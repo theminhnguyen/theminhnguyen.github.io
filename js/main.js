@@ -213,6 +213,7 @@
     app:      { badge: 'Live',        cls: 'status-live',     action: 'Live testen ↗',   lightbox: 'Live testen ↗' },
     download: { badge: 'Download',    cls: 'status-download', action: 'Zum Download ↗',  lightbox: 'Download ↗' },
     concept:  { badge: 'Konzept',     cls: 'status-soon',     action: 'Konzept ansehen ↗', lightbox: 'Konzept ansehen ↗' },
+    building: { badge: 'In Entwicklung', cls: 'status-soon', action: 'Repo ansehen ↗',  lightbox: 'Repo ansehen ↗' },
     none:     { badge: 'Auf Anfrage', cls: 'status-soon',     action: 'Anfragen',        lightbox: '' },
   };
   const kindOf = (p) => KIND[p.liveKind || 'none'] || KIND.none;
