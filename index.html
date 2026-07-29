@@ -30,7 +30,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
 </head>
 <body>
-  <a class="skip-link" href="#produkte">Zum Inhalt springen</a>
+  <a class="skip-link" href="#produkte" data-i18n="skipLink">Zum Inhalt springen</a>
 
   <!-- Maus-Glow, folgt dem Cursor -->
   <div class="cursor-glow" aria-hidden="true"></div>
@@ -49,10 +49,14 @@
       <span class="nav-mark">✦</span>
       <span>minh<span class="nav-dot">.</span>studio</span>
     </a>
-    <nav class="nav-links" aria-label="Hauptnavigation">
-      <a href="#produkte">Produkte</a>
-      <a href="#story">Story</a>
-      <a href="#kontakt">Kontakt</a>
+    <nav class="nav-links" aria-label="Hauptnavigation" data-i18n-aria-label="navAriaLabel">
+      <a href="#produkte" data-i18n="navProducts">Produkte</a>
+      <a href="#story" data-i18n="navStory">Story</a>
+      <a href="#kontakt" data-i18n="navContact">Kontakt</a>
+      <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Sprache wechseln" data-i18n-aria-label="langToggleAria">
+        <span class="lang-opt active" data-lang="de">DE</span>
+        <span class="lang-opt" data-lang="en">EN</span>
+      </button>
       <a class="nav-cta" href="https://github.com/theminhnguyen" target="_blank" rel="noopener">GitHub ↗</a>
     </nav>
   </header>
@@ -62,45 +66,45 @@
     <div class="hero-inner">
       <div class="hero-badge reveal">
         <span class="pulse-dot"></span>
-        Ein-Personen-Studio · Vibe-Coded
+        <span data-i18n="heroBadge">Ein-Personen-Studio · Vibe-Coded</span>
       </div>
-      <h1 class="hero-title reveal">
+      <h1 class="hero-title reveal" data-i18n-html="heroTitleHtml">
         Ideen, die
         <span class="grad-text">im Browser</span>
         lebendig werden.
       </h1>
       <p class="hero-sub reveal">
-        <span data-count-word="products">Dreizehn</span> Produkte, gebaut ohne klassisches Coding – von der lokalen
+        <span data-count-word="products">Dreizehn</span> <span data-i18n="heroSubRest">Produkte, gebaut ohne klassisches Coding – von der lokalen
         KI-Diktier-App über einen KI-Medien-Tracker bis zum begehbaren 3D-Schloss.
-        Kein Slide-Deck, sondern echte Software zum Anfassen.
+        Kein Slide-Deck, sondern echte Software zum Anfassen.</span>
       </p>
       <div class="hero-actions reveal">
         <a class="btn btn-primary" href="#produkte">
-          Produkte entdecken
+          <span data-i18n="heroCtaPrimary">Produkte entdecken</span>
           <span class="btn-arrow">↓</span>
         </a>
-        <a class="btn btn-ghost" href="#kontakt">Zusammenarbeiten</a>
+        <a class="btn btn-ghost" href="#kontakt" data-i18n="heroCtaGhost">Zusammenarbeiten</a>
       </div>
 
       <div class="hero-stats reveal">
         <div class="stat">
           <span class="stat-num" data-count="13" data-count-src="products">0</span>
-          <span class="stat-label">Produkte</span>
+          <span class="stat-label" data-i18n="statProducts">Produkte</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
           <span class="stat-num" data-count="10" data-count-src="demos">0</span>
-          <span class="stat-label">Live-Demos</span>
+          <span class="stat-label" data-i18n="statDemos">Live-Demos</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
           <span class="stat-num" data-count="28" data-count-src="tech">0</span>
-          <span class="stat-label">Technologien</span>
+          <span class="stat-label" data-i18n="statTech">Technologien</span>
         </div>
         <div class="stat-sep"></div>
         <div class="stat">
           <span class="stat-num">∞</span>
-          <span class="stat-label">Neugier</span>
+          <span class="stat-label" data-i18n="statCuriosity">Neugier</span>
         </div>
       </div>
     </div>
@@ -118,15 +122,15 @@
   <!-- Produkte -->
   <section class="products" id="produkte">
     <div class="section-head reveal">
-      <span class="section-kicker">// Die Produkte</span>
-      <h2 class="section-title">Alles selbst gebaut. Alles zum Ausprobieren.</h2>
-      <p class="section-lead">
+      <span class="section-kicker" data-i18n="productsKicker">// Die Produkte</span>
+      <h2 class="section-title" data-i18n="productsTitle">Alles selbst gebaut. Alles zum Ausprobieren.</h2>
+      <p class="section-lead" data-i18n="productsLead">
         Jede Kachel ist ein fertiges Produkt. Fahr mit der Maus drüber und starte
         die animierte Demo-Vorschau – direkt hier auf der Seite.
       </p>
     </div>
 
-    <div class="filters reveal" id="filters" role="group" aria-label="Produkte nach Kategorie filtern"></div>
+    <div class="filters reveal" id="filters" role="group" aria-label="Produkte nach Kategorie filtern" data-i18n-aria-label="filtersAriaLabel"></div>
 
     <div class="grid" id="product-grid"></div>
   </section>
@@ -135,25 +139,25 @@
   <section class="story" id="story">
     <div class="story-inner">
       <div class="story-text reveal">
-        <span class="section-kicker">// Der Ansatz</span>
-        <h2 class="section-title">Vom Gefühl zum Produkt.</h2>
-        <p>
+        <span class="section-kicker" data-i18n="storyKicker">// Der Ansatz</span>
+        <h2 class="section-title" data-i18n="storyTitle">Vom Gefühl zum Produkt.</h2>
+        <p data-i18n="storyP1">
           Ich beschreibe, was ich will – und lasse es entstehen. Keine
           Programmier­ausbildung, sondern Neugier, Geschmack und ein Auge fürs
           Detail. Aus dieser Arbeitsweise sind echte, benutzbare Produkte
           geworden.
         </p>
-        <p>
+        <p data-i18n-html="storyP2Html">
           Der Fokus liegt auf Dingen, die man <em>sofort</em> erleben kann:
           im Browser, ohne Installation. Die meisten laufen ganz ohne Konto und
           speichern nur lokal – wo doch eine Anmeldung nötig ist, steht es an der Karte.
         </p>
       </div>
       <ul class="story-points">
-        <li class="reveal"><strong>Erlebbar statt erklärt.</strong> Jedes Produkt hat eine animierte Demo – ein Klick genügt.</li>
-        <li class="reveal"><strong>Privat by design.</strong> Viele Apps speichern lokal, ohne Server, ohne Tracking.</li>
-        <li class="reveal"><strong>Von A bis Z.</strong> Idee, Design, Umsetzung und Deployment – aus einer Hand.</li>
-        <li class="reveal"><strong>Breite Palette.</strong> Health, Games, Produktivität, Dev-Tools – ein Werkzeugkasten aus Neugier.</li>
+        <li class="reveal" data-i18n-html="storyPoint1"><strong>Erlebbar statt erklärt.</strong> Jedes Produkt hat eine animierte Demo – ein Klick genügt.</li>
+        <li class="reveal" data-i18n-html="storyPoint2"><strong>Privat by design.</strong> Viele Apps speichern lokal, ohne Server, ohne Tracking.</li>
+        <li class="reveal" data-i18n-html="storyPoint3"><strong>Von A bis Z.</strong> Idee, Design, Umsetzung und Deployment – aus einer Hand.</li>
+        <li class="reveal" data-i18n-html="storyPoint4"><strong>Breite Palette.</strong> Health, Games, Produktivität, Dev-Tools – ein Werkzeugkasten aus Neugier.</li>
       </ul>
     </div>
   </section>
@@ -162,9 +166,9 @@
   <section class="cta" id="kontakt">
     <div class="cta-card reveal">
       <div class="cta-glow" aria-hidden="true"></div>
-      <span class="section-kicker">// Let's talk</span>
-      <h2 class="cta-title">Hat ein Produkt dein Interesse geweckt?</h2>
-      <p class="cta-sub">
+      <span class="section-kicker" data-i18n="ctaKicker">// Let's talk</span>
+      <h2 class="cta-title" data-i18n="ctaTitle">Hat ein Produkt dein Interesse geweckt?</h2>
+      <p class="cta-sub" data-i18n="ctaSub">
         Ob Lizenz, Weiterentwicklung, White-Label oder eine ganz neue Idee –
         schreib mir. Ich melde mich schnell.
       </p>
@@ -176,23 +180,23 @@
         <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off" />
         <div class="cf-row">
           <div class="cf-field">
-            <label class="sr-only" for="cf-name">Dein Name</label>
-            <input class="cf-input" id="cf-name" type="text" name="name" required autocomplete="name" placeholder="Dein Name" />
+            <label class="sr-only" for="cf-name" data-i18n="formNameLabel">Dein Name</label>
+            <input class="cf-input" id="cf-name" type="text" name="name" required autocomplete="name" placeholder="Dein Name" data-i18n-placeholder="formNamePlaceholder" />
           </div>
           <div class="cf-field">
-            <label class="sr-only" for="cf-email">Deine E-Mail-Adresse</label>
-            <input class="cf-input" id="cf-email" type="email" name="email" required autocomplete="email" placeholder="Deine E-Mail (für die Antwort)" />
+            <label class="sr-only" for="cf-email" data-i18n="formEmailLabel">Deine E-Mail-Adresse</label>
+            <input class="cf-input" id="cf-email" type="email" name="email" required autocomplete="email" placeholder="Deine E-Mail (für die Antwort)" data-i18n-placeholder="formEmailPlaceholder" />
           </div>
         </div>
-        <label class="sr-only" for="cf-message">Deine Nachricht</label>
-        <textarea class="cf-input" id="cf-message" name="message" required rows="4" placeholder="Worum geht's? Deine Nachricht …"></textarea>
+        <label class="sr-only" for="cf-message" data-i18n="formMessageLabel">Deine Nachricht</label>
+        <textarea class="cf-input" id="cf-message" name="message" required rows="4" placeholder="Worum geht's? Deine Nachricht …" data-i18n-placeholder="formMessagePlaceholder"></textarea>
         <button class="btn btn-primary cf-submit" type="submit">
-          <span class="cf-label">Nachricht senden</span>
+          <span class="cf-label" data-i18n="formSubmit">Nachricht senden</span>
           <span class="btn-arrow">↗</span>
         </button>
         <p class="cf-status" id="cf-status" role="status" aria-live="polite"></p>
       </form>
-      <a class="cf-github" href="https://github.com/theminhnguyen" target="_blank" rel="noopener">oder auf GitHub ansehen ↗</a>
+      <a class="cf-github" href="https://github.com/theminhnguyen" target="_blank" rel="noopener" data-i18n="ctaGithubLink">oder auf GitHub ansehen ↗</a>
     </div>
   </section>
 
@@ -202,8 +206,8 @@
       <div class="footer-brand">
         <span class="nav-mark">✦</span> minh<span class="nav-dot">.</span>studio
       </div>
-      <p class="footer-note">Gebaut im Vibe-Coding-Stil · <span id="year"></span></p>
-      <a class="footer-top" href="#top">Nach oben ↑</a>
+      <p class="footer-note"><span data-i18n="footerNote">Gebaut im Vibe-Coding-Stil ·</span> <span id="year"></span></p>
+      <a class="footer-top" href="#top" data-i18n="footerTop">Nach oben ↑</a>
     </div>
   </footer>
 
@@ -213,13 +217,14 @@
       <span class="lightbox-title" id="lightbox-title"></span>
       <div class="lightbox-actions">
         <a class="lightbox-open" id="lightbox-live" target="_blank" rel="noopener" hidden>Live testen ↗</a>
-        <a class="lightbox-open" id="lightbox-contact" href="#kontakt">Interesse? Anfragen ↗</a>
-        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Demo schließen">✕</button>
+        <a class="lightbox-open" id="lightbox-contact" href="#kontakt" data-i18n="lightboxContact">Interesse? Anfragen ↗</a>
+        <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Demo schließen" data-i18n-aria-label="lightboxCloseAria">✕</button>
       </div>
     </div>
     <div class="lightbox-stage" id="lightbox-stage"></div>
   </div>
 
+  <script src="js/i18n.js"></script>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>

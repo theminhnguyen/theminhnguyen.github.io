@@ -187,6 +187,31 @@ section { position: relative; z-index: 2; }
 .nav-cta:hover { background: var(--surface-2); border-color: var(--accent); }
 @media (max-width: 640px) { .nav-links a:not(.nav-cta) { display: none; } }
 
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  line-height: 1;
+}
+.lang-toggle:hover { border-color: var(--accent); }
+.lang-opt {
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text-faint);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.lang-opt.active { background: var(--accent); color: var(--bg); }
+.lang-toggle:hover .lang-opt:not(.active) { color: var(--text-dim); }
+
 /* ---------- Buttons ---------- */
 .btn {
   display: inline-flex;

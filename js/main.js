@@ -4,6 +4,10 @@
 (() => {
   'use strict';
 
+  // Sprache so früh wie möglich setzen, bevor irgendetwas Sprachabhängiges
+  // gerendert wird (Grid, Filter, Zähler-Text).
+  setLang(detectInitialLang());
+
   /* ---------- Kleine Helfer ---------- */
 
   // Schützt vor kaputtem Markup (und XSS), falls Produktdaten je aus
@@ -16,12 +20,14 @@
       .replace(/"/g, '&quot;')
       .replace(/'/g, '&#39;');
 
-  const NUM_WORDS = [
-    'Null', 'Ein', 'Zwei', 'Drei', 'Vier', 'Fünf', 'Sechs', 'Sieben', 'Acht',
-    'Neun', 'Zehn', 'Elf', 'Zwölf', 'Dreizehn', 'Vierzehn', 'Fünfzehn',
-    'Sechzehn', 'Siebzehn', 'Achtzehn', 'Neunzehn', 'Zwanzig',
-  ];
-  const numWord = (n) => NUM_WORDS[n] || String(n);
+  // Überlagert die deutschen Basisfelder eines Produkts mit den englischen
+  // Varianten (falls vorhanden) – Tags, Bilder & technische Felder bleiben gleich.
+  function localize(p) {
+    if (getLang() !== 'en' || !p.en) return p;
+    return { ...p, ...p.en };
+  }
+
+  const filterLabel = (f) => (getLang() === 'en' ? f.labelEn || f.label : f.label);
 
   /* ---------- Individuelle CSS-Mockups pro Produkt ---------- */
   const MOCKUPS = {
@@ -208,25 +214,30 @@
   /* ---------- Verfügbarkeit eines Produkts ---------- */
   // Ein Produkt kann eine echte Web-App sein ('app'), nur ein Download
   // ('download') oder gar nichts Öffentliches (null). Danach richten sich
-  // Badge, Button-Beschriftung und der Live-Demo-Zähler.
-  const KIND = {
-    app:      { badge: 'Live',        cls: 'status-live',     action: 'Live testen ↗',   lightbox: 'Live testen ↗' },
-    download: { badge: 'Download',    cls: 'status-download', action: 'Zum Download ↗',  lightbox: 'Download ↗' },
-    concept:  { badge: 'Konzept',     cls: 'status-soon',     action: 'Konzept ansehen ↗', lightbox: 'Konzept ansehen ↗' },
-    building: { badge: 'In Entwicklung', cls: 'status-soon', action: 'Repo ansehen ↗',  lightbox: 'Repo ansehen ↗' },
-    none:     { badge: 'Auf Anfrage', cls: 'status-soon',     action: 'Anfragen',        lightbox: '' },
-  };
-  const kindOf = (p) => KIND[p.liveKind || 'none'] || KIND.none;
+  // Badge, Button-Beschriftung und der Live-Demo-Zähler. Als Funktion (statt
+  // fixer Map), damit sie die Beschriftungen der aktuell aktiven Sprache liest.
+  function kindOf(p) {
+    const KIND = {
+      app: { badge: t('kindLiveBadge'), cls: 'status-live', action: t('kindLiveAction'), lightbox: t('kindLiveAction') },
+      download: { badge: t('kindDownloadBadge'), cls: 'status-download', action: t('kindDownloadAction'), lightbox: t('kindDownloadLightbox') },
+      concept: { badge: t('kindConceptBadge'), cls: 'status-soon', action: t('kindConceptAction'), lightbox: t('kindConceptAction') },
+      building: { badge: t('kindBuildingBadge'), cls: 'status-soon', action: t('kindBuildingAction'), lightbox: t('kindBuildingAction') },
+      none: { badge: t('kindNoneBadge'), cls: 'status-soon', action: t('kindNoneAction'), lightbox: '' },
+    };
+    return KIND[p.liveKind || 'none'] || KIND.none;
+  }
 
   /* ---------- Karten rendern ---------- */
   const grid = document.getElementById('product-grid');
+  let activeFilter = 'all';
 
-  function cardHTML(p) {
+  function cardHTML(rawP) {
+    const p = localize(rawP);
     const mockup = (MOCKUPS[p.id] || (() => ''))();
     const k = kindOf(p);
 
     const actions = [
-      `<button class="card-btn primary" data-demo="${esc(p.id)}">▶ Demo ansehen</button>`,
+      `<button class="card-btn primary" data-demo="${esc(p.id)}">${esc(t('demoWatchBtn'))}</button>`,
     ];
     if (p.live) {
       actions.push(
@@ -241,12 +252,12 @@
     // und Screenreader-Ausgabe genommen.
     const previewOverlay =
       `<button class="stage-preview-btn" data-demo="${esc(p.id)}" tabindex="-1" aria-hidden="true">
-         <span class="play">▶</span> Demo ansehen
+         <span class="play">▶</span> ${esc(t('demoWatchLabel'))}
        </button>`;
 
-    const tags = p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('');
+    const tags = p.tags.map((tag) => `<span class="tag">${esc(tag)}</span>`).join('');
     const accountHint = p.account
-      ? `<span class="need-account" title="Zum Ausprobieren ist ein Konto nötig">🔑 Konto nötig</span>`
+      ? `<span class="need-account" title="${esc(t('accountNeededTooltip'))}">${esc(t('accountNeededLabel'))}</span>`
       : '';
 
     return `
@@ -286,9 +297,15 @@
     return `rgba(${r},${g},${b},0.45)`;
   }
 
-  // Featured zuerst, damit das Bento-Layout stimmt
+  // Featured zuerst, damit das Bento-Layout stimmt. Reihenfolge ist
+  // sprachunabhängig, deshalb einmalig berechnet.
   const ordered = [...PROJECTS].sort((a, b) => (b.featured === true) - (a.featured === true));
-  grid.innerHTML = ordered.map(cardHTML).join('');
+
+  function renderGrid() {
+    grid.innerHTML = ordered.map(cardHTML).join('');
+    wireCardHoverReset();
+    applyFilter(activeFilter);
+  }
 
   /* ---------- Bento-Layout: keine halbe Karte allein in der letzten Reihe ---------- */
   // Normale Karten belegen je eine halbe Reihe. Bleibt am Ende eine übrig
@@ -298,34 +315,41 @@
     grid.querySelectorAll('.card.span-full').forEach((c) => c.classList.remove('span-full'));
     if (visible.length % 2 === 1) visible[visible.length - 1].classList.add('span-full');
   }
-  layoutGrid();
 
   /* ---------- Filter ---------- */
   const filterBar = document.getElementById('filters');
-  filterBar.innerHTML = FILTERS.map(
-    (f, i) =>
-      `<button type="button" class="filter-chip ${i === 0 ? 'active' : ''}" data-filter="${esc(f.id)}" aria-pressed="${i === 0}">${esc(f.label)}</button>`
-  ).join('');
+
+  function renderFilters() {
+    filterBar.innerHTML = FILTERS.map(
+      (f) =>
+        `<button type="button" class="filter-chip ${f.id === activeFilter ? 'active' : ''}" data-filter="${esc(f.id)}" aria-pressed="${f.id === activeFilter}">${esc(filterLabel(f))}</button>`
+    ).join('');
+  }
+
+  function applyFilter(filterId) {
+    activeFilter = filterId;
+    filterBar.querySelectorAll('.filter-chip').forEach((c) => {
+      const on = c.dataset.filter === filterId;
+      c.classList.toggle('active', on);
+      c.setAttribute('aria-pressed', String(on));
+    });
+    grid.querySelectorAll('.card').forEach((card) => {
+      const show = filterId === 'all' || card.dataset.category === filterId;
+      card.classList.toggle('hide', !show);
+    });
+    layoutGrid();
+  }
 
   filterBar.addEventListener('click', (e) => {
     const chip = e.target.closest('.filter-chip');
     if (!chip) return;
-    filterBar.querySelectorAll('.filter-chip').forEach((c) => {
-      const on = c === chip;
-      c.classList.toggle('active', on);
-      c.setAttribute('aria-pressed', String(on));
-    });
-    const f = chip.dataset.filter;
-    grid.querySelectorAll('.card').forEach((card) => {
-      const show = f === 'all' || card.dataset.category === f;
-      card.classList.toggle('hide', !show);
-    });
-    layoutGrid();
+    applyFilter(chip.dataset.filter);
   });
 
   /* ---------- Tech-Ticker ---------- */
+  // Technologie-Namen sind Eigennamen und sprachunabhängig, deshalb einmalig gerendert.
   const track = document.getElementById('ticker-track');
-  const tickerHTML = TECH_TICKER.map((t) => `<span class="ticker-item">${esc(t)}</span>`).join('');
+  const tickerHTML = TECH_TICKER.map((tech) => `<span class="ticker-item">${esc(tech)}</span>`).join('');
   track.innerHTML = tickerHTML + tickerHTML; // verdoppeln für nahtlose Schleife
 
   /* ---------- Demo-Großvorschau (Lightbox) ---------- */
@@ -337,11 +361,13 @@
   const lbClose = document.getElementById('lightbox-close');
 
   const byId = (id) => PROJECTS.find((p) => p.id === id);
+  let openDemoId = null;
 
-  function demoSceneHTML(p) {
+  function demoSceneHTML(rawP) {
+    const p = localize(rawP);
     const mockup = (MOCKUPS[p.id] || (() => ''))();
     const feats = (p.features || []).map((f) => `<li>${esc(f)}</li>`).join('');
-    const tags = p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join('');
+    const tags = p.tags.map((tag) => `<span class="tag">${esc(tag)}</span>`).join('');
     const shots = p.shots || [];
     const type = p.shotType || 'desktop';
 
@@ -352,7 +378,7 @@
       .map((m, i) => {
         const act = i === 0 ? ' active' : '';
         if (m.kind === 'shot') {
-          return `<figure class="gal-item${act}" data-idx="${i}"><div class="frame frame-${esc(type)}"><img loading="lazy" src="${esc(m.src)}" alt="${esc(p.name)} – echter Screenshot"></div></figure>`;
+          return `<figure class="gal-item${act}" data-idx="${i}"><div class="frame frame-${esc(type)}"><img loading="lazy" src="${esc(m.src)}" alt="${esc(p.name)} ${esc(t('screenshotAltSuffix'))}"></div></figure>`;
         }
         return `<figure class="gal-item${act}" data-idx="${i}"><div class="mock-holder">${mockup}</div></figure>`;
       })
@@ -365,19 +391,19 @@
           m.kind === 'shot'
             ? `<img src="${esc(m.src)}" alt="">`
             : `<span class="thumb-mock">${esc(p.emoji)}</span>`;
-        return `<button type="button" class="gal-thumb${act}" data-idx="${i}" data-kind="${m.kind}" aria-label="Ansicht ${i + 1}">${inner}</button>`;
+        return `<button type="button" class="gal-thumb${act}" data-idx="${i}" data-kind="${m.kind}" aria-label="${esc(t('viewLabel'))} ${i + 1}">${inner}</button>`;
       })
       .join('');
 
-    const startBadge = media[0].kind === 'shot' ? 'Echter Screenshot' : 'Animierte Demo';
+    const startBadge = media[0].kind === 'shot' ? t('realScreenshotBadge') : t('animatedDemoBadge');
     const thumbsRow = media.length > 1 ? `<div class="demo-thumbs">${thumbs}</div>` : '';
 
     const notes = [];
     if (p.account) {
-      notes.push(`<p class="demo-note">🔑 Zum Ausprobieren ist ein kostenloses Konto nötig (Google oder E-Mail-Link).</p>`);
+      notes.push(`<p class="demo-note">${esc(t('accountNote'))}</p>`);
     }
     if (p.fanProject) {
-      notes.push(`<p class="demo-note">⚖️ Nicht-kommerzielles Fan-Projekt – steht nicht zur Lizenzierung.</p>`);
+      notes.push(`<p class="demo-note">${esc(t('fanProjectNote'))}</p>`);
     }
 
     return `
@@ -406,13 +432,14 @@
   function openDemo(id) {
     const p = byId(id);
     if (!p) return;
+    openDemoId = id;
 
     clearTimeout(stageClearTimer);
     stageClearTimer = null;
 
     lbTitle.textContent = p.name + ' · Demo';
 
-    const k = kindOf(p);
+    const k = kindOf(localize(p));
     if (p.live && k.lightbox) {
       lbLive.href = p.live;
       lbLive.textContent = k.lightbox;
@@ -433,6 +460,7 @@
   }
 
   function closeDemo() {
+    openDemoId = null;
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
@@ -441,6 +469,13 @@
       lbStage.innerHTML = '';
       stageClearTimer = null;
     }, 300);
+  }
+
+  // Bei Sprachwechsel bleibt eine offene Lightbox offen, ihr Inhalt wird nur
+  // neu gerendert (sonst würde der Sprachwechsel eine offene Demo wegreißen).
+  function refreshOpenLightbox() {
+    if (!openDemoId) return;
+    openDemo(openDemoId);
   }
 
   grid.addEventListener('click', (e) => {
@@ -460,15 +495,13 @@
     const thumb = e.target.closest('.gal-thumb');
     if (!thumb) return;
     const idx = thumb.dataset.idx;
-    lbStage.querySelectorAll('.gal-thumb').forEach((t) => t.classList.toggle('active', t === thumb));
+    lbStage.querySelectorAll('.gal-thumb').forEach((th) => th.classList.toggle('active', th === thumb));
     lbStage.querySelectorAll('.gal-item').forEach((it) => it.classList.toggle('active', it.dataset.idx === idx));
     const badge = document.getElementById('demo-badge');
-    if (badge) badge.innerHTML = `<span class="dot"></span>${thumb.dataset.kind === 'mock' ? 'Animierte Demo' : 'Echter Screenshot'}`;
+    if (badge) badge.innerHTML = `<span class="dot"></span>${thumb.dataset.kind === 'mock' ? t('animatedDemoBadge') : t('realScreenshotBadge')}`;
   });
 
   /* ---------- Reveal on Scroll ---------- */
-  document.querySelectorAll('.card').forEach((c) => c.classList.add('reveal'));
-
   const io = new IntersectionObserver(
     (entries) => {
       entries.forEach((en) => {
@@ -480,7 +513,11 @@
     },
     { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
   );
-  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  function wireInitialReveal() {
+    document.querySelectorAll('.card').forEach((c) => c.classList.add('reveal'));
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  }
 
   /* ---------- Zähler-Animation ---------- */
   // Alle drei Zahlen kommen aus den echten Daten, damit sie beim Hinzufügen
@@ -498,9 +535,12 @@
   });
 
   // Fließtext, der die Produktzahl nennt, ebenfalls aus den Daten speisen
-  document.querySelectorAll('[data-count-word="products"]').forEach((el) => {
-    el.textContent = numWord(nProducts);
-  });
+  function updateCountWord() {
+    document.querySelectorAll('[data-count-word="products"]').forEach((el) => {
+      el.textContent = numWord(nProducts, getLang());
+    });
+  }
+  updateCountWord();
 
   const counters = document.querySelectorAll('[data-count]');
   const cio = new IntersectionObserver((entries) => {
@@ -528,6 +568,23 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  /* ---------- Sprachumschalter ---------- */
+  const langToggle = document.getElementById('lang-toggle');
+  if (langToggle) {
+    langToggle.addEventListener('click', (e) => {
+      const opt = e.target.closest('.lang-opt');
+      const next = opt ? opt.dataset.lang : (getLang() === 'de' ? 'en' : 'de');
+      if (next === getLang()) return;
+      setLang(next);
+    });
+  }
+  window.onLanguageChanged = () => {
+    updateCountWord();
+    renderFilters();
+    renderGrid();
+    refreshOpenLightbox();
+  };
+
   /* ---------- Cursor-Glow + 3D-Tilt ---------- */
   const glow = document.querySelector('.cursor-glow');
   let rafId = null;
@@ -546,7 +603,8 @@
 
   // Sanfter 3D-Tilt auf Karten (nur mit Zeiger und ohne reduzierte Bewegung)
   const wantsMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (window.matchMedia('(hover: hover)').matches && wantsMotion) {
+  const wantsTilt = window.matchMedia('(hover: hover)').matches && wantsMotion;
+  if (wantsTilt) {
     grid.addEventListener('mousemove', (e) => {
       const card = e.target.closest('.card');
       if (!card) return;
@@ -555,10 +613,14 @@
       const py = (e.clientY - r.top) / r.height - 0.5;
       card.style.transform = `perspective(900px) rotateX(${(-py * 4).toFixed(2)}deg) rotateY(${(px * 5).toFixed(2)}deg) translateY(-4px)`;
     });
+  }
 
-    // Nur ein Handler pro Karte. Ein Capture-Listener auf dem Grid würde auch
-    // bei jedem Verlassen eines *Kind*-Elements feuern und den Tilt mitten im
-    // Hover zurücksetzen (sichtbares Zucken).
+  // Nur ein Handler pro Karte. Ein Capture-Listener auf dem Grid würde auch
+  // bei jedem Verlassen eines *Kind*-Elements feuern und den Tilt mitten im
+  // Hover zurücksetzen (sichtbares Zucken). Muss nach jedem Grid-Rerender
+  // (Sprachwechsel ersetzt die Karten-DOM-Knoten) erneut angehängt werden.
+  function wireCardHoverReset() {
+    if (!wantsTilt) return;
     grid.querySelectorAll('.card').forEach((card) => {
       card.addEventListener('mouseleave', () => { card.style.transform = ''; });
     });
@@ -577,7 +639,7 @@
       if (!cform.checkValidity()) { cform.reportValidity(); return; }
       csubmit.disabled = true;
       const orig = clabel.textContent;
-      clabel.textContent = 'Wird gesendet …';
+      clabel.textContent = t('formSending');
       try {
         const res = await fetch('https://api.web3forms.com/submit', {
           method: 'POST',
@@ -588,13 +650,13 @@
         if (json.success) {
           cform.reset();
           cstatus.className = 'cf-status ok';
-          cstatus.textContent = '✓ Danke! Deine Nachricht ist unterwegs – ich melde mich bald.';
+          cstatus.textContent = t('formSuccess');
         } else {
           throw new Error(json.message || 'Fehler');
         }
       } catch (err) {
         cstatus.className = 'cf-status err';
-        cstatus.textContent = '✗ Das hat leider nicht geklappt. Bitte später nochmal versuchen.';
+        cstatus.textContent = t('formError');
       } finally {
         csubmit.disabled = false;
         clabel.textContent = orig;
@@ -604,4 +666,9 @@
 
   /* ---------- Jahr im Footer ---------- */
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Initiales Rendering ---------- */
+  renderFilters();
+  renderGrid();
+  wireInitialReveal();
 })();

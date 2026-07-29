@@ -10,6 +10,8 @@
  *            null       → nichts Öffentliches verfügbar
  * account:   true, wenn zum Ausprobieren ein Konto/Login nötig ist
  * fanProject: true bei nicht-kommerziellen Fan-Projekten (kein Lizenz-CTA)
+ * en:        englische Übersetzung von tagline/description/features/categoryLabel
+ *            (siehe js/i18n.js für die Sprachumschaltung)
  */
 const PROJECTS = [
   {
@@ -26,6 +28,19 @@ const PROJECTS = [
       'Filter nach Film/Serie/Buch/Manga + Status Geplant → Dabei → Fertig',
       'Live-Sync über Geräte, offline-fähig, installierbar als App (PWA)',
     ],
+    en: {
+      tagline: 'Movies, shows, books & manga — auto-researched.',
+      description:
+        'Personal media tracker as a PWA: type a title — even loosely, like "the new Dune" — and the AI figures out what you mean, then fetches cover art, description, and release date automatically from TMDB, Google Books & AniList. Upcoming releases included: a daily cloud check sends a push notification the moment a planned title comes out. Sorted by type and progress (Planned → In Progress → Done). Free, offline-capable, installable.',
+      features: [
+        'Free-text search with AI (Gemini): recognizes title & type even from fuzzy input',
+        'Auto-research of cover art, description & release date (TMDB · Google Books · AniList)',
+        'Upcoming releases: push notification the moment a planned title comes out',
+        'Filter by movie/show/book/manga + status Planned → In Progress → Done',
+        'Live sync across devices, offline-capable, installable as an app (PWA)',
+      ],
+      categoryLabel: 'Entertainment',
+    },
     shots: ['assets/shots/mediavault-1.jpg', 'assets/shots/mediavault-2.jpg'],
     shotType: 'mobile',
     tags: ['Next.js 15', 'Supabase', 'Gemini', 'TMDB', 'AniList', 'PWA'],
@@ -52,6 +67,19 @@ const PROJECTS = [
       '✨ KI-Feinschliff per lokalem LLM (LM Studio/Ollama) & Freihand-Modus',
       'Fertige DMG-Datei: installieren per Drag & Drop, Assistent führt durch die Einrichtung',
     ],
+    en: {
+      tagline: 'Speak instead of type. 100% local.',
+      description:
+        'A dictation app like Wispr Flow — but completely local and free: hold a key, speak, release, and the text appears at the cursor, in any Mac app. Whisper runs on the Apple GPU, a local LLM can polish the text on request, and your iPhone becomes a remote microphone. Ready-made DMG to drag in, including a setup assistant. No subscription, no cloud, no account.',
+      features: [
+        'System-wide dictation: hold ⌥, speak — text lands at the cursor',
+        'Whisper large-v3-turbo locally on the Apple GPU — offline & $0',
+        'iPhone as a remote microphone: dictation appears directly on the Mac',
+        '✨ AI polish via a local LLM (LM Studio/Ollama) & hands-free mode',
+        'Ready-made DMG file: install via drag & drop, assistant guides setup',
+      ],
+      categoryLabel: 'Productivity',
+    },
     shots: [],
     shotType: 'raw',
     tags: ['Python', 'Whisper (MLX)', 'LM Studio', 'Ollama', 'macOS'],
@@ -76,6 +104,18 @@ const PROJECTS = [
       'Tempo-Statistik (85-%-Wert) & Zähllinie mit Richtung',
       'Intelligenter Tagesbericht, Report & 100 % lokal',
     ],
+    en: {
+      tagline: 'The pulse of your street.',
+      description:
+        'Counts traffic outside your window via webcam — cars, pedestrians, and trucks — including speed estimates. AI object detection runs entirely in the browser (TensorFlow.js), with a counting line, speed statistics, a daily report, and a shareable summary. No image ever leaves the computer.',
+      features: [
+        'AI object detection live in the browser (TensorFlow.js / COCO-SSD)',
+        'Counts cars, pedestrians & trucks — with speed estimation',
+        'Speed statistics (85th percentile) & counting line with direction',
+        'Smart daily report, shareable report & 100% local',
+      ],
+      categoryLabel: 'AI & Traffic',
+    },
     shots: [],
     shotType: 'desktop',
     tags: ['TensorFlow.js', 'COCO-SSD', 'Canvas', 'IndexedDB'],
@@ -100,6 +140,18 @@ const PROJECTS = [
       'Verlauf, Favoriten & Kategorien',
       'Installierbar als App (PWA)',
     ],
+    en: {
+      tagline: 'Never forget the milk again.',
+      description:
+        'Mobile-first shopping list with live sync for the whole household. Add dishes to the list with a single tap, plus history, favorites, and categories — installable as an app.',
+      features: [
+        'Real-time live sync for the whole household',
+        'Add dishes to the shopping list with one tap',
+        'History, favorites & categories',
+        'Installable as an app (PWA)',
+      ],
+      categoryLabel: 'Everyday',
+    },
     shots: ['assets/shots/korbi-1.jpg', 'assets/shots/korbi-2.jpg'],
     shotType: 'mobile',
     tags: ['Next.js 15', 'Supabase', 'Realtime', 'PWA'],
@@ -125,6 +177,18 @@ const PROJECTS = [
       'Läuft komplett im Browser – ohne Konto',
       'Begehbare Three.js-Galerie mit Figur',
     ],
+    en: {
+      tagline: 'PowerPoint is history.',
+      description:
+        'A cinematic presentation tool in the browser — with parallax slides, a walkable 3D gallery (Three.js), and a journey mode. No server, no account.',
+      features: [
+        'Three modes: slides, journey & walkable 3D world',
+        'Parallax layers & Ken Burns effects',
+        'Runs entirely in the browser — no account',
+        'Walkable Three.js gallery with an avatar',
+      ],
+      categoryLabel: 'Creative',
+    },
     shots: ['assets/shots/wonderdeck-2.jpg', 'assets/shots/wonderdeck-1.jpg'],
     shotType: 'desktop',
     tags: ['Three.js', 'WebGL', 'VRM', 'Canvas'],
@@ -149,6 +213,18 @@ const PROJECTS = [
       '12 goldene Schnätze mit HUD-Kompass & Speicherstand',
       'Null Assets: Texturen, Gelände & Sound prozedural erzeugt',
     ],
+    en: {
+      tagline: 'A castle to explore.',
+      description:
+        'A walkable 3D world in the browser: a castle with a Great Hall and floating candles, a lake with a boathouse, a forest, a Quidditch pitch — all generated procedurally, without a single asset. With a day/night cycle, 12 hidden snitches, and a Lumos spell. Non-commercial fan project.',
+      features: [
+        'Freely walkable 3D castle in first-person view',
+        'Full day/night cycle: sun, moon, stars, sunset',
+        '12 golden snitches with HUD compass & save state',
+        'Zero assets: textures, terrain & sound generated procedurally',
+      ],
+      categoryLabel: '3D World',
+    },
     shots: [],
     shotType: 'desktop',
     tags: ['Three.js', 'WebGL', 'WebAudio', 'Prozedural'],
@@ -174,6 +250,18 @@ const PROJECTS = [
       'Alles lokal – kein Server, kein Tracking',
       'CSV-Export der ganzen Session',
     ],
+    en: {
+      tagline: 'Your vitals. No subscription.',
+      description:
+        'Reads heart rate, RR intervals & battery live from a subscription-free Whoop 4.0 — directly in the browser via Web Bluetooth. All local, CSV export included.',
+      features: [
+        'Live heart rate via Web Bluetooth',
+        'RR intervals & battery level in real time',
+        'Everything local — no server, no tracking',
+        'CSV export of the whole session',
+      ],
+      categoryLabel: 'Health',
+    },
     shots: ['assets/shots/whoopi-dashboard-1.jpg'],
     shotType: 'mobile',
     tags: ['Web Bluetooth', 'IndexedDB', 'Single-File'],
@@ -198,6 +286,18 @@ const PROJECTS = [
       'Die ganze Karte steckt im Link – kein Server',
       'Anlässe: Geburtstag, Abschied, Hochzeit …',
     ],
+    en: {
+      tagline: 'Greetings you can walk through.',
+      description:
+        'Turns greeting cards into a walkable mini-game in a Game Boy look. Every greeting becomes a little character in a pixel room — the whole card lives inside the link, no server needed.',
+      features: [
+        'Greetings as a walkable pixel game',
+        'Game Boy look with dialogue boxes',
+        'The whole card lives inside the link — no server',
+        'Occasions: birthday, farewell, wedding …',
+      ],
+      categoryLabel: 'Fun',
+    },
     shots: ['assets/shots/pixelpost-1.jpg'],
     shotType: 'mobile',
     tags: ['Canvas', 'Game Engine', 'Zero-Backend'],
@@ -222,6 +322,18 @@ const PROJECTS = [
       'KI-Agenten bevölkern die Welt',
       'Echtzeit-Multiplayer über Socket.io',
     ],
+    en: {
+      tagline: 'Meet up in the pixel universe.',
+      description:
+        'Browser multiplayer for up to 50 players: a pixel-art world with minigames, boss fights, and AI agents — synced in real time via Socket.io.',
+      features: [
+        'Up to 50 players simultaneously',
+        'Minigames & boss fights',
+        'AI agents populate the world',
+        'Real-time multiplayer via Socket.io',
+      ],
+      categoryLabel: 'Multiplayer',
+    },
     shots: ['assets/shots/virtual-world-multiplayer-1.jpg'],
     shotType: 'desktop',
     tags: ['Socket.io', 'Node.js', 'Realtime', 'Game'],
@@ -246,6 +358,18 @@ const PROJECTS = [
       'Gemeinsam planen per Share-Link',
       'Offline-fähige PWA',
     ],
+    en: {
+      tagline: 'Plan trips together.',
+      description:
+        'Collects places with auto-fill for address, coordinates & opening hours, shows them on a map and calendar, and shares everything via link. Offline-capable PWA.',
+      features: [
+        'Collect places with auto-fill (OpenStreetMap)',
+        'Map & calendar view',
+        'Plan together via share link',
+        'Offline-capable PWA',
+      ],
+      categoryLabel: 'Travel',
+    },
     shots: ['assets/shots/tripmate-2.jpg', 'assets/shots/tripmate-1.jpg'],
     shotType: 'mobile',
     tags: ['Leaflet', 'OpenStreetMap', 'PWA', 'Offline'],
@@ -270,6 +394,18 @@ const PROJECTS = [
       'Schlanker SaaS-Prototyp',
       'Gebaut mit Next.js & Supabase',
     ],
+    en: {
+      tagline: 'Recognition that counts.',
+      description:
+        'Values-based peer recognition tool for teams: colleagues praise each other along shared values. A lean SaaS prototype built on Next.js & Supabase.',
+      features: [
+        'Values-based peer recognition within the team',
+        'Recognition visible in a feed',
+        'Lean SaaS prototype',
+        'Built with Next.js & Supabase',
+      ],
+      categoryLabel: 'Business',
+    },
     shots: ['assets/shots/kudosedge-1.jpg'],
     shotType: 'desktop',
     tags: ['Next.js', 'Supabase', 'SaaS'],
@@ -295,6 +431,18 @@ const PROJECTS = [
       '12 Ball-Skins + Effekte, Sound & Trackpad-Haptik',
       'Lebt in der Menüleiste, globaler Shortcut ⌥F',
     ],
+    en: {
+      tagline: 'The fidget ball for your desktop.',
+      description:
+        'A physics-based fidget ball on a rope that floats over your Mac desktop. Drag it, throw it, bounce it, cut the rope — with 12 skins, effects, sound & trackpad haptics. Lives in the menu bar, invisible until you need it.',
+      features: [
+        'Real rope physics: drag, throw, swing, bounce',
+        'Cut the rope — the ball falls freely (with confetti)',
+        '12 ball skins + effects, sound & trackpad haptics',
+        'Lives in the menu bar, global shortcut ⌥F',
+      ],
+      categoryLabel: 'Fun',
+    },
     shots: ['assets/shots/boop-1.jpg'],
     shotType: 'raw',
     tags: ['Swift', 'SpriteKit', 'AppKit', 'macOS'],
@@ -319,6 +467,18 @@ const PROJECTS = [
       'Benachrichtigung bei Schwellwerten',
       '7-Tage-Sparkline & Modell-Buckets',
     ],
+    en: {
+      tagline: 'Your AI limits, at a glance.',
+      description:
+        "A macOS menu bar app that shows claude.ai's usage limits: 5-hour session, weekly limit, and model buckets — with a traffic-light status, notifications & a 7-day sparkline.",
+      features: [
+        '5-hour session & weekly limit at a glance',
+        'Traffic-light status right in the menu bar',
+        'Notification at threshold levels',
+        '7-day sparkline & model buckets',
+      ],
+      categoryLabel: 'Dev Tool',
+    },
     shots: ['assets/shots/claude-usage-monitor-1.jpg'],
     shotType: 'raw',
     tags: ['Python', 'PyObjC', 'Swift', 'macOS'],
@@ -344,6 +504,19 @@ const PROJECTS = [
       'Interaktives Gantt mit Abhängigkeiten, Konflikten & Drag-to-Reschedule',
       '1-Klick-Statusbericht + PowerPoint-Export',
     ],
+    en: {
+      tagline: 'Keep side projects on your radar — even when the day job gets in the way.',
+      description:
+        'Internal team tool for tracking side projects alongside day-to-day work: T-shirt sizing instead of hours, one-click deadline snoozing with an audit log (who moved what, when, and why?), a day-job traffic light per person, and an interactive Gantt chart with dependencies, conflict detection & drag-to-reschedule. Plus a one-click status report for team updates and PowerPoint export — including light/dark mode.',
+      features: [
+        'T-shirt sizes (S/M/L/XL) instead of hour estimates',
+        'One-click snooze with audit log: who moved what, when, and why',
+        'Day-job traffic light (red/yellow/green) per team member',
+        'Interactive Gantt chart with dependencies, conflicts & drag-to-reschedule',
+        'One-click status report + PowerPoint export',
+      ],
+      categoryLabel: 'Team Tool',
+    },
     shots: ['assets/shots/sidetrack-1.jpg', 'assets/shots/sidetrack-3.jpg', 'assets/shots/sidetrack-2.jpg'],
     shotType: 'desktop',
     tags: ['React', 'TypeScript', 'Zustand', 'Gantt', 'PPTX-Export'],
@@ -358,11 +531,11 @@ const PROJECTS = [
 ];
 
 const FILTERS = [
-  { id: 'all', label: 'Alle' },
-  { id: 'apps', label: 'Apps & Produktivität' },
-  { id: 'health', label: 'Health & Body' },
-  { id: 'games', label: 'Games & Fun' },
-  { id: 'tools', label: 'Dev-Tools' },
+  { id: 'all', label: 'Alle', labelEn: 'All' },
+  { id: 'apps', label: 'Apps & Produktivität', labelEn: 'Apps & Productivity' },
+  { id: 'health', label: 'Health & Body', labelEn: 'Health & Body' },
+  { id: 'games', label: 'Games & Fun', labelEn: 'Games & Fun' },
+  { id: 'tools', label: 'Dev-Tools', labelEn: 'Dev Tools' },
 ];
 
 /**
