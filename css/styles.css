@@ -757,6 +757,31 @@ section { position: relative; z-index: 2; }
 @keyframes boopSwing { 0%, 100% { transform: rotate(-17deg); } 50% { transform: rotate(17deg); } }
 @media (prefers-reduced-motion: reduce) { .m-boop-pivot { animation: none; transform: rotate(-6deg); } }
 
+/* sidetrack: Mini-Gantt mit Team-Ampel */
+.m-gantt { display: flex; flex-direction: column; gap: 14px; }
+.m-gantt-head { display: flex; align-items: center; gap: 8px; }
+.m-gantt-head b { color: #edecf5; font-size: 13px; letter-spacing: .2px; }
+.m-gantt-avatars { display: flex; margin-left: auto; }
+.m-gantt-ava { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #0b0b14; margin-left: -6px; }
+.m-gantt-ava:first-child { margin-left: 0; }
+.m-gantt-ava.a1 { background: #22c55e; }
+.m-gantt-ava.a2 { background: #f59e0b; }
+.m-gantt-ava.a3 { background: #ef4444; }
+.m-gantt-rows { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 2px 0 4px; }
+.m-gantt-today { position: absolute; top: -2px; bottom: -2px; left: 62%; border-left: 1px dashed rgba(255,255,255,0.3); }
+.m-gantt-bar {
+  display: block; height: 12px; border-radius: 6px;
+  background: linear-gradient(90deg, var(--card-accent), var(--card-accent-2));
+  box-shadow: 0 4px 10px -4px var(--card-glow, rgba(34,197,94,0.5));
+  transform-origin: left center;
+  animation: fillup 1s var(--ease) both;
+}
+.m-gantt-bar.snoozed { background: repeating-linear-gradient(135deg, var(--card-accent-2), var(--card-accent-2) 4px, transparent 4px, transparent 8px); box-shadow: none; }
+.m-gantt-bar.b2 { animation-delay: 0.12s; }
+.m-gantt-bar.b3 { animation-delay: 0.24s; }
+.m-gantt-bar.b4 { animation-delay: 0.36s; }
+@media (prefers-reduced-motion: reduce) { .m-gantt-bar { animation: none; } }
+
 /* ---------- Story ---------- */
 .story { padding: clamp(70px, 10vw, 120px) clamp(18px, 5vw, 40px); max-width: var(--maxw); margin: 0 auto; }
 .story-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 6vw, 70px); align-items: center; }

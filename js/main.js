@@ -209,6 +209,28 @@
           <i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:70%"></i>
         </div>
       </div>`,
+
+    sidetrack: () => `
+      <div class="mock">
+        <div class="mock-window">
+          <div class="mock-bar"><i></i><i></i><i></i></div>
+          <div class="mock-screen m-gantt">
+            <div class="m-gantt-head">
+              <span style="font-size:14px">🗂️</span>
+              <b>SideTrack</b>
+              <span class="m-gantt-avatars"><span class="m-gantt-ava a1"></span><span class="m-gantt-ava a2"></span><span class="m-gantt-ava a3"></span></span>
+            </div>
+            <div class="m-gantt-rows">
+              <span class="m-gantt-today"></span>
+              <span class="m-gantt-bar b1" style="margin-left:4%;width:40%"></span>
+              <span class="m-gantt-bar b2" style="margin-left:28%;width:46%"></span>
+              <span class="m-gantt-bar b3" style="margin-left:14%;width:32%"></span>
+              <span class="m-gantt-bar b4 snoozed" style="margin-left:50%;width:38%"></span>
+            </div>
+            <span class="m-tag">📊 Gantt · Snooze · Ampel</span>
+          </div>
+        </div>
+      </div>`,
   };
 
   /* ---------- Verfügbarkeit eines Produkts ---------- */
