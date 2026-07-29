@@ -344,7 +344,7 @@ const PROJECTS = [
       'Interaktives Gantt mit Abhängigkeiten, Konflikten & Drag-to-Reschedule',
       '1-Klick-Statusbericht + PowerPoint-Export',
     ],
-    shots: [],
+    shots: ['assets/shots/sidetrack-1.jpg', 'assets/shots/sidetrack-3.jpg', 'assets/shots/sidetrack-2.jpg'],
     shotType: 'desktop',
     tags: ['React', 'TypeScript', 'Zustand', 'Gantt', 'PPTX-Export'],
     category: 'tools',
