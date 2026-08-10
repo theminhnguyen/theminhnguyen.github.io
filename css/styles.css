@@ -811,6 +811,25 @@ section { position: relative; z-index: 2; }
 .m-room-block.bl3 { width: 28px; height: 8px; background: #7fb99e; bottom: 30%; }
 @media (prefers-reduced-motion: reduce) { .m-room-tile { animation: none; } }
 
+/* context-studio: Ladeleiste + Datei-Index */
+.m-ctx { display: flex; flex-direction: column; gap: 12px; }
+.m-ctx-load { position: relative; display: flex; align-items: center; height: 10px; gap: 3px; }
+.m-ctx-seg { height: 100%; border-radius: 3px; background: linear-gradient(90deg, var(--card-accent), var(--card-accent-2)); animation: fillup 1s var(--ease) both; }
+.m-ctx-seg.s1 { width: 28%; }
+.m-ctx-seg.s2 { width: 18%; animation-delay: 0.12s; }
+.m-ctx-seg.s3 { width: 12%; animation-delay: 0.24s; }
+.m-ctx-seg.outline { background: none; border: 1.5px solid var(--border-strong); height: 60%; animation: none; }
+.m-ctx-seg.o1 { width: 16%; }
+.m-ctx-seg.o2 { width: 10%; }
+.m-ctx-split { width: 1px; align-self: stretch; background: var(--border-strong); margin: 0 2px; }
+.m-ctx-dot { margin-left: auto; width: 8px; height: 8px; border-radius: 50%; background: var(--card-accent); box-shadow: 0 0 8px var(--card-glow, rgba(47,111,98,0.6)); }
+.m-ctx-row { display: flex; align-items: center; justify-content: space-between; padding: 7px 9px; border-radius: 8px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
+.m-ctx-file { font-family: var(--font-mono); font-size: 10px; color: var(--text-dim); }
+.m-ctx-file.dim { opacity: 0.55; }
+.m-ctx-badge { font-size: 8px; font-family: var(--font-mono); padding: 2px 7px; border-radius: 999px; background: color-mix(in srgb, var(--card-accent) 22%, transparent); color: #fff; }
+.m-ctx-badge.dim { background: rgba(255,255,255,0.08); color: var(--text-faint); }
+@media (prefers-reduced-motion: reduce) { .m-ctx-seg { animation: none; } }
+
 /* ---------- Story ---------- */
 .story { padding: clamp(70px, 10vw, 120px) clamp(18px, 5vw, 40px); max-width: var(--maxw); margin: 0 auto; }
 .story-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 6vw, 70px); align-items: center; }

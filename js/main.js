@@ -240,6 +240,24 @@
         <div class="m-room-tile rt4"><span class="m-room-block bl1"></span><span class="m-room-block bl2"></span><span class="m-room-block bl3"></span></div>
         <span class="m-tag">🧸 Fummelbrett · Kleckse · Malen · Steine</span>
       </div>`,
+
+    'context-studio': () => `
+      <div class="mock">
+        <div class="mock-window">
+          <div class="mock-bar"><i></i><i></i><i></i></div>
+          <div class="mock-screen m-ctx">
+            <div class="m-ctx-load">
+              <span class="m-ctx-seg s1"></span><span class="m-ctx-seg s2"></span><span class="m-ctx-seg s3"></span>
+              <span class="m-ctx-split"></span>
+              <span class="m-ctx-seg outline o1"></span><span class="m-ctx-seg outline o2"></span>
+              <span class="m-ctx-dot"></span>
+            </div>
+            <div class="m-ctx-row"><span class="m-ctx-file">CLAUDE.md</span><span class="m-ctx-badge">Ebene 0</span></div>
+            <div class="m-ctx-row"><span class="m-ctx-file dim">context/people.md</span><span class="m-ctx-badge dim">Ebene 2</span></div>
+            <span class="m-tag">🧭 148 Zeilen · Budget im Blick</span>
+          </div>
+        </div>
+      </div>`,
   };
 
   /* ---------- Verfügbarkeit eines Produkts ---------- */

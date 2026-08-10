@@ -24,6 +24,9 @@ vorhanden, echten Screenshots.
 | **KudosEdge** | Werte-basiertes Peer-Recognition-Tool | Live |
 | **Boop** | Physik-Fidget-Ball für die macOS-Menüleiste | Auf Anfrage |
 | **Claude Usage Monitor** | macOS-Menüleisten-App für claude.ai-Limits | Auf Anfrage |
+| **SideTrack** | Team-Tool für Nebenprojekte: Gantt, Snooze-Audit-Log, Tagesgeschäft-Ampel | Live |
+| **Spielkiste** | Vier ruhige Montessori-Spielzeuge für Kleinkinder, offline als PWA | Live |
+| **Context Studio** | Lern-App für Markdown-Kontextdateien (CLAUDE.md & Co.) mit Budget-Ladeleiste, Linter & Export | Live |
 
 > Die Zahlen im Hero (Produkte, Live-Demos, Technologien) werden zur Laufzeit aus
 > `js/data.js` berechnet – beim Hinzufügen eines Produkts stimmen sie automatisch.

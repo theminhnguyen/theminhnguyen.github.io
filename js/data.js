@@ -564,6 +564,42 @@ const PROJECTS = [
     accent2: '#e88a9a',
     featured: false,
   },
+  {
+    id: 'context-studio',
+    name: 'Context Studio',
+    emoji: '🧭',
+    tagline: 'Kontext ist ein Budget, kein Lager.',
+    description:
+      'Lokale Lern-App für Markdown-Kontextdateien wie CLAUDE.md: Sechs interaktive Kapitel erklären, wie Claude Code, Claude.ai und Langdock Kontext laden – dann baut man im Workspace das eigene Set, mit einer Budget-Ladeleiste, die live zeigt, was bei jedem Sessionstart mitlädt. Dazu Linter, Sparring-Modus für Reflexionsfragen, Versionierung und Export als ZIP oder direkt fürs jeweilige Tool. Kein Backend, kein Login, alle Daten bleiben im Browser.',
+    features: [
+      'Sechs interaktive Lernkapitel zu CLAUDE.md, Auto Memory & Co.',
+      'Budget-Ladeleiste zeigt live, was bei jedem Sessionstart mitlädt',
+      'Linter & Sparring-Modus decken vage Regeln und Widersprüche auf',
+      'Export als ZIP für Claude Code, Claude.ai oder Langdock',
+    ],
+    en: {
+      tagline: 'Context is a budget, not a warehouse.',
+      description:
+        'A local learning app for markdown context files like CLAUDE.md: six interactive chapters explain how Claude Code, Claude.ai, and Langdock load context — then you build your own set in the workspace, with a budget load bar that shows live what loads on every session start. Plus a linter, a sparring mode for reflection questions, versioning, and export as a ZIP or directly for the target tool. No backend, no login, all data stays in the browser.',
+      features: [
+        'Six interactive learning chapters on CLAUDE.md, Auto Memory & more',
+        'Budget load bar shows live what loads on every session start',
+        'Linter & sparring mode surface vague rules and contradictions',
+        'Export as a ZIP for Claude Code, Claude.ai, or Langdock',
+      ],
+      categoryLabel: 'Dev Tool',
+    },
+    shots: [],
+    shotType: 'desktop',
+    tags: ['Vite', 'React', 'TypeScript', 'Zustand', 'IndexedDB'],
+    category: 'tools',
+    categoryLabel: 'Dev-Tool',
+    live: 'https://theminhnguyen.github.io/context-studio/',
+    liveKind: 'app',
+    accent: '#2F6F62',
+    accent2: '#B4531B',
+    featured: false,
+  },
 ];
 
 const FILTERS = [
