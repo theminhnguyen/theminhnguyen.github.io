@@ -782,6 +782,35 @@ section { position: relative; z-index: 2; }
 .m-gantt-bar.b4 { animation-delay: 0.36s; }
 @media (prefers-reduced-motion: reduce) { .m-gantt-bar { animation: none; } }
 
+/* spielkiste: warmes Spielzimmer mit vier sanft atmenden Spielzeug-Kacheln */
+.m-room { position: relative; width: 88%; max-width: 320px; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-strong); background: radial-gradient(ellipse at 50% 30%, #3a3020 0%, #241d14 100%); display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 14px; }
+.m-room-tile { position: relative; background: #fdf6ea; border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 14px -6px rgba(0,0,0,0.5); animation: roomBreathe 4.2s ease-in-out infinite; }
+.m-room-tile.rt1 { animation-delay: 0s; }
+.m-room-tile.rt2 { animation-delay: 0.5s; }
+.m-room-tile.rt3 { animation-delay: 1s; }
+.m-room-tile.rt4 { animation-delay: 1.5s; }
+@keyframes roomBreathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.045); } }
+/* Fummelbrett-Kachel: Schalter-Dot + zwei Balken */
+.m-room-board { position: relative; width: 30px; height: 22px; }
+.m-room-board i { position: absolute; width: 7px; height: 7px; border-radius: 50%; background: #e0a458; top: 0; left: 0; }
+.m-room-board i.d2 { background: #e88a9a; top: 15px; }
+.m-room-board b { position: absolute; width: 18px; height: 6px; border-radius: 3px; background: #7fb99e; top: 1px; left: 11px; }
+.m-room-board b.b2 { background: #f4a56b; top: 16px; }
+/* Kleckse-Kachel: drei überlappende Farbtupfer */
+.m-room-blob { position: absolute; width: 20px; height: 20px; border-radius: 50%; }
+.m-room-blob.c1 { background: #e88a9a; left: 30%; top: 28%; }
+.m-room-blob.c2 { background: #7fb99e; left: 50%; top: 22%; }
+.m-room-blob.c3 { background: #f4c86b; left: 42%; top: 46%; }
+/* Malen-Kachel: Strich + Farbtupfer */
+.m-room-stroke { position: absolute; width: 34px; height: 5px; border-radius: 3px; background: #7ea3c9; transform: rotate(-38deg); left: 24%; top: 46%; }
+.m-room-dot { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #e88a9a; right: 26%; top: 30%; }
+/* Steine-Kachel: drei gestapelte Blöcke */
+.m-room-block { position: absolute; border-radius: 4px; left: 50%; transform: translateX(-50%); }
+.m-room-block.bl1 { width: 14px; height: 8px; background: #e88a9a; bottom: 62%; }
+.m-room-block.bl2 { width: 20px; height: 8px; background: #f4a56b; bottom: 46%; }
+.m-room-block.bl3 { width: 28px; height: 8px; background: #7fb99e; bottom: 30%; }
+@media (prefers-reduced-motion: reduce) { .m-room-tile { animation: none; } }
+
 /* ---------- Story ---------- */
 .story { padding: clamp(70px, 10vw, 120px) clamp(18px, 5vw, 40px); max-width: var(--maxw); margin: 0 auto; }
 .story-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 6vw, 70px); align-items: center; }
