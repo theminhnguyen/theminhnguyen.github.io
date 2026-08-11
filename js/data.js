@@ -534,9 +534,9 @@ const PROJECTS = [
     emoji: '🧸',
     tagline: 'Ein ruhiges Spielzimmer, ganz ohne Bildschirmzeit-Schuldgefühle.',
     description:
-      'Vier handgebaute Spielzeuge für ein 2-jähriges Kind – Fummelbrett, Klang-Kleckse, Malen und Stapelsteine. Kein Text, keine Werbung, keine Level: als Web-App auf dem iPad installiert, läuft alles zu 100% offline und merkt sich jeden Spielstand.',
+      'Neun handgebaute Spielzeuge für ein 2-jähriges Kind – vom Fummelbrett über Klang-Kleckse und eine Wimmelbild-Gartenszene bis zur Gute-Nacht-Szene zum Runterkommen. Kein Text, keine Werbung, keine Level: als Web-App auf dem iPad installiert, läuft alles zu 100% offline und merkt sich jeden Spielstand – ideal auch für lange Flüge.',
     features: [
-      'Vier Spielzeuge: Fummelbrett, Klang-Kleckse, Malen, Stapelsteine',
+      'Neun Spielzeuge: Fummelbrett, Klang-Kleckse, Malen, Stapelsteine, Seifenblasen, Putzen, Sticker-Szene, Wimmelbild, Gute-Nacht-Szene',
       'Komplett ohne Text, Menüs oder Level – für 2-Jährige gebaut',
       'Läuft zu 100% offline als installierte Web-App auf dem iPad',
       'Alle Klänge live synthetisiert – keine einzige Audiodatei',
@@ -544,9 +544,9 @@ const PROJECTS = [
     en: {
       tagline: 'A calm playroom, no screen-time guilt attached.',
       description:
-        'Four handcrafted toys for a 2-year-old — a busy board, sound blobs, drawing, and stacking blocks. No text, no ads, no levels: installed as a web app on the iPad, it runs 100% offline and remembers every play state.',
+        'Nine handcrafted toys for a 2-year-old — from a busy board and sound blobs to a garden search-and-find scene and a calming bedtime scene. No text, no ads, no levels: installed as a web app on the iPad, it runs 100% offline and remembers every play state — great for long flights too.',
       features: [
-        'Four toys: busy board, sound blobs, drawing, stacking blocks',
+        'Nine toys: busy board, sound blobs, drawing, stacking blocks, bubbles, window cleaning, sticker scene, search-and-find garden, bedtime scene',
         'Completely text-free, no menus or levels — built for age 2',
         'Runs 100% offline as an installed web app on the iPad',
         'Every sound synthesized live — not a single audio file',
