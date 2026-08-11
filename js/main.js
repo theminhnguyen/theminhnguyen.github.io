@@ -238,7 +238,7 @@
         <div class="m-room-tile rt2"><span class="m-room-blob c1"></span><span class="m-room-blob c2"></span><span class="m-room-blob c3"></span></div>
         <div class="m-room-tile rt3"><span class="m-room-stroke"></span><span class="m-room-dot"></span></div>
         <div class="m-room-tile rt4"><span class="m-room-block bl1"></span><span class="m-room-block bl2"></span><span class="m-room-block bl3"></span></div>
-        <span class="m-tag">🧸 Fummelbrett · Kleckse · Malen · Steine</span>
+        <span class="m-tag">🧸 Fummelbrett · Kleckse · Malen · Wimmelbild</span>
       </div>`,
 
     'context-studio': () => `
