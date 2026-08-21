@@ -13,6 +13,7 @@ vorhanden, echten Screenshots.
 |---|---|---|
 | **MediaVault** | Tracker für Filme/Serien/Bücher/Mangas mit KI-Auto-Recherche (Next.js + Supabase) | Live (Konto nötig) |
 | **LocalFlow** | Lokale KI-Diktier-App für macOS, Whisper auf der Apple-GPU | Download |
+| **MeetScribe** | Besprechungen lokal mitschreiben mit automatischer Sprecher-Trennung (macOS) | Auf Anfrage |
 | **StreetPulse** | Verkehrszählung per Webcam, KI-Erkennung komplett im Browser (TensorFlow.js) | Live |
 | **Korbi** | Einkaufsliste mit Live-Sync (Next.js + Supabase) | Live (Konto nötig) |
 | **WonderDeck** | Cinematisches Präsentations-Tool mit begehbarer 3D-Galerie | Live |
@@ -25,7 +26,7 @@ vorhanden, echten Screenshots.
 | **Boop** | Physik-Fidget-Ball für die macOS-Menüleiste | Auf Anfrage |
 | **Claude Usage Monitor** | macOS-Menüleisten-App für claude.ai-Limits | Auf Anfrage |
 | **SideTrack** | Team-Tool für Nebenprojekte: Gantt, Snooze-Audit-Log, Tagesgeschäft-Ampel | Live |
-| **Spielkiste** | Vier ruhige Montessori-Spielzeuge für Kleinkinder, offline als PWA | Live |
+| **Spielkiste** | Neun ruhige Montessori-Spielzeuge für Kleinkinder, offline als PWA | Live |
 | **Context Studio** | Lern-App für Markdown-Kontextdateien (CLAUDE.md & Co.) mit Budget-Ladeleiste, Linter & Export | Live |
 
 > Die Zahlen im Hero (Produkte, Live-Demos, Technologien) werden zur Laufzeit aus

@@ -1053,3 +1053,44 @@ textarea.cf-input { resize: vertical; min-height: 112px; }
   .m-lf-wave i, .m-lf-rec { animation: none; }
   .m-lf-type { animation: none; width: 100%; border-right: 0; }
 }
+
+/* meetscribe: Mitschrift mit getrennten Sprechern und einer Merkstelle.
+   Die Kernidee des Produkts ist "wer hat was gesagt" – deshalb tragen die
+   Zeilen erkennbar verschiedene Sprecherfarben, und eine davon ist mit dem
+   Stern markiert, den man während der Aufnahme setzt. */
+.m-ms { display: flex; flex-direction: column; gap: 7px; position: relative; padding-bottom: 30px; }
+.m-ms-head { display: flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); }
+.m-ms-rec { width: 8px; height: 8px; border-radius: 50%; background: #ff5b6e; animation: msBlink 1.1s steps(2) infinite; }
+
+/* Bewusst OHNE Ein-/Ausblenden: Eine Schleife, die den ganzen Inhalt
+   verschwinden lässt, sieht aus wie ein Ladefehler. Bewegung kommt vom
+   Aufnahmepunkt und vom Stern – das reicht und stört nicht beim Lesen. */
+.m-ms-row { display: flex; align-items: flex-start; gap: 8px; padding: 4px 6px 4px 4px; border-radius: 6px; }
+
+.m-ms-who { flex: none; width: 40px; display: flex; flex-direction: column; gap: 2px; font-family: var(--font-mono); font-size: 9.5px; font-weight: 700; line-height: 1; }
+.m-ms-who b { font-weight: 400; font-size: 8px; color: var(--text-dim); }
+.m-ms-who.w1 { color: #3ecf8e; }
+.m-ms-who.w2 { color: #7dd3fc; }
+.m-ms-who.w3 { color: #c084fc; }
+
+.m-ms-said { flex: 1; display: flex; flex-direction: column; gap: 4px; padding-top: 1px; }
+.m-ms-said i { display: block; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.16); }
+
+/* Die Textbalken tragen die Farbe ihres Sprechers. Auf einen Sprecherbuchstaben
+   von 9,5 px reagiert das Auge in Kartengröße nicht – die Balken sind das
+   grosse Element, und erst durch sie liest sich "wer hat was gesagt" auch aus
+   der Entfernung. Explizite Werte statt color-mix: läuft überall. */
+.m-ms-row.r1 .m-ms-said i { background: rgba(62, 207, 142, 0.42); }
+.m-ms-row.r2 .m-ms-said i { background: rgba(125, 211, 252, 0.42); }
+.m-ms-row.r3 .m-ms-said i { background: rgba(192, 132, 252, 0.42); }
+
+/* Die markierte Stelle: Randstrich und Stern in derselben Farbe wie in der App. */
+.m-ms-row.marked { background: rgba(208, 162, 21, 0.1); box-shadow: inset 2px 0 0 #d0a215; }
+.m-ms-star { flex: none; color: #d0a215; font-size: 11px; line-height: 1; align-self: center; animation: msStar 2.6s ease-in-out infinite; }
+
+@keyframes msBlink { 50% { opacity: 0.25; } }
+@keyframes msStar { 0%, 100% { opacity: 0.55; transform: scale(1); } 50% { opacity: 1; transform: scale(1.18); } }
+@media (prefers-reduced-motion: reduce) {
+  .m-ms-rec, .m-ms-star { animation: none; }
+  .m-ms-star { opacity: 1; }
+}

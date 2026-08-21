@@ -81,6 +81,30 @@
         </div>
       </div>`,
 
+    meetscribe: () => `
+      <div class="mock">
+        <div class="mock-window">
+          <div class="mock-bar"><i></i><i></i><i></i></div>
+          <div class="mock-screen m-ms">
+            <div class="m-ms-head"><span class="m-ms-rec"></span>Mitschrift · 3 Personen</div>
+            <div class="m-ms-row r1">
+              <span class="m-ms-who w1">A<b>00:12</b></span>
+              <span class="m-ms-said"><i style="width:94%"></i><i style="width:61%"></i></span>
+            </div>
+            <div class="m-ms-row r2">
+              <span class="m-ms-who w2">B<b>00:31</b></span>
+              <span class="m-ms-said"><i style="width:78%"></i></span>
+            </div>
+            <div class="m-ms-row r3 marked">
+              <span class="m-ms-who w3">C<b>00:48</b></span>
+              <span class="m-ms-said"><i style="width:88%"></i><i style="width:49%"></i></span>
+              <span class="m-ms-star">★</span>
+            </div>
+            <span class="m-tag">🎧 lokal · Sprecher getrennt</span>
+          </div>
+        </div>
+      </div>`,
+
     streetpulse: () => `
       <div class="mock">
         <div class="mock-window">

@@ -92,6 +92,44 @@ const PROJECTS = [
     featured: true,
   },
   {
+    id: 'meetscribe',
+    name: 'MeetScribe',
+    emoji: '🗣️',
+    tagline: 'Wer hat was gesagt – mitgeschrieben, ohne Cloud.',
+    description:
+      'Schreibt Besprechungen über das Mikrofon mit und trennt automatisch, wer gerade spricht – ohne vorher Namen zu kennen. Whisper läuft auf der Apple-GPU, die Stimmentrennung über lokale Modelle; nichts verlässt den Rechner. Ein Tastendruck setzt mitten im Gespräch Merkstellen, die man später direkt anspringt. Die Themensuche per lokalem Sprachmodell gibt nur Nummern zurück – angezeigt wird der Originalwortlaut, ein erfundenes Zitat ist damit ausgeschlossen.',
+    features: [
+      'Trennt Sprecher, ohne Namen zu kennen – Personenzahl angeben, Umgruppieren dauert Millisekunden',
+      'Whisper auf der Apple-GPU + lokale Stimmentrennung: offline, kein Konto, 0 €',
+      '★ Merkstellen per Tastendruck mitten im Gespräch, später direkt anspringbar',
+      'Themensuche per lokalem LLM – liefert Originalzitate statt Zusammenfassung',
+      'Jede Stelle nachhörbar, Export als Word & Markdown, Hell/Dunkel-Modus',
+    ],
+    en: {
+      tagline: 'Who said what — transcribed, no cloud.',
+      description:
+        'Transcribes meetings from the microphone and automatically separates who is speaking — without knowing any names beforehand. Whisper runs on the Apple GPU, voice separation on local models; nothing leaves the machine. One keypress sets bookmarks mid-conversation that you jump straight to later. Topic search via a local language model returns only numbers — the original wording is what gets shown, so a fabricated quote is impossible.',
+      features: [
+        'Separates speakers without knowing names — set the headcount, regrouping takes milliseconds',
+        'Whisper on the Apple GPU + local voice separation: offline, no account, $0',
+        '★ Bookmarks at a keypress mid-conversation, jump straight to them later',
+        'Topic search via a local LLM — returns verbatim passages, not a summary',
+        'Every passage playable, export to Word & Markdown, light/dark mode',
+      ],
+      categoryLabel: 'Productivity',
+    },
+    shots: [],
+    shotType: 'raw',
+    tags: ['Python', 'Whisper (MLX)', 'sherpa-onnx', 'Flask', 'LM Studio', 'macOS'],
+    category: 'apps',
+    categoryLabel: 'Produktivität',
+    live: null,
+    liveKind: null,
+    accent: '#2f6f4f',
+    accent2: '#d0a215',
+    featured: false,
+  },
+  {
     id: 'streetpulse',
     name: 'StreetPulse',
     emoji: '🚦',
@@ -619,5 +657,5 @@ const TECH_TICKER = [
   'Web Bluetooth', 'TypeScript', 'Tailwind', 'Node.js', 'Canvas',
   'PWA', 'Leaflet', 'IndexedDB', 'PyObjC', 'Swift', 'Realtime', 'Vercel',
   'TensorFlow.js', 'COCO-SSD', 'Computer Vision', 'WebAudio',
-  'Whisper', 'MLX', 'Ollama', 'Gemini', 'TMDB', 'AniList',
+  'Whisper', 'MLX', 'sherpa-onnx', 'Ollama', 'Gemini', 'TMDB', 'AniList',
 ];
