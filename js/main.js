@@ -282,6 +282,29 @@
           </div>
         </div>
       </div>`,
+
+    wanderjahre: () => `
+      <div class="mock">
+        <div class="mock-window">
+          <div class="mock-bar"><i></i><i></i><i></i></div>
+          <div class="mock-screen" style="background:#eef1ef;padding:12px;gap:8px;display:flex;flex-direction:column">
+            <div style="display:flex;gap:6px">
+              <span style="font-size:9px;color:#566360;background:#e4e9e6;padding:3px 9px;border-radius:999px">2029</span>
+              <span style="font-size:9px;color:#fbfcfb;background:#0e5158;padding:3px 9px;border-radius:999px;font-weight:600">2030</span>
+              <span style="font-size:9px;color:#566360;background:#e4e9e6;padding:3px 9px;border-radius:999px">2031</span>
+            </div>
+            <div style="background:#fbfcfb;border:1px solid #dfe5e2;border-left:3px solid #a76d14;border-radius:8px;padding:8px;display:flex;flex-direction:column;gap:5px">
+              <b style="color:#131a19;font-size:11px">🏰 Walt Disney World</b>
+              <span style="font-size:8px;color:#566360">Orlando · Okt</span>
+              <div style="display:flex;gap:4px">
+                <span style="font-size:7px;color:#0e5158;background:#dde9e9;padding:2px 6px;border-radius:3px;font-weight:600">GESETZT</span>
+                <span style="font-size:7px;color:#566360;background:#e4e9e6;padding:2px 6px;border-radius:3px">DANN 5 JAHRE</span>
+              </div>
+            </div>
+            <div style="border:1px dashed #d0d8d4;border-radius:8px;padding:7px;text-align:center;font-size:8px;color:#566360;letter-spacing:.03em">+ Idee</div>
+          </div>
+        </div>
+      </div>`,
   };
 
   /* ---------- Verfügbarkeit eines Produkts ---------- */

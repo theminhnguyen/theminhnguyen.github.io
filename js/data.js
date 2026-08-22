@@ -638,6 +638,42 @@ const PROJECTS = [
     accent2: '#B4531B',
     featured: false,
   },
+  {
+    id: 'wanderjahre',
+    name: 'Wanderjahre',
+    emoji: '🗺️',
+    tagline: 'Ein Board, dessen Spalten nicht Wochen sind, sondern Lebensjahre.',
+    description:
+      'Familienreiseplanung, bei der jede Idee an einem Lebensjahr des Kindes hängt statt an einem Kalenderdatum – „Disneyland, wenn sie fünf ist" landet automatisch im richtigen Jahr, samt Altersanzeige zum tatsächlichen Reisemonat. Berechnet den Einschulungs-Stichtag fürs eigene Bundesland und markiert, ab wann nur noch Schulferien gehen. Am Handy ein Jahr auf einmal mit Wischgeste, am Rechner ein volles Drag-&-Drop-Board. Kein Login: ein Bearbeiten- und ein Mitlese-Link, optional mit PIN und Face ID – alle Rechte serverseitig erzwungen, nicht nur im Browser versteckt.',
+    features: [
+      'Reise-Ideen hängen am Lebensjahr, nicht am Kalenderdatum – Alter wird zum echten Reisemonat berechnet',
+      'Einschulungs-Stichtag automatisch nach Bundesland, trennt frei planbare von ferien-gebundenen Jahren',
+      'Mobile-first: ein Jahr auf einmal mit Wischgeste, am Rechner volles Drag-&-Drop-Board',
+      'Kein Login: Bearbeiten- und Familien-Link, optional PIN + Face ID, Rechte serverseitig erzwungen',
+    ],
+    en: {
+      tagline: "A board whose columns aren't weeks, but years of childhood.",
+      description:
+        'Family trip planning where every idea hangs off a birth year instead of a calendar date — "Disneyland when she turns five" lands in the right year automatically, with the age shown for the actual travel month. Computes the school-enrollment cutoff for your state and marks the point where only school holidays work anymore. One year at a time with a swipe on phones, a full drag-and-drop board on desktop. No login: an edit link and a family link, optionally with a PIN and Face ID — every permission enforced server-side, not just hidden in the browser.',
+      features: [
+        'Trip ideas hang off a birth year, not a calendar date — age is computed for the actual travel month',
+        'School-enrollment cutoff computed per state, separates freely bookable years from holiday-bound ones',
+        'Mobile-first: one year at a time with a swipe gesture, full drag-and-drop board on desktop',
+        'No login: edit and family links, optional PIN + Face ID, permissions enforced server-side',
+      ],
+      categoryLabel: 'Family',
+    },
+    shots: [],
+    shotType: 'mobile',
+    tags: ['React', 'TypeScript', 'Supabase', 'Tailwind', 'PWA', 'Zustand'],
+    category: 'apps',
+    categoryLabel: 'Familie',
+    live: 'https://wanderjahre.vercel.app/',
+    liveKind: 'app',
+    accent: '#0E5158',
+    accent2: '#A76D14',
+    featured: false,
+  },
 ];
 
 const FILTERS = [
@@ -658,4 +694,5 @@ const TECH_TICKER = [
   'PWA', 'Leaflet', 'IndexedDB', 'PyObjC', 'Swift', 'Realtime', 'Vercel',
   'TensorFlow.js', 'COCO-SSD', 'Computer Vision', 'WebAudio',
   'Whisper', 'MLX', 'sherpa-onnx', 'Ollama', 'Gemini', 'TMDB', 'AniList',
+  'Zustand',
 ];
