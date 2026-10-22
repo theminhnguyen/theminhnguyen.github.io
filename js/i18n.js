@@ -28,6 +28,7 @@ const UI_STRINGS = {
     en: 'of them are here: from a local AI dictation app to an AI media tracker to a walkable 3D castle.',
   },
   heroCtaPrimary: { de: 'Produkte entdecken', en: 'Explore products' },
+  heroCtaWhy: { de: 'Warum ich selbst baue', en: 'Why I build' },
   heroCtaGhost: { de: 'Mehr zu mir', en: 'More about me' },
   statProducts: { de: 'Produkte', en: 'Products' },
   statDemos: { de: 'Live-Demos', en: 'Live demos' },
@@ -52,6 +53,7 @@ const UI_STRINGS = {
     de: 'Der Fokus liegt auf Dingen, die man <em>sofort</em> erleben kann: im Browser, ohne Installation. Die meisten laufen ganz ohne Konto und speichern nur lokal – wo doch eine Anmeldung nötig ist, steht es an der Karte.',
     en: 'The focus is on things you can experience <em>immediately</em>: in the browser, no installation required. Most run without any account and store everything locally — wherever a login is needed, it\'s noted on the card.',
   },
+  storyMore: { de: 'Warum ich selbst baue – die ganze Geschichte →', en: 'Why I build – the full story →' },
   storyPoint1: {
     de: '<strong>Erlebbar statt erklärt.</strong> Jedes Produkt hat eine animierte Demo – ein Klick genügt.',
     en: '<strong>Experienced, not explained.</strong> Every product has an animated demo — one click is all it takes.',
@@ -88,6 +90,7 @@ const UI_STRINGS = {
   ctaCvLink: { de: 'Lebenslauf →', en: 'CV →' },
 
   footerAi: { de: 'KI', en: 'AI' },
+  footerWhy: { de: 'Warum ich baue', en: 'Why I build' },
   footerNavAria: { de: 'Rechtliches und Profile', en: 'Legal and profiles' },
   footerImprint: { de: 'Impressum', en: 'Legal notice' },
   footerPrivacy: { de: 'Datenschutz', en: 'Privacy' },

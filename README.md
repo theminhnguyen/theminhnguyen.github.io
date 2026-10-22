@@ -57,7 +57,8 @@ css/styles.css      # komplettes Design
 js/i18n.js          # UI-Texte DE/EN + Sprachumschaltung
 js/data.js          # Produktdaten (Single Source of Truth)
 js/main.js          # Rendering, Mockups, Interaktion
-js/legal.js         # Sprachumschaltung für Impressum & Datenschutz
+js/legal.js         # Sprachumschaltung für Unterseiten (Warum, Impressum, Datenschutz)
+warum/              # Story-Seite „Warum ich selbst baue“ (DE/EN)
 impressum/          # Impressum (DE/EN)
 datenschutz/        # Datenschutzerklärung (DE/EN)
 assets/fonts/       # selbst gehostete Schriften (kein Google-Fonts-Abruf)
