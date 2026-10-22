@@ -17,8 +17,8 @@ const UI_STRINGS = {
 
   heroMeAria: { de: 'Über The Minh Nguyen', en: 'About The Minh Nguyen' },
   heroTitleHtml: {
-    de: 'Erst ausprobieren. <span class="grad-text">Dann skalieren.</span>',
-    en: 'Try it first. <span class="grad-text">Then scale it.</span>',
+    de: 'Erst ausprobieren.<br /><span class="grad-text">Dann skalieren.</span>',
+    en: 'Try it first.<br /><span class="grad-text">Then scale it.</span>',
   },
   heroLead: {
     de: 'Ich führe bei E.ON Digital Technology ein Team von 19 Entwicklern, das Konzernprozesse mit KI automatisiert – und baue Ideen weiterhin selbst.',

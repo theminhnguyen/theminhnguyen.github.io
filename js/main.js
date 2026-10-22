@@ -151,6 +151,43 @@
     }).join('');
   }
 
+  /* ---------- Hero-Karussell der Lieblingsprojekte ---------- */
+  // Rein dekorativ (aria-hidden, nicht fokussierbar): Die gleichen Links stehen
+  // zugänglich im Favoriten-Bereich direkt darunter.
+  const rig = document.getElementById('hero-rig');
+  const rigMotion = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let rigTimer = null;
+
+  function renderHeroRig() {
+    if (!rig) return;
+    const ids = Object.keys(STORIES);
+    rig.innerHTML = ids.map((id, i) => {
+      const p = localize(byId(id));
+      const mockup = (MOCKUPS[id] || (() => ''))();
+      return `
+        <a class="rig-item" data-pos="${i}" href="produkt/${esc(id)}/" tabindex="-1"
+          style="--card-accent:${esc(p.accent)};--card-accent-2:${esc(p.accent2)};--card-glow:${hexToGlow(p.accent)}">
+          <span class="rig-stage">${mockup}</span>
+          <span class="rig-caption"><b>${esc(p.emoji)} ${esc(p.name)}</b><small>${esc(p.tagline)}</small></span>
+        </a>`;
+    }).join('');
+    startHeroRig();
+  }
+
+  function startHeroRig() {
+    clearInterval(rigTimer);
+    if (!rigMotion || !rig) return;
+    const n = rig.children.length;
+    rigTimer = setInterval(() => {
+      if (document.hidden || rig.matches(':hover')) return;
+      // Erst rotieren, wenn das Karussell überhaupt sichtbar ist (breite Bildschirme)
+      if (!rig.offsetParent) return;
+      [...rig.children].forEach((item) => {
+        item.dataset.pos = String((+item.dataset.pos + n - 1) % n);
+      });
+    }, 4000);
+  }
+
   /* ---------- Bento-Layout: keine halbe Karte allein in der letzten Reihe ---------- */
   // Normale Karten belegen je eine halbe Reihe. Bleibt am Ende eine übrig
   // (ungerade Anzahl – z. B. beim Filtern), bekommt sie die volle Breite.
@@ -393,14 +430,17 @@
       const el = en.target;
       const target = parseInt(el.dataset.count, 10);
       if (!Number.isFinite(target)) { cio.unobserve(el); return; }
-      let cur = 0;
-      const step = Math.max(1, Math.round(target / 28));
-      const tick = () => {
-        cur = Math.min(target, cur + step);
-        el.textContent = cur;
-        if (cur < target) requestAnimationFrame(tick);
+      // Zeitbasiert statt pro Frame: endet garantiert beim Zielwert, auch wenn
+      // der Browser Animation-Frames drosselt (Hintergrund-Tab, eingebettet).
+      const start = performance.now();
+      const DURATION = 900;
+      const tick = (now) => {
+        const k = Math.min(1, (now - start) / DURATION);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
+        if (k < 1) requestAnimationFrame(tick);
       };
-      tick();
+      requestAnimationFrame(tick);
+      setTimeout(() => { el.textContent = target; }, DURATION + 200);
       cio.unobserve(el);
     });
   }, { threshold: 0.5 });
@@ -427,6 +467,7 @@
     renderFilters();
     renderGrid();
     renderFavs();
+    renderHeroRig();
     refreshOpenLightbox();
   };
 
@@ -516,5 +557,6 @@
   renderFilters();
   renderGrid();
   renderFavs();
+  renderHeroRig();
   wireInitialReveal();
 })();
