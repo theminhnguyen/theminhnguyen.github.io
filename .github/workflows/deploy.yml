@@ -33,16 +33,13 @@ jobs:
         run: |
           V="${GITHUB_SHA::8}"
           echo "Cache-Bust-Version: $V"
-          # CSS/JS-Referenzen in index.html bekommen ?v=<hash>,
-          # damit Browser nach jeder Änderung garantiert neu laden.
-          sed -i \
-            -e "s|href=\"css/styles.css\"|href=\"css/styles.css?v=${V}\"|g" \
-            -e "s|src=\"js/i18n.js\"|src=\"js/i18n.js?v=${V}\"|g" \
-            -e "s|src=\"js/data.js\"|src=\"js/data.js?v=${V}\"|g" \
-            -e "s|src=\"js/main.js\"|src=\"js/main.js?v=${V}\"|g" \
-            index.html
+          # Alle lokalen CSS/JS-Referenzen in allen HTML-Seiten (auch Unterseiten
+          # mit ../-Pfaden) bekommen ?v=<hash>, damit Browser nach jeder
+          # Änderung garantiert neu laden.
+          find . -name '*.html' -not -path './.git/*' -print0 | xargs -0 sed -i -E \
+            "s#((href|src)=\"(\.\./)*(css|js|assets/fonts)/[a-z0-9-]+\.(css|js))\"#\1?v=${V}\"#g"
           echo "── Ergebnis ──"
-          grep -E "styles.css|data.js|main.js" index.html
+          grep -rhoE "(css|js)/[a-z0-9-]+\.(css|js)\?v=[a-f0-9]+" --include='*.html' . | sort | uniq -c
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

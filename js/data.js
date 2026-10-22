@@ -696,3 +696,119 @@ const TECH_TICKER = [
   'Whisper', 'MLX', 'sherpa-onnx', 'Ollama', 'Gemini', 'TMDB', 'AniList',
   'Zustand',
 ];
+
+/**
+ * Lieblingsprodukte mit eigener Detailseite unter /produkt/<id>/.
+ * Reihenfolge = Reihenfolge im Favoriten-Bereich und unter "Weitere Projekte".
+ *   story: Entstehungsgeschichte (Tab "Worum es geht"), Absätze als Array
+ *   tech:  Aufbau in Klartext (Tab "Technik"), Paare aus [Titel, Text]
+ * Die Highlights kommen aus `features` des jeweiligen Produkts.
+ */
+const STORIES = {
+  'virtual-world-multiplayer': {
+    de: {
+      story: [
+        'Für ein Teambuilding wollte ich mehr als das übliche Online-Quiz. Etwas, bei dem man sich wirklich begegnet – auch wenn alle an verschiedenen Orten sitzen.',
+        'Also habe ich eine eigene Welt gebaut: Pixel-Art im Browser, Minispiele, Boss-Fights und KI-Agenten, die die Welt beleben. Link teilen, und bis zu 50 Leute sind gleichzeitig drin.',
+        'Früher wäre das ein Projekt mit Team und Budget gewesen. Jetzt war es einfach da.',
+      ],
+      tech: [
+        ['Echtzeit', 'Ein Node.js-Server hält den Zustand der Welt und synchronisiert alle Spieler über Socket.io – Bewegungen, Minispiele und Kämpfe laufen live.'],
+        ['KI-Agenten', 'Computergesteuerte Figuren bewegen sich als eigene Spieler durch die Karte, damit die Welt auch mit wenigen Leuten lebendig wirkt.'],
+        ['Betrieb', 'Gehostet auf Render. Kein Download, keine Installation – der Browser reicht.'],
+      ],
+    },
+    en: {
+      story: [
+        'For a team-building event I wanted more than the usual online quiz. Something where people actually meet – even when everyone sits in a different place.',
+        'So I built our own world: pixel art in the browser, mini-games, boss fights and AI agents that bring the world to life. Share a link and up to 50 people are in at the same time.',
+        'That used to be a project with a team and a budget. Now it simply existed.',
+      ],
+      tech: [
+        ['Real-time', 'A Node.js server holds the state of the world and syncs every player via Socket.io – movement, mini-games and fights run live.'],
+        ['AI agents', 'Computer-controlled characters roam the map as players of their own, so the world feels alive even with only a few people.'],
+        ['Hosting', 'Hosted on Render. No download, no installation – a browser is all you need.'],
+      ],
+    },
+  },
+  meetscribe: {
+    de: {
+      story: [
+        'Als Führungskraft sitze ich in vielen Besprechungen. Gut zuhören und gleichzeitig sauber mitschreiben klappt selten beides.',
+        'Cloud-Transkription kam für mich nicht infrage: Interne Gespräche gehören nicht auf fremde Server. Also wollte ich wissen, wie weit man komplett lokal auf dem Mac kommt – inklusive der Frage „Wer hat was gesagt?“.',
+        'Am wichtigsten war mir Vertrauen: Die Themensuche zeigt nur Originalzitate. Eine KI-Zusammenfassung, die etwas hinzudichtet, ist damit ausgeschlossen.',
+      ],
+      tech: [
+        ['Transkription', 'Whisper läuft über MLX direkt auf der Apple-GPU – offline, ohne Konto, ohne laufende Kosten.'],
+        ['Sprechertrennung', 'sherpa-onnx gruppiert Stimmen lokal, ohne vorher Namen zu kennen. Personenzahl angeben, das Umgruppieren dauert Millisekunden.'],
+        ['Themensuche', 'Ein lokales Sprachmodell (LM Studio) gibt nur Abschnittsnummern zurück. Angezeigt wird immer der Originalwortlaut – so kann kein Zitat erfunden werden.'],
+        ['Oberfläche', 'Python mit Flask, Merkstellen per Tastendruck, Export als Word und Markdown.'],
+      ],
+    },
+    en: {
+      story: [
+        'As a team lead I sit in a lot of meetings. Listening well and taking clean notes at the same time rarely works.',
+        'Cloud transcription was out of the question for me: internal conversations don’t belong on someone else’s servers. So I wanted to find out how far you get entirely locally on a Mac – including the question “who said what?”.',
+        'Trust mattered most: topic search only ever shows verbatim quotes. An AI summary that makes things up is ruled out by design.',
+      ],
+      tech: [
+        ['Transcription', 'Whisper runs via MLX directly on the Apple GPU – offline, no account, no running costs.'],
+        ['Speaker separation', 'sherpa-onnx groups voices locally without knowing any names. Set the headcount; regrouping takes milliseconds.'],
+        ['Topic search', 'A local language model (LM Studio) only returns passage numbers. What you see is always the original wording – no quote can be invented.'],
+        ['Interface', 'Python with Flask, bookmarks at a keypress, export to Word and Markdown.'],
+      ],
+    },
+  },
+  korbi: {
+    de: {
+      story: [
+        'Die ewige Haushaltsfrage: Was fehlt eigentlich – und hat das schon jemand gekauft? Zettel am Kühlschrank und Chatnachrichten gehen dabei ständig unter.',
+        'Korbi ist eine gemeinsame Einkaufsliste, die sich in Echtzeit auf allen Handys aktualisiert. Ganze Gerichte landen mit einem Tap auf der Liste, Favoriten und Verlauf sparen das Tippen.',
+        'Bewusst klein gehalten: eine Sache, die jeden Tag benutzt wird, statt einer App, die alles kann.',
+      ],
+      tech: [
+        ['Aufbau', 'Next.js 15 als installierbare Web-App (PWA) – fühlt sich auf dem Handy an wie eine native App.'],
+        ['Live-Sync', 'Supabase übernimmt Login, Datenbank und Realtime: Was einer abhakt, verschwindet sofort bei allen anderen.'],
+        ['Betrieb', 'Gehostet auf Vercel. Zum Ausprobieren ist ein kostenloses Konto nötig, damit ein Haushalt seine Liste teilen kann.'],
+      ],
+    },
+    en: {
+      story: [
+        'The eternal household question: what are we out of – and has someone already bought it? Notes on the fridge and chat messages keep getting lost.',
+        'Korbi is a shared shopping list that updates in real time on every phone. Whole dishes land on the list with one tap; favourites and history save the typing.',
+        'Deliberately small: one thing that gets used every day instead of an app that does everything.',
+      ],
+      tech: [
+        ['Architecture', 'Next.js 15 as an installable web app (PWA) – feels like a native app on your phone.'],
+        ['Live sync', 'Supabase handles login, database and realtime: whatever one person ticks off disappears instantly for everyone else.'],
+        ['Hosting', 'Hosted on Vercel. Trying it requires a free account so a household can share its list.'],
+      ],
+    },
+  },
+  'claude-usage-monitor': {
+    de: {
+      story: [
+        'Wer viel mit Claude Code baut, läuft irgendwann ins Limit – gern mitten in einer guten Session. Um nachzusehen, wie viel noch übrig ist, musste ich jedes Mal extra auf claude.ai.',
+        'Also habe ich mir eine kleine Menüleisten-App gebaut: Eine Ampel zeigt jederzeit, wie viel von der 5-Stunden-Sitzung und vom Wochenlimit noch da ist, und eine Benachrichtigung warnt rechtzeitig.',
+        'Ein Werkzeug, das beim Bauen der anderen Werkzeuge hilft.',
+      ],
+      tech: [
+        ['Menüleiste', 'Native macOS-App in Python (PyObjC) mit Swift-Komponenten – immer sichtbar, ohne ein Fenster zu öffnen.'],
+        ['Limits', 'Zeigt 5-Stunden-Sitzung, Wochenlimit und die Modell-Buckets von claude.ai als Ampel.'],
+        ['Verlauf', 'Speichert die Nutzung lokal für eine 7-Tage-Sparkline und benachrichtigt bei frei wählbaren Schwellwerten.'],
+      ],
+    },
+    en: {
+      story: [
+        'If you build a lot with Claude Code, you eventually hit the limit – usually in the middle of a good session. To check how much was left, I had to go to claude.ai every time.',
+        'So I built myself a small menu bar app: a traffic light shows how much of the 5-hour session and the weekly limit remains, and a notification warns me in time.',
+        'A tool that helps build the other tools.',
+      ],
+      tech: [
+        ['Menu bar', 'Native macOS app in Python (PyObjC) with Swift components – always visible without opening a window.'],
+        ['Limits', 'Shows the 5-hour session, weekly limit and model buckets from claude.ai as a traffic light.'],
+        ['History', 'Stores usage locally for a 7-day sparkline and notifies at configurable thresholds.'],
+      ],
+    },
+  },
+};

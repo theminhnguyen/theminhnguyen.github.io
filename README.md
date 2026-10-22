@@ -37,6 +37,7 @@ vorhanden, echten Screenshots.
 ## Features der Seite
 
 - 👤 Persönlicher Hero mit Porträt und Claim „Erst ausprobieren. Dann skalieren.“ – verlinkt auf den [Lebenslauf](https://theminhnguyen.github.io/minh-cv/)
+- ⭐ Vier Lieblingsprojekte mit eigener Detailseite: Galerie, Tabs „Worum es geht / Highlights / Technik“, Entstehungsgeschichte
 - 🎨 Dark, futuristisches Design mit Gradient-Mesh, Glow & Cursor-Licht
 - 🃏 Bento-Grid mit individuellen, animierten CSS-Mockups pro Produkt
 - ▶️ **Demo-Galerie** pro Produkt (Lightbox): animierte Illustration + echte Screenshots (sofern vorhanden) in Geräte-Rahmen (Browser/Phone)
@@ -55,9 +56,13 @@ GitHub Pages.
 index.html          # Struktur
 css/styles.css      # komplettes Design
 js/i18n.js          # UI-Texte DE/EN + Sprachumschaltung
-js/data.js          # Produktdaten (Single Source of Truth)
-js/main.js          # Rendering, Mockups, Interaktion
+js/data.js          # Produktdaten (Single Source of Truth) + STORIES für Detailseiten
+js/mockups.js       # animierte CSS-Mockups pro Produkt (Startseite & Detailseiten)
+js/main.js          # Rendering, Interaktion (Startseite)
+js/product.js       # Rendering der Produkt-Detailseiten (Galerie, Tabs, Weitere Projekte)
 js/legal.js         # Sprachumschaltung für Unterseiten (Warum, Impressum, Datenschutz)
+produkt/<id>/       # Detailseiten der Lieblingsprojekte (generiert)
+tools/gen-product-pages.js # erzeugt produkt/<id>/index.html aus STORIES
 warum/              # Story-Seite „Warum ich selbst baue“ (DE/EN)
 impressum/          # Impressum (DE/EN)
 datenschutz/        # Datenschutzerklärung (DE/EN)
@@ -73,6 +78,12 @@ assets/shots/       # echte Screenshots
 python3 -m http.server 8080
 # dann http://localhost:8080 öffnen
 ```
+
+## Neues Lieblingsprojekt mit Detailseite
+
+1. In `js/data.js` unter `STORIES` einen Eintrag mit der Produkt-`id` ergänzen (`story` + `tech`, DE/EN).
+2. `node tools/gen-product-pages.js` ausführen – erzeugt `produkt/<id>/index.html`.
+3. Startseite (Favoriten-Bereich + „Story & Details“-Button) aktualisiert sich automatisch.
 
 ---
 

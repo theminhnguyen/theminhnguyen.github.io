@@ -127,6 +127,26 @@ const UI_STRINGS = {
     de: '⚖️ Nicht-kommerzielles Fan-Projekt.',
     en: '⚖️ Non-commercial fan project.',
   },
+
+  favKicker: { de: '// Lieblingsprojekte', en: '// Favourites' },
+  favTitle: { de: 'Vier Produkte, vier Geschichten.', en: 'Four products, four stories.' },
+  favLead: {
+    de: 'Warum ich sie gebaut habe, was sie können und wie sie unter der Haube funktionieren.',
+    en: 'Why I built them, what they do and how they work under the hood.',
+  },
+  favOpen: { de: 'Geschichte lesen →', en: 'Read the story →' },
+  cardStoryBtn: { de: 'Story & Details →', en: 'Story & details →' },
+
+  productBack: { de: '← Alle Produkte', en: '← All products' },
+  productTabAbout: { de: 'Worum es geht', en: 'What it’s about' },
+  productTabHighlights: { de: 'Highlights', en: 'Highlights' },
+  productTabTech: { de: 'Technik', en: 'Under the hood' },
+  productMore: { de: 'Weitere Lieblingsprojekte', en: 'More favourites' },
+  productAskCta: { de: 'Interesse? Schreib mir', en: 'Interested? Write to me' },
+  productOnRequestNote: {
+    de: 'Läuft lokal auf dem Mac und ist nicht öffentlich verfügbar – auf Anfrage zeige ich es gern.',
+    en: 'Runs locally on the Mac and isn’t publicly available – happy to show it on request.',
+  },
 };
 
 const NUM_WORDS = {
