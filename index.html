@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Minh Nguyen · Erst ausprobieren. Dann skalieren.</title>
   <meta name="description" content="The Minh Nguyen führt ein Team, das Konzernprozesse mit KI automatisiert – und baut Ideen weiterhin selbst. Achtzehn eigene Produkte, von der lokalen KI-Diktier-App bis zum begehbaren 3D-Schloss." />
+  <link rel="canonical" href="https://theminhnguyen.github.io/" />
   <meta name="theme-color" content="#06060b" />
 
   <!-- Open Graph / Social -->
@@ -22,7 +23,19 @@
   <meta name="twitter:description" content="Führungskraft, die selbst baut: eigene Produkte zum Ausprobieren, direkt im Browser." />
   <meta name="twitter:image" content="https://theminhnguyen.github.io/assets/og-image.png" />
 
-  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "The Minh Nguyen",
+    "url": "https://theminhnguyen.github.io/",
+    "image": "https://theminhnguyen.github.io/assets/portrait.jpg",
+    "jobTitle": "Team Lead BPM & Intelligent Automation",
+    "worksFor": { "@type": "Organization", "name": "E.ON Digital Technology" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Köln", "addressCountry": "DE" },
+    "sameAs": ["https://www.linkedin.com/in/the-minh-ng/", "https://github.com/theminhnguyen"]
+  }
+  </script>
 
   <script src="js/theme.js"></script>
   <link rel="stylesheet" href="css/styles.css" />
@@ -54,7 +67,7 @@
       <a href="ueber-mich/" data-i18n="navCv">Über mich</a>
       <a href="#kontakt" data-i18n="navContact">Kontakt</a>
       <button class="theme-toggle" type="button" data-theme-toggle aria-label="Hell/Dunkel umschalten" data-i18n-aria-label="themeToggleAria"></button>
-      <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Sprache wechseln" data-i18n-aria-label="langToggleAria">
+      <button class="lang-toggle" id="lang-toggle" type="button" aria-label="DE EN – Sprache wechseln" data-i18n-aria-label="langToggleAria">
         <span class="lang-opt active" data-lang="de">DE</span>
         <span class="lang-opt" data-lang="en">EN</span>
       </button>
@@ -193,7 +206,7 @@
         <input type="hidden" name="subject" value="Neue Nachricht über minh.studio" />
         <input type="hidden" name="from_name" value="minh.studio" />
         <!-- Honeypot gegen Spam-Bots (für Menschen unsichtbar) -->
-        <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off" />
+        <input type="checkbox" name="botcheck" class="cf-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="cf-row">
           <div class="cf-field">
             <label class="sr-only" for="cf-name" data-i18n="formNameLabel">Dein Name</label>

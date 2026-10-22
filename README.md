@@ -48,6 +48,8 @@ vorhanden, echten Screenshots.
 - 🌗 Hell/Dunkel-Umschalter (Standard dunkel, Wahl lokal gespeichert)
 - 💬 „Frag mich“-Blase im Footer, führt zur Story-Seite
 - ⏸️ Status „Pausiert“ für Produkte, die nicht mehr weiterentwickelt werden (`paused: true` in `js/data.js`)
+- ♿ Lighthouse: Barrierefreiheit, Best Practices & SEO jeweils 100 (Kontraste nach WCAG AA)
+- 🔎 sitemap.xml, robots.txt, Canonical-Links und strukturierte Daten (Schema.org Person)
 - ⚖️ Impressum & Datenschutz, keine Cookies, kein Tracking, keine externen Font-Abrufe
 
 ## Technik
@@ -72,7 +74,7 @@ ueber-mich/         # kompakter Werdegang (DE/EN), Details auf LinkedIn
 warum/              # Story-Seite „Warum ich selbst baue“ (DE/EN)
 impressum/          # Impressum (DE/EN)
 datenschutz/        # Datenschutzerklärung (DE/EN)
-assets/fonts/       # selbst gehostete Schriften (kein Google-Fonts-Abruf)
+assets/fonts/       # selbst gehostete Schriften (@font-face steht direkt in css/styles.css)
 assets/portrait.jpg # Porträt für Hero & Footer
 assets/og-image.png # Social-Preview (Open Graph / Twitter)
 assets/shots/       # echte Screenshots
@@ -89,6 +91,7 @@ python3 -m http.server 8080
 
 1. In `js/data.js` unter `STORIES` einen Eintrag mit der Produkt-`id` ergänzen (`story` + `tech`, DE/EN).
 2. `node tools/gen-product-pages.js` ausführen – erzeugt `produkt/<id>/index.html`.
+   Neue Seite zusätzlich in `sitemap.xml` eintragen.
 3. Startseite (Favoriten-Bereich + „Story & Details“-Button) aktualisiert sich automatisch.
 
 ---

@@ -12,7 +12,7 @@ const UI_STRINGS = {
   navStory: { de: 'Story', en: 'Story' },
   navContact: { de: 'Kontakt', en: 'Contact' },
   navCv: { de: 'Über mich', en: 'About' },
-  langToggleAria: { de: 'Sprache wechseln', en: 'Switch language' },
+  langToggleAria: { de: 'DE EN – Sprache wechseln', en: 'DE EN – switch language' },
   themeToggleAria: { de: 'Hell/Dunkel umschalten', en: 'Toggle light/dark' },
 
   heroMeAria: { de: 'Über The Minh Nguyen', en: 'About The Minh Nguyen' },
