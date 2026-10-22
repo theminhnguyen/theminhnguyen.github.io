@@ -120,9 +120,10 @@
     return `rgba(${r},${g},${b},0.45)`;
   }
 
-  // Featured zuerst, damit das Bento-Layout stimmt. Reihenfolge ist
-  // sprachunabhängig, deshalb einmalig berechnet.
-  const ordered = [...PROJECTS].sort((a, b) => (b.featured === true) - (a.featured === true));
+  // Featured zuerst (Bento-Layout), pausierte Produkte ans Ende. Reihenfolge
+  // ist sprachunabhängig, deshalb einmalig berechnet.
+  const ordered = [...PROJECTS].sort((a, b) =>
+    (b.featured === true) - (a.featured === true) || (a.paused === true) - (b.paused === true));
 
   function renderGrid() {
     grid.innerHTML = ordered.map(cardHTML).join('');
@@ -135,6 +136,12 @@
 
   function renderFavs() {
     if (!favGrid) return;
+    const n = Object.keys(STORIES).length;
+    const favTitle = document.querySelector('[data-i18n="favTitle"]');
+    if (favTitle) {
+      const word = numWord(n, getLang());
+      favTitle.textContent = t('favTitle').replace('{N}', word).replace('{n}', word.toLowerCase());
+    }
     favGrid.innerHTML = Object.keys(STORIES).map((id) => {
       const p = localize(byId(id));
       const mockup = (MOCKUPS[id] || (() => ''))();
@@ -310,9 +317,12 @@
   // Schließen-und-wieder-Öffnen die frisch gerenderte Bühne leer räumen.
   let stageClearTimer = null;
 
+  let lastFocus = null;
+
   function openDemo(id) {
     const p = byId(id);
     if (!p) return;
+    if (!openDemoId) lastFocus = document.activeElement;
     openDemoId = id;
 
     clearTimeout(stageClearTimer);
@@ -330,7 +340,7 @@
       lbLive.hidden = true;
     }
 
-    // Fan-Projekte bekommen keinen Lizenz-/Anfrage-CTA
+    // Fan-Projekte bekommen keinen Kontakt-CTA
     lbContact.hidden = !!p.fanProject;
 
     lbStage.innerHTML = demoSceneHTML(p);
@@ -345,6 +355,8 @@
     lb.classList.remove('open');
     lb.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastFocus && document.contains(lastFocus)) lastFocus.focus();
+    lastFocus = null;
     clearTimeout(stageClearTimer);
     stageClearTimer = setTimeout(() => {
       lbStage.innerHTML = '';

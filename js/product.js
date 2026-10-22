@@ -34,6 +34,9 @@
 
   let activeTab = 0;
   let galleryTimer = null;
+  // Gewählte Ansicht merken, damit ein Sprachwechsel die Galerie nicht zurücksetzt
+  let activeSlide = 0;
+  let userPicked = false;
 
   function galleryHTML(p) {
     const type = p.shotType || 'desktop';
@@ -123,10 +126,12 @@
       </section>`;
 
     document.title = `${p.name} · The Minh Nguyen`;
+    showSlide(activeSlide);
     startAutoplay();
   }
 
   function showSlide(idx) {
+    activeSlide = +idx;
     app.querySelectorAll('.gal-thumb').forEach((th) => th.classList.toggle('active', th.dataset.idx === String(idx)));
     app.querySelectorAll('.gal-item').forEach((it) => it.classList.toggle('active', it.dataset.idx === String(idx)));
     const thumb = app.querySelector(`.gal-thumb[data-idx="${idx}"]`);
@@ -140,18 +145,17 @@
   function startAutoplay() {
     clearInterval(galleryTimer);
     const count = app.querySelectorAll('.gal-item').length;
-    if (reduceMotion || count < 2) return;
-    let i = 0;
+    if (reduceMotion || userPicked || count < 2) return;
     galleryTimer = setInterval(() => {
       if (document.hidden) return;
-      i = (i + 1) % count;
-      showSlide(i);
+      showSlide((activeSlide + 1) % count);
     }, 5000);
   }
 
   app.addEventListener('click', (e) => {
     const thumb = e.target.closest('.gal-thumb');
     if (thumb) {
+      userPicked = true;
       clearInterval(galleryTimer);
       showSlide(thumb.dataset.idx);
       return;

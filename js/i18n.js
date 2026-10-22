@@ -25,8 +25,8 @@ const UI_STRINGS = {
     en: 'At E.ON Digital Technology I lead a team of 19 developers automating corporate processes with AI – and I still build ideas myself.',
   },
   heroSubRest: {
-    de: 'davon zeige ich hier: von der lokalen KI-Diktier-App über einen KI-Medien-Tracker bis zum begehbaren 3D-Schloss.',
-    en: 'of them are here: from a local AI dictation app to an AI media tracker to a walkable 3D castle.',
+    de: 'davon zeige ich hier: von der lokalen Meeting-Mitschrift über einen KI-Medien-Tracker bis zum begehbaren 3D-Schloss.',
+    en: 'of them are here: from a local meeting transcriber to an AI media tracker to a walkable 3D castle.',
   },
   heroCtaPrimary: { de: 'Produkte entdecken', en: 'Explore products' },
   heroCtaWhy: { de: 'Warum ich selbst baue', en: 'Why I build' },
@@ -96,7 +96,7 @@ const UI_STRINGS = {
   footerImprint: { de: 'Impressum', en: 'Legal notice' },
   footerPrivacy: { de: 'Datenschutz', en: 'Privacy' },
 
-  lightboxContact: { de: 'Fragen? Schreib mir ↗', en: 'Questions? Write to me ↗' },
+  lightboxContact: { de: 'Fragen? Schreib mir →', en: 'Questions? Write to me →' },
   lightboxCloseAria: { de: 'Demo schließen', en: 'Close demo' },
 
   demoWatchBtn: { de: '▶ Demo ansehen', en: '▶ Watch demo' },
@@ -131,7 +131,7 @@ const UI_STRINGS = {
   },
 
   favKicker: { de: '// Lieblingsprojekte', en: '// Favourites' },
-  favTitle: { de: 'Vier Produkte, vier Geschichten.', en: 'Four products, four stories.' },
+  favTitle: { de: '{N} Produkte, {n} Geschichten.', en: '{N} products, {n} stories.' },
   favLead: {
     de: 'Warum ich sie gebaut habe, was sie können und wie sie unter der Haube funktionieren.',
     en: 'Why I built them, what they do and how they work under the hood.',

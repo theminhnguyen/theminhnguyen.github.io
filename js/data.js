@@ -9,7 +9,7 @@
  *            'download' → Download/Release-Seite           (zählt NICHT als Live-Demo)
  *            null       → nichts Öffentliches verfügbar
  * account:   true, wenn zum Ausprobieren ein Konto/Login nötig ist
- * fanProject: true bei nicht-kommerziellen Fan-Projekten (kein Lizenz-CTA)
+ * fanProject: true bei nicht-kommerziellen Fan-Projekten (kein Kontakt-CTA in der Demo-Ansicht)
  * paused:    true, wenn das Produkt nicht mehr aktiv weiterentwickelt wird (Badge "Pausiert")
  * en:        englische Übersetzung von tagline/description/features/categoryLabel
  *            (siehe js/i18n.js für die Sprachumschaltung)
@@ -90,7 +90,7 @@ const PROJECTS = [
     liveKind: 'download',
     accent: '#5b8cff',
     accent2: '#3ecf8e',
-    featured: true,
+    featured: false,
     paused: true,
   },
   {
@@ -165,7 +165,7 @@ const PROJECTS = [
     liveKind: 'app',
     accent: '#4f9dff',
     accent2: '#34d399',
-    featured: true,
+    featured: false,
     paused: true,
   },
   {
@@ -239,7 +239,7 @@ const PROJECTS = [
     liveKind: 'app',
     accent: '#8b5cf6',
     accent2: '#22d3ee',
-    featured: true,
+    featured: false,
     paused: true,
   },
   {
@@ -385,7 +385,7 @@ const PROJECTS = [
     liveKind: 'app',
     accent: '#10b981',
     accent2: '#3b82f6',
-    featured: false,
+    featured: true,
   },
   {
     id: 'tripmate',
