@@ -27,6 +27,13 @@
   }
   apply(lang);
 
+  // Produktzahl aus js/data.js, falls die Seite die Daten lädt (z. B. Über mich)
+  if (typeof PROJECTS !== 'undefined') {
+    document.querySelectorAll('[data-count-products]').forEach((el) => {
+      el.textContent = String(PROJECTS.length);
+    });
+  }
+
   const toggle = document.getElementById('lang-toggle');
   if (toggle) {
     toggle.addEventListener('click', (e) => {

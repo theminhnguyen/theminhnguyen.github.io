@@ -42,7 +42,7 @@ for (const id of Object.keys(STORIES)) {
     <nav class="nav-links" aria-label="Hauptnavigation" data-i18n-aria-label="navAriaLabel">
       <a href="../../#produkte" data-i18n="navProducts">Produkte</a>
       <a href="../../warum/" data-i18n="navStory">Story</a>
-      <a href="/minh-cv/" data-i18n="navCv">Lebenslauf</a>
+      <a href="../../ueber-mich/" data-i18n="navCv">Über mich</a>
       <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Sprache wechseln" data-i18n-aria-label="langToggleAria">
         <span class="lang-opt active" data-lang="de">DE</span>
         <span class="lang-opt" data-lang="en">EN</span>
@@ -66,7 +66,7 @@ for (const id of Object.keys(STORIES)) {
       </p>
       <nav class="footer-links" aria-label="Rechtliches und Profile" data-i18n-aria-label="footerNavAria">
         <a href="../../warum/" data-i18n="footerWhy">Warum ich baue</a>
-        <a href="/minh-cv/" data-i18n="navCv">Lebenslauf</a>
+        <a href="../../ueber-mich/" data-i18n="navCv">Über mich</a>
         <a href="https://www.linkedin.com/in/the-minh-ng/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="../../impressum/" data-i18n="footerImprint">Impressum</a>
         <a href="../../datenschutz/" data-i18n="footerPrivacy">Datenschutz</a>

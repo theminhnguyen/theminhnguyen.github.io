@@ -36,7 +36,7 @@ vorhanden, echten Screenshots.
 
 ## Features der Seite
 
-- 👤 Persönlicher Hero mit Porträt und Claim „Erst ausprobieren. Dann skalieren.“ – verlinkt auf den [Lebenslauf](https://theminhnguyen.github.io/minh-cv/)
+- 👤 Persönlicher Hero mit Porträt und Claim „Erst ausprobieren. Dann skalieren.“ – verlinkt auf „Über mich“
 - ⭐ Vier Lieblingsprojekte mit eigener Detailseite: Galerie, Tabs „Worum es geht / Highlights / Technik“, Entstehungsgeschichte
 - 🎨 Dark, futuristisches Design mit Gradient-Mesh, Glow & Cursor-Licht
 - 🃏 Bento-Grid mit individuellen, animierten CSS-Mockups pro Produkt
@@ -63,6 +63,7 @@ js/product.js       # Rendering der Produkt-Detailseiten (Galerie, Tabs, Weitere
 js/legal.js         # Sprachumschaltung für Unterseiten (Warum, Impressum, Datenschutz)
 produkt/<id>/       # Detailseiten der Lieblingsprojekte (generiert)
 tools/gen-product-pages.js # erzeugt produkt/<id>/index.html aus STORIES
+ueber-mich/         # kompakter Werdegang (DE/EN), Details auf LinkedIn
 warum/              # Story-Seite „Warum ich selbst baue“ (DE/EN)
 impressum/          # Impressum (DE/EN)
 datenschutz/        # Datenschutzerklärung (DE/EN)

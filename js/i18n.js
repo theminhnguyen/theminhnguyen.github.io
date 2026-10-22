@@ -11,10 +11,10 @@ const UI_STRINGS = {
   navProducts: { de: 'Produkte', en: 'Products' },
   navStory: { de: 'Story', en: 'Story' },
   navContact: { de: 'Kontakt', en: 'Contact' },
-  navCv: { de: 'Lebenslauf', en: 'CV' },
+  navCv: { de: 'Über mich', en: 'About' },
   langToggleAria: { de: 'Sprache wechseln', en: 'Switch language' },
 
-  heroMeAria: { de: 'Lebenslauf von The Minh Nguyen', en: "The Minh Nguyen's CV" },
+  heroMeAria: { de: 'Über The Minh Nguyen', en: 'About The Minh Nguyen' },
   heroTitleHtml: {
     de: 'Erst ausprobieren. <span class="grad-text">Dann skalieren.</span>',
     en: 'Try it first. <span class="grad-text">Then scale it.</span>',
@@ -87,7 +87,7 @@ const UI_STRINGS = {
   formSending: { de: 'Wird gesendet …', en: 'Sending …' },
   formSuccess: { de: '✓ Danke! Deine Nachricht ist unterwegs – ich melde mich bald.', en: "✓ Thanks! Your message is on its way — I'll get back to you soon." },
   formError: { de: '✗ Das hat leider nicht geklappt. Bitte später nochmal versuchen.', en: "✗ That didn't work, unfortunately. Please try again later." },
-  ctaCvLink: { de: 'Lebenslauf →', en: 'CV →' },
+  ctaCvLink: { de: 'Über mich →', en: 'About me →' },
 
   footerAi: { de: 'KI', en: 'AI' },
   footerWhy: { de: 'Warum ich baue', en: 'Why I build' },
