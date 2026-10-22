@@ -37,6 +37,7 @@ jobs:
           # damit Browser nach jeder Änderung garantiert neu laden.
           sed -i \
             -e "s|href=\"css/styles.css\"|href=\"css/styles.css?v=${V}\"|g" \
+            -e "s|src=\"js/i18n.js\"|src=\"js/i18n.js?v=${V}\"|g" \
             -e "s|src=\"js/data.js\"|src=\"js/data.js?v=${V}\"|g" \
             -e "s|src=\"js/main.js\"|src=\"js/main.js?v=${V}\"|g" \
             index.html

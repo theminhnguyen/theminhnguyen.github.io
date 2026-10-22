@@ -36,6 +36,7 @@ vorhanden, echten Screenshots.
 
 ## Features der Seite
 
+- 👤 Persönlicher Hero mit Porträt und Claim „Erst ausprobieren. Dann skalieren.“ – verlinkt auf den [Lebenslauf](https://theminhnguyen.github.io/minh-cv/)
 - 🎨 Dark, futuristisches Design mit Gradient-Mesh, Glow & Cursor-Licht
 - 🃏 Bento-Grid mit individuellen, animierten CSS-Mockups pro Produkt
 - ▶️ **Demo-Galerie** pro Produkt (Lightbox): animierte Illustration + echte Screenshots (sofern vorhanden) in Geräte-Rahmen (Browser/Phone)
@@ -43,6 +44,7 @@ vorhanden, echten Screenshots.
 - 🔎 Filter nach Kategorie (Apps, Health, Games, Dev-Tools)
 - 🏷️ Ehrliche Status-Badges (Live / Download / Auf Anfrage) und „Konto nötig“-Hinweis
 - 📱 Voll responsive, `prefers-reduced-motion`-freundlich, mit Skip-Link & Fokus-Ringen
+- ⚖️ Impressum & Datenschutz, keine Cookies, kein Tracking, keine externen Font-Abrufe
 
 ## Technik
 
@@ -52,8 +54,14 @@ GitHub Pages.
 ```
 index.html          # Struktur
 css/styles.css      # komplettes Design
+js/i18n.js          # UI-Texte DE/EN + Sprachumschaltung
 js/data.js          # Produktdaten (Single Source of Truth)
 js/main.js          # Rendering, Mockups, Interaktion
+js/legal.js         # Sprachumschaltung für Impressum & Datenschutz
+impressum/          # Impressum (DE/EN)
+datenschutz/        # Datenschutzerklärung (DE/EN)
+assets/fonts/       # selbst gehostete Schriften (kein Google-Fonts-Abruf)
+assets/portrait.jpg # Porträt für Hero & Footer
 assets/og-image.png # Social-Preview (Open Graph / Twitter)
 assets/shots/       # echte Screenshots
 ```

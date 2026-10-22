@@ -11,19 +11,24 @@ const UI_STRINGS = {
   navProducts: { de: 'Produkte', en: 'Products' },
   navStory: { de: 'Story', en: 'Story' },
   navContact: { de: 'Kontakt', en: 'Contact' },
+  navCv: { de: 'Lebenslauf', en: 'CV' },
   langToggleAria: { de: 'Sprache wechseln', en: 'Switch language' },
 
-  heroBadge: { de: 'Ein-Personen-Studio · Vibe-Coded', en: 'One-person studio · Vibe-coded' },
+  heroMeAria: { de: 'Lebenslauf von The Minh Nguyen', en: "The Minh Nguyen's CV" },
   heroTitleHtml: {
-    de: 'Ideen, die <span class="grad-text">im Browser</span> lebendig werden.',
-    en: 'Ideas that <span class="grad-text">come alive</span> in the browser.',
+    de: 'Erst ausprobieren. <span class="grad-text">Dann skalieren.</span>',
+    en: 'Try it first. <span class="grad-text">Then scale it.</span>',
+  },
+  heroLead: {
+    de: 'Ich führe bei E.ON Digital Technology ein Team von 19 Entwicklern, das Konzernprozesse mit KI automatisiert – und baue Ideen weiterhin selbst.',
+    en: 'At E.ON Digital Technology I lead a team of 19 developers automating corporate processes with AI – and I still build ideas myself.',
   },
   heroSubRest: {
-    de: 'Produkte, gebaut ohne klassisches Coding – von der lokalen KI-Diktier-App über einen KI-Medien-Tracker bis zum begehbaren 3D-Schloss. Kein Slide-Deck, sondern echte Software zum Anfassen.',
-    en: 'products, built without classic coding — from a local AI dictation app to an AI media tracker to a walkable 3D castle. No slide deck, just real software you can try.',
+    de: 'davon zeige ich hier: von der lokalen KI-Diktier-App über einen KI-Medien-Tracker bis zum begehbaren 3D-Schloss.',
+    en: 'of them are here: from a local AI dictation app to an AI media tracker to a walkable 3D castle.',
   },
   heroCtaPrimary: { de: 'Produkte entdecken', en: 'Explore products' },
-  heroCtaGhost: { de: 'Zusammenarbeiten', en: "Let's collaborate" },
+  heroCtaGhost: { de: 'Mehr zu mir', en: 'More about me' },
   statProducts: { de: 'Produkte', en: 'Products' },
   statDemos: { de: 'Live-Demos', en: 'Live demos' },
   statTech: { de: 'Technologien', en: 'Technologies' },
@@ -65,10 +70,10 @@ const UI_STRINGS = {
   },
 
   ctaKicker: { de: "// Let's talk", en: "// Let's talk" },
-  ctaTitle: { de: 'Hat ein Produkt dein Interesse geweckt?', en: 'Did a product catch your interest?' },
+  ctaTitle: { de: 'Lust auf Austausch?', en: 'Fancy a chat?' },
   ctaSub: {
-    de: "Ob Lizenz, Weiterentwicklung, White-Label oder eine ganz neue Idee – schreib mir. Ich melde mich schnell.",
-    en: "Whether it's licensing, further development, white-label, or a completely new idea — reach out. I'll get back to you quickly.",
+    de: 'Fragen zu einem der Produkte, Gedanken zu KI-Automatisierung oder einfach Neugier – schreib mir. Ich melde mich schnell.',
+    en: "Questions about one of the products, thoughts on AI automation or plain curiosity — write to me. I'll get back to you quickly.",
   },
   formNameLabel: { de: 'Dein Name', en: 'Your name' },
   formNamePlaceholder: { de: 'Dein Name', en: 'Your name' },
@@ -80,12 +85,14 @@ const UI_STRINGS = {
   formSending: { de: 'Wird gesendet …', en: 'Sending …' },
   formSuccess: { de: '✓ Danke! Deine Nachricht ist unterwegs – ich melde mich bald.', en: "✓ Thanks! Your message is on its way — I'll get back to you soon." },
   formError: { de: '✗ Das hat leider nicht geklappt. Bitte später nochmal versuchen.', en: "✗ That didn't work, unfortunately. Please try again later." },
-  ctaGithubLink: { de: 'oder auf GitHub ansehen ↗', en: 'or check it out on GitHub ↗' },
+  ctaCvLink: { de: 'Lebenslauf →', en: 'CV →' },
 
-  footerNote: { de: 'Gebaut im Vibe-Coding-Stil ·', en: 'Built in vibe-coding style ·' },
-  footerTop: { de: 'Nach oben ↑', en: 'Back to top ↑' },
+  footerAi: { de: 'KI', en: 'AI' },
+  footerNavAria: { de: 'Rechtliches und Profile', en: 'Legal and profiles' },
+  footerImprint: { de: 'Impressum', en: 'Legal notice' },
+  footerPrivacy: { de: 'Datenschutz', en: 'Privacy' },
 
-  lightboxContact: { de: 'Interesse? Anfragen ↗', en: 'Interested? Get in touch ↗' },
+  lightboxContact: { de: 'Fragen? Schreib mir ↗', en: 'Questions? Write to me ↗' },
   lightboxCloseAria: { de: 'Demo schließen', en: 'Close demo' },
 
   demoWatchBtn: { de: '▶ Demo ansehen', en: '▶ Watch demo' },
@@ -114,8 +121,8 @@ const UI_STRINGS = {
     en: '🔑 A free account is required to try this (Google or email link).',
   },
   fanProjectNote: {
-    de: '⚖️ Nicht-kommerzielles Fan-Projekt – steht nicht zur Lizenzierung.',
-    en: '⚖️ Non-commercial fan project — not available for licensing.',
+    de: '⚖️ Nicht-kommerzielles Fan-Projekt.',
+    en: '⚖️ Non-commercial fan project.',
   },
 };
 
@@ -163,7 +170,9 @@ function persistLang(lang) {
 // Läuft nach jedem Sprachwechsel über alle statischen data-i18n-Elemente.
 function applyStaticTranslations() {
   const lang = getLang();
-  document.title = lang === 'en' ? 'Minh · Vibe-Coded Products' : 'Minh · Vibe-Coded Products';
+  document.title = lang === 'en'
+    ? 'The Minh Nguyen · Try it first. Then scale it.'
+    : 'The Minh Nguyen · Erst ausprobieren. Dann skalieren.';
 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     el.textContent = t(el.dataset.i18n);
