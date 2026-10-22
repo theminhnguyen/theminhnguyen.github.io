@@ -45,6 +45,9 @@ vorhanden, echten Screenshots.
 - 🔎 Filter nach Kategorie (Apps, Health, Games, Dev-Tools)
 - 🏷️ Ehrliche Status-Badges (Live / Download / Auf Anfrage) und „Konto nötig“-Hinweis
 - 📱 Voll responsive, `prefers-reduced-motion`-freundlich, mit Skip-Link & Fokus-Ringen
+- 🌗 Hell/Dunkel-Umschalter (Standard dunkel, Wahl lokal gespeichert)
+- 💬 „Frag mich“-Blase im Footer, führt zur Story-Seite
+- ⏸️ Status „Pausiert“ für Produkte, die nicht mehr weiterentwickelt werden (`paused: true` in `js/data.js`)
 - ⚖️ Impressum & Datenschutz, keine Cookies, kein Tracking, keine externen Font-Abrufe
 
 ## Technik
@@ -60,6 +63,8 @@ js/data.js          # Produktdaten (Single Source of Truth) + STORIES für Detai
 js/mockups.js       # animierte CSS-Mockups pro Produkt (Startseite & Detailseiten)
 js/main.js          # Rendering, Interaktion (Startseite)
 js/product.js       # Rendering der Produkt-Detailseiten (Galerie, Tabs, Weitere Projekte)
+js/theme.js         # Hell/Dunkel-Umschaltung (im <head> geladen)
+js/ask.js           # „Frag mich“-Blase im Footer
 js/legal.js         # Sprachumschaltung für Unterseiten (Warum, Impressum, Datenschutz)
 produkt/<id>/       # Detailseiten der Lieblingsprojekte (generiert)
 tools/gen-product-pages.js # erzeugt produkt/<id>/index.html aus STORIES

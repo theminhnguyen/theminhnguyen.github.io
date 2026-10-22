@@ -1315,3 +1315,92 @@ html[lang="en"] [data-only="de"] { display: none; }
   .ask { margin-left: 0; }
   .ask.open .ask-bubble { max-width: calc(100vw - 110px); white-space: normal; }
 }
+
+/* ============================================================
+   Hell/Dunkel-Umschalter + helles Farbschema
+   ============================================================ */
+.theme-toggle {
+  display: grid; place-items: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--border-strong); background: transparent;
+  color: var(--text-dim); cursor: pointer;
+  transition: color 0.25s ease, border-color 0.25s ease, transform 0.35s var(--ease);
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--accent); transform: rotate(-15deg); }
+.theme-toggle .tt-sun, .theme-toggle .tt-moon { display: grid; place-items: center; }
+.theme-toggle .tt-moon { display: none; }
+html[data-theme="light"] .theme-toggle .tt-sun { display: none; }
+html[data-theme="light"] .theme-toggle .tt-moon { display: grid; }
+
+html[data-theme="light"] {
+  --bg: #f5f4fa;
+  --bg-soft: #ebe9f4;
+  --surface: rgba(24, 20, 48, 0.035);
+  --surface-2: rgba(24, 20, 48, 0.06);
+  --border: rgba(24, 20, 48, 0.1);
+  --border-strong: rgba(24, 20, 48, 0.2);
+  --text: #15131f;
+  --text-dim: #4a4860;
+  --text-faint: #6f6d84;
+  --accent: #7c3aed;
+  --accent-2: #0e7490;
+  color-scheme: light;
+}
+
+/* Mockups & Rahmen zeigen App-Bildschirme – die bleiben dunkel */
+html[data-theme="light"] .mock,
+html[data-theme="light"] .frame-desktop {
+  --surface: rgba(255, 255, 255, 0.03);
+  --surface-2: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.16);
+  --text: #f4f4fb;
+  --text-dim: #a2a2b8;
+  --text-faint: #6b6b82;
+  --accent-2: #22d3ee;
+  color: var(--text);
+}
+
+html[data-theme="light"] .blob { opacity: 0.22; }
+html[data-theme="light"] .blob-3 { opacity: 0.14; }
+html[data-theme="light"] .grid-overlay {
+  background-image:
+    linear-gradient(rgba(24, 20, 48, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 20, 48, 0.05) 1px, transparent 1px);
+}
+html[data-theme="light"] .cursor-glow { background: radial-gradient(circle, rgba(124, 58, 237, 0.08), transparent 62%); }
+html[data-theme="light"] .nav.scrolled { background: rgba(245, 244, 250, 0.8); }
+html[data-theme="light"] .stat-num { background: linear-gradient(120deg, var(--text), var(--text-dim)); -webkit-background-clip: text; background-clip: text; }
+html[data-theme="light"] .ticker { background: rgba(24, 20, 48, 0.02); }
+html[data-theme="light"] .card { background: linear-gradient(180deg, #fff, rgba(255, 255, 255, 0.55)); }
+html[data-theme="light"] .fav,
+html[data-theme="light"] .about-numbers li,
+html[data-theme="light"] .about-strengths > div,
+html[data-theme="light"] .pd-more-item { background: rgba(255, 255, 255, 0.7); }
+html[data-theme="light"] .card-status,
+html[data-theme="light"] .demo-badge { background: rgba(255, 255, 255, 0.85); }
+html[data-theme="light"] .pd-status { background: transparent; }
+html[data-theme="light"] .status-live { color: #15803d; }
+html[data-theme="light"] .status-download { color: #0369a1; }
+html[data-theme="light"] .status-paused { color: #b45309; }
+html[data-theme="light"] .demo-badge { color: #15803d; }
+html[data-theme="light"] .cf-input { background: rgba(255, 255, 255, 0.75); }
+html[data-theme="light"] .cf-input:focus { background: #fff; }
+html[data-theme="light"] .lightbox { background: rgba(235, 233, 244, 0.9); }
+html[data-theme="light"] .lightbox-open:hover,
+html[data-theme="light"] .lightbox-close { color: var(--text); }
+html[data-theme="light"] .lightbox-stage {
+  background:
+    radial-gradient(120% 90% at 15% 0%, color-mix(in srgb, var(--card-accent, #8b5cf6) 16%, transparent), transparent 55%),
+    var(--bg);
+}
+html[data-theme="light"] .fav-go { color: color-mix(in srgb, var(--card-accent) 70%, #000); }
+html[data-theme="light"] .hero-avatar { box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.1), 0 18px 50px -18px rgba(124, 58, 237, 0.5); }
+html[data-theme="light"] .why-quote { background: rgba(255, 255, 255, 0.7); }
+/* Menüleisten-Mockup hat keinen eigenen Fensterrahmen – im hellen Modus ein dunkles Panel geben */
+html[data-theme="light"] .m-menubar {
+  padding: 14px;
+  border-radius: 14px;
+  background: #0b0b14;
+  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.5);
+}

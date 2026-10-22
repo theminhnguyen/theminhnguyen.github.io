@@ -7,6 +7,7 @@
   <meta name="robots" content="noindex" />
   <meta name="theme-color" content="#06060b" />
   <link rel="stylesheet" href="../assets/fonts/fonts.css" />
+  <script src="../js/theme.js"></script>
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
 </head>
@@ -17,6 +18,7 @@
       <span>minh<span class="nav-dot">.</span>studio</span>
     </a>
     <nav class="nav-links">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Hell/Dunkel umschalten / Toggle light/dark"></button>
       <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Sprache wechseln / Switch language">
         <span class="lang-opt active" data-lang="de">DE</span>
         <span class="lang-opt" data-lang="en">EN</span>
@@ -54,8 +56,10 @@
 
       <h2>5. Keine Analyse, keine Cookies</h2>
       <p>
-        Diese Seite setzt kein Tracking, keine Analyse-Tools und keine Cookies ein. Die gewählte Sprache
-        wird ausschließlich lokal in deinem Browser gespeichert (localStorage) und nicht übertragen.
+        Diese Seite setzt kein Tracking, keine Analyse-Tools und keine Cookies ein. Die gewählte Sprache und
+        das Farbschema (hell/dunkel) werden ausschließlich lokal in deinem Browser gespeichert (localStorage),
+        ebenso für die Dauer des Besuchs, ob die „Frag mich“-Blase schon gezeigt wurde (sessionStorage).
+        Nichts davon wird übertragen.
       </p>
 
       <h2>6. Verlinkte Produkte</h2>
@@ -98,8 +102,10 @@
 
       <h2>5. No analytics, no cookies</h2>
       <p>
-        This site uses no tracking, no analytics tools and no cookies. Your chosen language is stored
-        locally in your browser only (localStorage) and never transmitted.
+        This site uses no tracking, no analytics tools and no cookies. Your chosen language and colour
+        scheme (light/dark) are stored locally in your browser only (localStorage), as is – for the duration
+        of your visit – whether the “ask me” bubble has already been shown (sessionStorage). None of this is
+        transmitted.
       </p>
 
       <h2>6. Linked products</h2>

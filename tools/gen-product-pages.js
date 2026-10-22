@@ -22,6 +22,7 @@ for (const id of Object.keys(STORIES)) {
   <meta property="og:image" content="${img}" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="../../assets/fonts/fonts.css" />
+  <script src="../../js/theme.js"></script>
   <link rel="stylesheet" href="../../css/styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>" />
 </head>
@@ -43,6 +44,7 @@ for (const id of Object.keys(STORIES)) {
       <a href="../../#produkte" data-i18n="navProducts">Produkte</a>
       <a href="../../warum/" data-i18n="navStory">Story</a>
       <a href="../../ueber-mich/" data-i18n="navCv">Über mich</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Hell/Dunkel umschalten" data-i18n-aria-label="themeToggleAria"></button>
       <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Sprache wechseln" data-i18n-aria-label="langToggleAria">
         <span class="lang-opt active" data-lang="de">DE</span>
         <span class="lang-opt" data-lang="en">EN</span>
