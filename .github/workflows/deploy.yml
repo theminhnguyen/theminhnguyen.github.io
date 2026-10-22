@@ -29,6 +29,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Kennzahlen aus js/data.js ableiten: stats.json (für den CV),
+      # statische Fallback-Zahlen im HTML und das Social-Preview-Bild.
+      - name: Kennzahlen & OG-Bild aus den Produktdaten erzeugen
+        run: |
+          node tools/build-stats.js
+          google-chrome --headless=new --disable-gpu --no-sandbox --hide-scrollbars \
+            --force-device-scale-factor=1 --allow-file-access-from-files \
+            --window-size=1200,630 --virtual-time-budget=3000 \
+            --screenshot="$PWD/assets/og-image.png" "file://$PWD/tools/_og.html"
+          rm tools/_og.html
+          ls -la assets/og-image.png
+
       - name: Cache-Busting – Assets mit Commit-Hash versionieren
         run: |
           V="${GITHUB_SHA::8}"

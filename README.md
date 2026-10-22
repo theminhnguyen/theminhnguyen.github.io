@@ -31,6 +31,9 @@ vorhanden, echten Screenshots.
 
 > Die Zahlen im Hero (Produkte, Live-Demos, Technologien) werden zur Laufzeit aus
 > `js/data.js` berechnet – beim Hinzufügen eines Produkts stimmen sie automatisch.
+> Beim Deploy erzeugt `tools/build-stats.js` daraus außerdem `stats.json` (liest der
+> ausführliche CV unter /minh-cv/), die statischen Fallback-Zahlen im HTML und das
+> Social-Preview-Bild `assets/og-image.png` (Vorlage: `tools/og-image.html`).
 > „Live-Demo“ zählt nur im Browser lauffähige Apps; Downloads und Auf-Anfrage-Produkte
 > werden nicht mitgezählt.
 
@@ -70,6 +73,7 @@ js/ask.js           # „Frag mich“-Blase im Footer
 js/legal.js         # Sprachumschaltung für Unterseiten (Warum, Impressum, Datenschutz)
 produkt/<id>/       # Detailseiten der Lieblingsprojekte (generiert)
 tools/gen-product-pages.js # erzeugt produkt/<id>/index.html aus STORIES
+tools/build-stats.js       # Kennzahlen → stats.json, HTML-Fallbacks, OG-Bild (läuft im Deploy)
 ueber-mich/         # kompakter Werdegang (DE/EN), Details auf LinkedIn
 warum/              # Story-Seite „Warum ich selbst baue“ (DE/EN)
 impressum/          # Impressum (DE/EN)
