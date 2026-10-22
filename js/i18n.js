@@ -114,6 +114,7 @@ const UI_STRINGS = {
   kindBuildingAction: { de: 'Repo ansehen ↗', en: 'View repo ↗' },
   kindNoneBadge: { de: 'Auf Anfrage', en: 'On request' },
   kindNoneAction: { de: 'Anfragen', en: 'Get in touch' },
+  kindPausedBadge: { de: 'Pausiert', en: 'Paused' },
 
   screenshotAltSuffix: { de: '– echter Screenshot', en: '– real screenshot' },
   viewLabel: { de: 'Ansicht', en: 'View' },

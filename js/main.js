@@ -42,7 +42,9 @@
       building: { badge: t('kindBuildingBadge'), cls: 'status-soon', action: t('kindBuildingAction'), lightbox: t('kindBuildingAction') },
       none: { badge: t('kindNoneBadge'), cls: 'status-soon', action: t('kindNoneAction'), lightbox: '' },
     };
-    return KIND[p.liveKind || 'none'] || KIND.none;
+    const k = KIND[p.liveKind || 'none'] || KIND.none;
+    // Pausierte Produkte bleiben nutzbar (Button bleibt), das Badge sagt ehrlich, dass nichts Neues kommt
+    return p.paused ? { ...k, badge: t('kindPausedBadge'), cls: 'status-paused' } : k;
   }
 
   /* ---------- Karten rendern ---------- */

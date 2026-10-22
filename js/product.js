@@ -80,6 +80,7 @@
     const p = localize(raw);
     const s = storyOf(ID);
     const k = KIND[p.liveKind] || KIND.none;
+    const badge = p.paused ? { badge: 'kindPausedBadge', cls: 'status-paused' } : k;
     const tabs = [t('productTabAbout'), t('productTabHighlights'), t('productTabTech')];
 
     const cta = p.live
@@ -105,7 +106,7 @@
             </div>
           </div>
           <div class="pd-chips">
-            <span class="card-status pd-status ${k.cls}"><span class="dot"></span>${esc(t(k.badge))}</span>
+            <span class="card-status pd-status ${badge.cls}"><span class="dot"></span>${esc(t(badge.badge))}</span>
             ${p.tags.map((tag) => `<span class="tag">${esc(tag)}</span>`).join('')}
           </div>
           <div class="pd-tabs" role="tablist">

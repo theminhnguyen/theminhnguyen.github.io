@@ -10,6 +10,7 @@
  *            null       → nichts Öffentliches verfügbar
  * account:   true, wenn zum Ausprobieren ein Konto/Login nötig ist
  * fanProject: true bei nicht-kommerziellen Fan-Projekten (kein Lizenz-CTA)
+ * paused:    true, wenn das Produkt nicht mehr aktiv weiterentwickelt wird (Badge "Pausiert")
  * en:        englische Übersetzung von tagline/description/features/categoryLabel
  *            (siehe js/i18n.js für die Sprachumschaltung)
  */
@@ -90,6 +91,7 @@ const PROJECTS = [
     accent: '#5b8cff',
     accent2: '#3ecf8e',
     featured: true,
+    paused: true,
   },
   {
     id: 'meetscribe',
@@ -164,6 +166,7 @@ const PROJECTS = [
     accent: '#4f9dff',
     accent2: '#34d399',
     featured: true,
+    paused: true,
   },
   {
     id: 'korbi',
@@ -237,6 +240,7 @@ const PROJECTS = [
     accent: '#8b5cf6',
     accent2: '#22d3ee',
     featured: true,
+    paused: true,
   },
   {
     id: 'hogwarts-3d',
@@ -418,6 +422,7 @@ const PROJECTS = [
     accent: '#06b6d4',
     accent2: '#6366f1',
     featured: false,
+    paused: true,
   },
   {
     id: 'kudosedge',
@@ -491,6 +496,7 @@ const PROJECTS = [
     accent: '#f5b301',
     accent2: '#fb7185',
     featured: false,
+    paused: true,
   },
   {
     id: 'claude-usage-monitor',
@@ -637,6 +643,7 @@ const PROJECTS = [
     accent: '#2F6F62',
     accent2: '#B4531B',
     featured: false,
+    paused: true,
   },
   {
     id: 'wanderjahre',

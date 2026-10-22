@@ -78,6 +78,7 @@ for (const id of Object.keys(STORIES)) {
   <script src="../../js/data.js"></script>
   <script src="../../js/mockups.js"></script>
   <script src="../../js/product.js"></script>
+  <script src="../../js/ask.js" data-root="../../"></script>
 </body>
 </html>
 `;
