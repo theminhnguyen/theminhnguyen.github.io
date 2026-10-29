@@ -21,6 +21,7 @@ vorhanden, echten Screenshots.
 | **WHOOPI** | Whoop-4.0-Live-Dashboard über Web Bluetooth | Live |
 | **PixelPost** | Grußkarte als begehbares Game-Boy-Mini-Spiel | Live |
 | **Virtual World** | Browser-Multiplayer für bis zu 50 Spieler | Live |
+| **Team-Arcade** | Teambuilding-Spiele für Online-Meetings (Nachfolger von Virtual World) | Auf Anfrage · in Arbeit |
 | **TripMate** | Gemeinsame Urlaubsplanung als PWA | Live · pausiert |
 | **KudosEdge** | Werte-basiertes Peer-Recognition-Tool | Live |
 | **Boop** | Physik-Fidget-Ball für die macOS-Menüleiste | Auf Anfrage · pausiert |

@@ -818,6 +818,32 @@ section { position: relative; z-index: 2; }
 @keyframes wander3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-18px,22px)} }
 .m-tag { position: absolute; bottom: 8px; left: 8px; font-family: var(--font-mono); font-size: 9px; color: #fff; background: rgba(0,0,0,0.5); padding: 2px 7px; border-radius: 5px; }
 
+/* team-arcade: Spielauswahl, Boss-Leiste, Team */
+.m-ta { background: linear-gradient(160deg, #141433, #0a0a1a); padding: 12px; display: flex; flex-direction: column; gap: 9px; }
+.m-ta-head { display: flex; justify-content: space-between; align-items: center; }
+.m-ta-head b { color: #eef2ff; font-size: 12px; letter-spacing: .2px; }
+.m-ta-online { font-family: var(--font-mono); font-size: 8px; color: #4ade80; }
+.m-ta-boss { display: flex; align-items: center; gap: 7px; }
+.m-ta-boss-label { font-size: 8px; font-weight: 700; color: #f87171; letter-spacing: .06em; }
+.m-ta-hp { flex: 1; height: 7px; border-radius: 4px; background: rgba(0,0,0,.5); border: 1px solid rgba(239,68,68,.45); overflow: hidden; }
+.m-ta-hp i { display: block; height: 100%; background: linear-gradient(90deg, #ef4444, #b91c1c); transform-origin: left; animation: ta-hp 6s linear infinite; }
+@keyframes ta-hp { 0% { transform: scaleX(1); } 85% { transform: scaleX(.06); } 100% { transform: scaleX(1); } }
+.m-ta-games { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.m-ta-game { font-size: 9px; color: #cbd5e1; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1); border-radius: 7px; padding: 5px 7px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; animation: ta-pick 8s infinite; }
+.m-ta-game.g2 { animation-delay: 2s; }
+.m-ta-game.g3 { animation-delay: 4s; }
+.m-ta-game.g4 { animation-delay: 6s; }
+@keyframes ta-pick {
+  0%, 20% { background: rgba(99,102,241,.32); border-color: #818cf8; color: #fff; }
+  25%, 100% { background: rgba(255,255,255,.05); border-color: rgba(255,255,255,.1); color: #cbd5e1; }
+}
+.m-ta-team { display: flex; gap: 6px; }
+.m-ta-team i { width: 10px; height: 10px; border-radius: 3px; background: var(--c); box-shadow: 0 0 6px var(--c); animation: ta-bob 1.6s ease-in-out infinite; }
+.m-ta-team i:nth-child(2n) { animation-delay: .4s; }
+.m-ta-team i:nth-child(3n) { animation-delay: .8s; }
+@keyframes ta-bob { 50% { transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { .m-ta-hp i, .m-ta-game, .m-ta-team i { animation: none; } }
+
 /* streetpulse: Straßenszene mit Erkennungs-Boxen */
 .m-street { position: relative; height: 152px; padding: 0; overflow: hidden; background: linear-gradient(180deg, #26374d, #101a26); }
 .m-lane { position: absolute; left: 0; right: 0; top: 60%; height: 2px; background: repeating-linear-gradient(90deg, rgba(255,255,255,0.4) 0 16px, transparent 16px 34px); }

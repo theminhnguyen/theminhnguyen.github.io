@@ -154,6 +154,22 @@ const MOCKUPS = {
       </div>
     </div>`,
 
+  'team-arcade': () => `
+    <div class="mock">
+      <div class="mock-window">
+        <div class="mock-bar"><i></i><i></i><i></i></div>
+        <div class="mock-screen m-ta">
+          <div class="m-ta-head"><b>🕹️ Team-Arcade</b><span class="m-ta-online">● 24 online</span></div>
+          <div class="m-ta-boss"><span class="m-ta-boss-label">👹 BOSS</span><span class="m-ta-hp"><i></i></span></div>
+          <div class="m-ta-games">
+            <span class="m-ta-game g1">👹 Boss-Kampf</span><span class="m-ta-game g2">🏷️ Fangen</span>
+            <span class="m-ta-game g3">🅰️🅱️ A oder B</span><span class="m-ta-game g4">🏁 Wettrennen</span>
+          </div>
+          <div class="m-ta-team"><i style="--c:#22d3ee"></i><i style="--c:#f472b6"></i><i style="--c:#a3e635"></i><i style="--c:#f59e0b"></i><i style="--c:#a855f7"></i><i style="--c:#ef4444"></i></div>
+        </div>
+      </div>
+    </div>`,
+
   tripmate: () => `
     <div class="mock" style="display:flex;justify-content:center">
       <div class="m-map">
