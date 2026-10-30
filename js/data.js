@@ -748,29 +748,31 @@ const TECH_TICKER = [
  * Die Highlights kommen aus `features` des jeweiligen Produkts.
  */
 const STORIES = {
-  'virtual-world-multiplayer': {
+  'team-arcade': {
     de: {
       story: [
-        'Für ein Teambuilding wollte ich mehr als das übliche Online-Quiz. Etwas, bei dem man sich wirklich begegnet – auch wenn alle an verschiedenen Orten sitzen.',
-        'Also habe ich eine eigene Welt gebaut: Pixel-Art im Browser, Minispiele, Boss-Fights und KI-Agenten, die die Welt beleben. Link teilen, und bis zu 50 Leute sind gleichzeitig drin.',
-        'Früher wäre das ein Projekt mit Team und Budget gewesen. Jetzt war es einfach da.',
+        'Unsere Team-Meetings laufen fast nur noch online. Ich wollte etwas, bei dem man sich dort wirklich begegnet – nicht noch ein Quiz, bei dem alle stumm auf Antworten klicken.',
+        'Angefangen hat es mit Virtual World, einer Pixel-Welt für bis zu 50 Leute. Für echte Meetings fehlte aber einiges: Niemand sollte sein privates Handy brauchen, die Firmen-Firewall musste mitspielen, und eine Moderation braucht die Kontrolle über den Ablauf.',
+        'Daraus wird gerade Team-Arcade: Link in den Teams-Chat, Name eingeben, mitspielen. Als Nächstes kommen eigene Räume für jede Moderation, Spiele mit verteilten Rollen und ein Maulwurf, der heimlich sabotiert.',
       ],
       tech: [
-        ['Echtzeit', 'Ein Node.js-Server hält den Zustand der Welt und synchronisiert alle Spieler über Socket.io – Bewegungen, Minispiele und Kämpfe laufen live.'],
-        ['KI-Agenten', 'Computergesteuerte Figuren bewegen sich als eigene Spieler durch die Karte, damit die Welt auch mit wenigen Leuten lebendig wirkt.'],
-        ['Betrieb', 'Gehostet auf Render. Kein Download, keine Installation – der Browser reicht.'],
+        ['Echtzeit', 'Ein Node.js-Server mit Socket.io hält jeden Raum zusammen. Bewegungen werden gebündelt verschickt – bei 50 Leuten rund 98 % weniger Nachrichten als vorher.'],
+        ['Fair', 'Ob jemand gefangen, eingesammelt oder im Ziel ist, entscheidet der Server anhand der Positionen. Schummeln über die Entwicklerkonsole bringt nichts.'],
+        ['Technik-Check', 'Eine eigene Seite prüft vor dem Meeting Browser, Verbindung durch die Firewall und Antwortzeit – mit klarer Ampel statt Fehlermeldung.'],
+        ['Getestet', 'Automatische Tests mit echten Verbindungen und ein Lasttest mit 50 gleichzeitigen Spielern. Gehostet kostenlos – der Browser reicht.'],
       ],
     },
     en: {
       story: [
-        'For a team-building event I wanted more than the usual online quiz. Something where people actually meet – even when everyone sits in a different place.',
-        'So I built our own world: pixel art in the browser, mini-games, boss fights and AI agents that bring the world to life. Share a link and up to 50 people are in at the same time.',
-        'That used to be a project with a team and a budget. Now it simply existed.',
+        'Our team meetings are almost entirely online now. I wanted something where people actually meet there – not another quiz where everyone silently clicks answers.',
+        'It started with Virtual World, a pixel world for up to 50 people. Real meetings needed more, though: nobody should need their personal phone, the company firewall had to play along, and a host needs control over what happens.',
+        'That is turning into Team-Arcade: drop a link in the Teams chat, enter a name, play. Next up are separate rooms for every host, games with split roles and a mole who secretly sabotages.',
       ],
       tech: [
-        ['Real-time', 'A Node.js server holds the state of the world and syncs every player via Socket.io – movement, mini-games and fights run live.'],
-        ['AI agents', 'Computer-controlled characters roam the map as players of their own, so the world feels alive even with only a few people.'],
-        ['Hosting', 'Hosted on Render. No download, no installation – a browser is all you need.'],
+        ['Real-time', 'A Node.js server with Socket.io holds every room together. Movement is sent in batches – with 50 people that is about 98 % fewer messages than before.'],
+        ['Fair', 'Whether someone is caught, collects an item or reaches the finish is decided by the server from the positions. Cheating via the developer console gets you nowhere.'],
+        ['Tech check', 'A dedicated page checks the browser, the connection through the firewall and the response time before the meeting – with a clear traffic light instead of an error message.'],
+        ['Tested', 'Automated tests with real connections and a load test with 50 simultaneous players. Hosted for free – a browser is all you need.'],
       ],
     },
   },
