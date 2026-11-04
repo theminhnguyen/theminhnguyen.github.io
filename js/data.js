@@ -753,7 +753,7 @@ const STORIES = {
       story: [
         'Unsere Team-Meetings laufen fast nur noch online. Ich wollte etwas, bei dem man sich dort wirklich begegnet – nicht noch ein Quiz, bei dem alle stumm auf Antworten klicken.',
         'Angefangen hat es mit Virtual World, einer Pixel-Welt für bis zu 50 Leute. Für echte Meetings fehlte aber einiges: Niemand sollte sein privates Handy brauchen, die Firmen-Firewall musste mitspielen, und eine Moderation braucht die Kontrolle über den Ablauf.',
-        'Daraus wird gerade Team-Arcade: Link in den Teams-Chat, Name eingeben, mitspielen. Als Nächstes kommen eigene Räume für jede Moderation, Spiele mit verteilten Rollen und ein Maulwurf, der heimlich sabotiert.',
+        'Daraus ist Team-Arcade geworden: Link in den Teams-Chat, Name eingeben, mitspielen. Jede Moderation hat einen eigenen Raum mit geheimem Link, Spiele öffnen sich als Portal, nach jedem Spiel gibt es eine Gesamttabelle, und am Ende entsteht ein Gruppenfoto zum Speichern. Als Nächstes kommen Spiele mit verteilten Rollen und ein Maulwurf, der heimlich sabotiert.',
       ],
       tech: [
         ['Echtzeit', 'Ein Node.js-Server mit Socket.io hält jeden Raum zusammen. Bewegungen werden gebündelt verschickt – bei 50 Leuten rund 98 % weniger Nachrichten als vorher.'],
@@ -766,7 +766,7 @@ const STORIES = {
       story: [
         'Our team meetings are almost entirely online now. I wanted something where people actually meet there – not another quiz where everyone silently clicks answers.',
         'It started with Virtual World, a pixel world for up to 50 people. Real meetings needed more, though: nobody should need their personal phone, the company firewall had to play along, and a host needs control over what happens.',
-        'That is turning into Team-Arcade: drop a link in the Teams chat, enter a name, play. Next up are separate rooms for every host, games with split roles and a mole who secretly sabotages.',
+        'That became Team-Arcade: drop a link in the Teams chat, enter a name, play. Every host gets their own room with a secret link, games open as a portal, there is an overall scoreboard after each game, and in the end a group photo you can save. Next up are games with split roles and a mole who secretly sabotages.',
       ],
       tech: [
         ['Real-time', 'A Node.js server with Socket.io holds every room together. Movement is sent in batches – with 50 people that is about 98 % fewer messages than before.'],
