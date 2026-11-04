@@ -393,20 +393,20 @@ const PROJECTS = [
     emoji: '🕹️',
     tagline: 'Teambuilding-Spiele fürs Online-Meeting – Link öffnen, mitspielen.',
     description:
-      'Spieleplattform für Teams-Meetings mit 20–50 Leuten: Alle spielen im Browser am Laptop – ohne App, ohne Konto, ohne privates Handy. Eine gemeinsame Pixel-Welt mit Boss-Kampf, Fangen, Wettrennen, Sammeln und „A oder B“. Ein Technik-Check vorab zeigt, ob Laptop und Firmen-Firewall mitspielen. Über Treffer, Ziel und Antworten entscheidet der Server, damit niemand schummeln kann. Entsteht gerade als Nachfolger von Virtual World – der kostenlose Server braucht beim ersten Aufruf etwa 30 Sekunden zum Aufwachen.',
+      'Spieleplattform für Teams-Meetings mit 20–50 Leuten: Alle spielen im Browser am Laptop – ohne App, ohne Konto, ohne privates Handy. Eine gemeinsame Pixel-Welt mit Boss-Kampf, Fangen, Wettrennen, Sammeln und der „Aufstellung“, bei der man durch Hinlaufen abstimmt. Ein Technik-Check vorab zeigt, ob Laptop und Firmen-Firewall mitspielen. Über Treffer, Ziel und Antworten entscheidet der Server, damit niemand schummeln kann. Entsteht gerade als Nachfolger von Virtual World – der kostenlose Server braucht beim ersten Aufruf etwa 30 Sekunden zum Aufwachen.',
     features: [
       'Link im Meeting-Chat teilen, Name eingeben, fertig – kein Konto, keine App',
-      'Fünf Spiele: Boss-Kampf, Fangen, Wettrennen, Sammeln und „A oder B“',
+      'Fünf Spiele: Boss-Kampf, Fangen, Wettrennen, Sammeln und die „Aufstellung“ (abstimmen durch Hinlaufen)',
       'Technik-Check vorab: Browser, Verbindung durch die Firewall, Antwortzeit',
       'Getestet mit 50 gleichzeitigen Spielern, kostenlos gehostet',
     ],
     en: {
       tagline: 'Team-building games for online meetings – open the link, play along.',
       description:
-        'A games platform for Teams meetings with 20–50 people: everyone plays in the browser on their laptop – no app, no account, no personal phone. A shared pixel world with a boss fight, tag, a race, collecting and "A or B". A tech check beforehand shows whether the laptop and the company firewall play along. The server decides hits, finishes and answers, so nobody can cheat. Currently being built as the successor to Virtual World – the free server needs about 30 seconds to wake up on the first visit.',
+        'A games platform for Teams meetings with 20–50 people: everyone plays in the browser on their laptop – no app, no account, no personal phone. A shared pixel world with a boss fight, tag, a race, collecting and the "lineup", where you vote by walking. A tech check beforehand shows whether the laptop and the company firewall play along. The server decides hits, finishes and answers, so nobody can cheat. Currently being built as the successor to Virtual World – the free server needs about 30 seconds to wake up on the first visit.',
       features: [
         'Share the link in the meeting chat, enter a name, done – no account, no app',
-        'Five games: boss fight, tag, race, collecting and "A or B"',
+        'Five games: boss fight, tag, race, collecting and the "lineup" (vote by walking)',
         'Tech check beforehand: browser, connection through the firewall, response time',
         'Tested with 50 simultaneous players, hosted for free',
       ],
