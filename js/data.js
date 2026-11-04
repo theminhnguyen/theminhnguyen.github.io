@@ -397,7 +397,7 @@ const PROJECTS = [
     features: [
       'Link im Meeting-Chat teilen, Name eingeben, fertig – kein Konto, keine App',
       'Acht Spiele: Team-Boss mit verteilten Rollen, Maulwurf, Schnitzeljagd, Boss-Kampf, Fangen, Wettrennen, Sammeln und die „Aufstellung“ (abstimmen durch Hinlaufen)',
-      'Technik-Check vorab: Browser, Verbindung durch die Firewall, Antwortzeit',
+      'Für andere Moderatoren: fertige Abend-Programme, Erklär-Karten und eine Anleitung (Deutsch/Englisch), dazu ein Technik-Check vorab',
       'Getestet mit 50 gleichzeitigen Spielern, kostenlos gehostet',
     ],
     en: {
@@ -407,7 +407,7 @@ const PROJECTS = [
       features: [
         'Share the link in the meeting chat, enter a name, done – no account, no app',
         'Eight games: team boss with split roles, mole, scavenger hunt, boss fight, tag, race, collecting and the "lineup" (vote by walking)',
-        'Tech check beforehand: browser, connection through the firewall, response time',
+        'For other hosts: ready-made evening programs, explanation cards and a guide (German/English), plus a tech check beforehand',
         'Tested with 50 simultaneous players, hosted for free',
       ],
       categoryLabel: 'Team building',
@@ -753,7 +753,7 @@ const STORIES = {
       story: [
         'Unsere Team-Meetings laufen fast nur noch online. Ich wollte etwas, bei dem man sich dort wirklich begegnet – nicht noch ein Quiz, bei dem alle stumm auf Antworten klicken.',
         'Angefangen hat es mit Virtual World, einer Pixel-Welt für bis zu 50 Leute. Für echte Meetings fehlte aber einiges: Niemand sollte sein privates Handy brauchen, die Firmen-Firewall musste mitspielen, und eine Moderation braucht die Kontrolle über den Ablauf.',
-        'Daraus ist Team-Arcade geworden: Link in den Teams-Chat, Name eingeben, mitspielen. Jede Moderation hat einen eigenen Raum mit geheimem Link, Spiele öffnen sich als Portal, nach jedem Spiel gibt es eine Gesamttabelle, und am Ende entsteht ein Gruppenfoto zum Speichern. Mit dem Team-Boss gibt es jetzt ein Spiel mit verteilten Rollen: Angriff, Schild, Heilung und Funker besiegen gemeinsam „Das Endlos-Meeting“ oder „Den Montag“ – die Warnungen kommen im Spiel, niemand muss sprechen. Dazu kommt der Maulwurf: Ein paar Leute sabotieren heimlich das gemeinsame Projekt, in Besprechungen sucht die Gruppe sie und stimmt ab – wer gewählt wird, ist nur enttarnt, niemand fliegt raus. Außerdem gibt es eine Schnitzeljagd: Kleingruppen laufen im Wettlauf von Rätsel zu Rätsel, jede Person sieht nur einen Teil des Hinweises und gibt ihn im Gruppen-Chat weiter. Als Nächstes kommen Vorlagen und eine Anleitung, damit auch andere Moderatoren eigene Runden leiten können.',
+        'Daraus ist Team-Arcade geworden: Link in den Teams-Chat, Name eingeben, mitspielen. Jede Moderation hat einen eigenen Raum mit geheimem Link, Spiele öffnen sich als Portal, nach jedem Spiel gibt es eine Gesamttabelle, und am Ende entsteht ein Gruppenfoto zum Speichern. Mit dem Team-Boss gibt es jetzt ein Spiel mit verteilten Rollen: Angriff, Schild, Heilung und Funker besiegen gemeinsam „Das Endlos-Meeting“ oder „Den Montag“ – die Warnungen kommen im Spiel, niemand muss sprechen. Dazu kommt der Maulwurf: Ein paar Leute sabotieren heimlich das gemeinsame Projekt, in Besprechungen sucht die Gruppe sie und stimmt ab – wer gewählt wird, ist nur enttarnt, niemand fliegt raus. Außerdem gibt es eine Schnitzeljagd: Kleingruppen laufen im Wettlauf von Rätsel zu Rätsel, jede Person sieht nur einen Teil des Hinweises und gibt ihn im Gruppen-Chat weiter. Damit auch andere Moderatoren eigene Runden leiten können, gibt es fertige Abend-Programme, eine kurze Erklär-Karte vor jedem Spiel und eine Anleitung auf Deutsch und Englisch. Als Nächstes steht die erste echte Runde mit dem Team an.',
       ],
       tech: [
         ['Echtzeit', 'Ein Node.js-Server mit Socket.io hält jeden Raum zusammen. Bewegungen werden gebündelt verschickt – bei 50 Leuten rund 98 % weniger Nachrichten als vorher.'],
@@ -766,7 +766,7 @@ const STORIES = {
       story: [
         'Our team meetings are almost entirely online now. I wanted something where people actually meet there – not another quiz where everyone silently clicks answers.',
         'It started with Virtual World, a pixel world for up to 50 people. Real meetings needed more, though: nobody should need their personal phone, the company firewall had to play along, and a host needs control over what happens.',
-        'That became Team-Arcade: drop a link in the Teams chat, enter a name, play. Every host gets their own room with a secret link, games open as a portal, there is an overall scoreboard after each game, and in the end a group photo you can save. The team boss is now a game with split roles: attack, shield, healing and radio defeat "The Endless Meeting" or "The Monday" together – the warnings appear in the game, so nobody has to speak. Then there is the mole: a few people secretly sabotage the shared project, the group hunts them in meetings and votes – whoever is chosen is only exposed, nobody gets kicked out. There is also a scavenger hunt: small groups race from riddle to riddle, everyone sees only part of the clue and passes it on in the group chat. Next up are templates and a guide so other hosts can run their own rounds.',
+        'That became Team-Arcade: drop a link in the Teams chat, enter a name, play. Every host gets their own room with a secret link, games open as a portal, there is an overall scoreboard after each game, and in the end a group photo you can save. The team boss is now a game with split roles: attack, shield, healing and radio defeat "The Endless Meeting" or "The Monday" together – the warnings appear in the game, so nobody has to speak. Then there is the mole: a few people secretly sabotage the shared project, the group hunts them in meetings and votes – whoever is chosen is only exposed, nobody gets kicked out. There is also a scavenger hunt: small groups race from riddle to riddle, everyone sees only part of the clue and passes it on in the group chat. So other hosts can run their own rounds too, there are ready-made evening programs, a short explanation card before every game and a guide in German and English. Next up is the first real round with the team.',
       ],
       tech: [
         ['Real-time', 'A Node.js server with Socket.io holds every room together. Movement is sent in batches – with 50 people that is about 98 % fewer messages than before.'],
