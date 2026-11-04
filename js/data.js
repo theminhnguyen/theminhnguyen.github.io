@@ -393,20 +393,20 @@ const PROJECTS = [
     emoji: '🕹️',
     tagline: 'Teambuilding-Spiele fürs Online-Meeting – Link öffnen, mitspielen.',
     description:
-      'Spieleplattform für Teams-Meetings mit 20–50 Leuten: Alle spielen im Browser am Laptop – ohne App, ohne Konto, ohne privates Handy. Eine gemeinsame Pixel-Welt mit dem „Team-Boss“ (Angriff, Schild, Heilung und Funker besiegen gemeinsam einen Boss – ganz ohne Sprechen), Boss-Kampf, Fangen, Wettrennen, Sammeln und der „Aufstellung“, bei der man durch Hinlaufen abstimmt. Ein Technik-Check vorab zeigt, ob Laptop und Firmen-Firewall mitspielen. Über Treffer, Ziel und Antworten entscheidet der Server, damit niemand schummeln kann. Entsteht gerade als Nachfolger von Virtual World – der kostenlose Server braucht beim ersten Aufruf etwa 30 Sekunden zum Aufwachen.',
+      'Spieleplattform für Teams-Meetings mit 20–50 Leuten: Alle spielen im Browser am Laptop – ohne App, ohne Konto, ohne privates Handy. Eine gemeinsame Pixel-Welt mit dem „Team-Boss“ (Angriff, Schild, Heilung und Funker besiegen gemeinsam einen Boss – ganz ohne Sprechen), dem „Maulwurf“ (jemand sabotiert heimlich das gemeinsame Projekt), Boss-Kampf, Fangen, Wettrennen, Sammeln und der „Aufstellung“, bei der man durch Hinlaufen abstimmt. Ein Technik-Check vorab zeigt, ob Laptop und Firmen-Firewall mitspielen. Über Treffer, Ziel und Antworten entscheidet der Server, damit niemand schummeln kann. Entsteht gerade als Nachfolger von Virtual World – der kostenlose Server braucht beim ersten Aufruf etwa 30 Sekunden zum Aufwachen.',
     features: [
       'Link im Meeting-Chat teilen, Name eingeben, fertig – kein Konto, keine App',
-      'Sechs Spiele: Team-Boss mit verteilten Rollen, Boss-Kampf, Fangen, Wettrennen, Sammeln und die „Aufstellung“ (abstimmen durch Hinlaufen)',
+      'Sieben Spiele: Team-Boss mit verteilten Rollen, Maulwurf, Boss-Kampf, Fangen, Wettrennen, Sammeln und die „Aufstellung“ (abstimmen durch Hinlaufen)',
       'Technik-Check vorab: Browser, Verbindung durch die Firewall, Antwortzeit',
       'Getestet mit 50 gleichzeitigen Spielern, kostenlos gehostet',
     ],
     en: {
       tagline: 'Team-building games for online meetings – open the link, play along.',
       description:
-        'A games platform for Teams meetings with 20–50 people: everyone plays in the browser on their laptop – no app, no account, no personal phone. A shared pixel world with the "team boss" (attack, shield, healing and radio defeat a boss together – without anyone having to speak), a boss fight, tag, a race, collecting and the "lineup", where you vote by walking. A tech check beforehand shows whether the laptop and the company firewall play along. The server decides hits, finishes and answers, so nobody can cheat. Currently being built as the successor to Virtual World – the free server needs about 30 seconds to wake up on the first visit.',
+        'A games platform for Teams meetings with 20–50 people: everyone plays in the browser on their laptop – no app, no account, no personal phone. A shared pixel world with the "team boss" (attack, shield, healing and radio defeat a boss together – without anyone having to speak), the "mole" (someone secretly sabotages the shared project), a boss fight, tag, a race, collecting and the "lineup", where you vote by walking. A tech check beforehand shows whether the laptop and the company firewall play along. The server decides hits, finishes and answers, so nobody can cheat. Currently being built as the successor to Virtual World – the free server needs about 30 seconds to wake up on the first visit.',
       features: [
         'Share the link in the meeting chat, enter a name, done – no account, no app',
-        'Six games: team boss with split roles, boss fight, tag, race, collecting and the "lineup" (vote by walking)',
+        'Seven games: team boss with split roles, mole, boss fight, tag, race, collecting and the "lineup" (vote by walking)',
         'Tech check beforehand: browser, connection through the firewall, response time',
         'Tested with 50 simultaneous players, hosted for free',
       ],
@@ -753,7 +753,7 @@ const STORIES = {
       story: [
         'Unsere Team-Meetings laufen fast nur noch online. Ich wollte etwas, bei dem man sich dort wirklich begegnet – nicht noch ein Quiz, bei dem alle stumm auf Antworten klicken.',
         'Angefangen hat es mit Virtual World, einer Pixel-Welt für bis zu 50 Leute. Für echte Meetings fehlte aber einiges: Niemand sollte sein privates Handy brauchen, die Firmen-Firewall musste mitspielen, und eine Moderation braucht die Kontrolle über den Ablauf.',
-        'Daraus ist Team-Arcade geworden: Link in den Teams-Chat, Name eingeben, mitspielen. Jede Moderation hat einen eigenen Raum mit geheimem Link, Spiele öffnen sich als Portal, nach jedem Spiel gibt es eine Gesamttabelle, und am Ende entsteht ein Gruppenfoto zum Speichern. Mit dem Team-Boss gibt es jetzt ein Spiel mit verteilten Rollen: Angriff, Schild, Heilung und Funker besiegen gemeinsam „Das Endlos-Meeting“ oder „Den Montag“ – die Warnungen kommen im Spiel, niemand muss sprechen. Als Nächstes kommt ein Maulwurf, der heimlich sabotiert.',
+        'Daraus ist Team-Arcade geworden: Link in den Teams-Chat, Name eingeben, mitspielen. Jede Moderation hat einen eigenen Raum mit geheimem Link, Spiele öffnen sich als Portal, nach jedem Spiel gibt es eine Gesamttabelle, und am Ende entsteht ein Gruppenfoto zum Speichern. Mit dem Team-Boss gibt es jetzt ein Spiel mit verteilten Rollen: Angriff, Schild, Heilung und Funker besiegen gemeinsam „Das Endlos-Meeting“ oder „Den Montag“ – die Warnungen kommen im Spiel, niemand muss sprechen. Dazu kommt der Maulwurf: Ein paar Leute sabotieren heimlich das gemeinsame Projekt, in Besprechungen sucht die Gruppe sie und stimmt ab – wer gewählt wird, ist nur enttarnt, niemand fliegt raus. Als Nächstes kommt eine Schnitzeljagd durch die Welt.',
       ],
       tech: [
         ['Echtzeit', 'Ein Node.js-Server mit Socket.io hält jeden Raum zusammen. Bewegungen werden gebündelt verschickt – bei 50 Leuten rund 98 % weniger Nachrichten als vorher.'],
@@ -766,7 +766,7 @@ const STORIES = {
       story: [
         'Our team meetings are almost entirely online now. I wanted something where people actually meet there – not another quiz where everyone silently clicks answers.',
         'It started with Virtual World, a pixel world for up to 50 people. Real meetings needed more, though: nobody should need their personal phone, the company firewall had to play along, and a host needs control over what happens.',
-        'That became Team-Arcade: drop a link in the Teams chat, enter a name, play. Every host gets their own room with a secret link, games open as a portal, there is an overall scoreboard after each game, and in the end a group photo you can save. The team boss is now a game with split roles: attack, shield, healing and radio defeat "The Endless Meeting" or "The Monday" together – the warnings appear in the game, so nobody has to speak. Next up is a mole who secretly sabotages.',
+        'That became Team-Arcade: drop a link in the Teams chat, enter a name, play. Every host gets their own room with a secret link, games open as a portal, there is an overall scoreboard after each game, and in the end a group photo you can save. The team boss is now a game with split roles: attack, shield, healing and radio defeat "The Endless Meeting" or "The Monday" together – the warnings appear in the game, so nobody has to speak. Then there is the mole: a few people secretly sabotage the shared project, the group hunts them in meetings and votes – whoever is chosen is only exposed, nobody gets kicked out. Next up is a scavenger hunt through the world.',
       ],
       tech: [
         ['Real-time', 'A Node.js server with Socket.io holds every room together. Movement is sent in batches – with 50 people that is about 98 % fewer messages than before.'],
