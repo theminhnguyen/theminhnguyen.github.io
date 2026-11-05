@@ -293,4 +293,29 @@ const MOCKUPS = {
         </div>
       </div>
     </div>`,
+  satzweise: () => `
+    <div class="mock">
+      <div class="mock-window">
+        <div class="mock-bar"><i></i><i></i><i></i></div>
+        <div class="mock-screen" style="background:#0d1526;padding:12px;gap:9px;display:flex;flex-direction:column;align-items:center">
+          <div style="display:flex;gap:3px;background:#17223a;border-radius:8px;padding:3px;width:100%">
+            <span style="flex:1;text-align:center;font-size:8px;color:#eef3ff;background:#22304d;border-radius:6px;padding:3px 0;font-weight:600">Live</span>
+            <span style="flex:1;text-align:center;font-size:8px;color:#8b9bbb;padding:3px 0">Übungen</span>
+          </div>
+          <div style="width:74px;height:74px;border-radius:50%;border:5px solid #4ade80;box-shadow:0 0 16px -2px #4ade80;background:#17223a;display:flex;flex-direction:column;align-items:center;justify-content:center">
+            <span style="font-size:6px;letter-spacing:.15em;color:#4ade80;font-weight:700">AKTIV</span>
+            <b style="font-size:17px;color:#4ade80;font-variant-numeric:tabular-nums">0:42</b>
+          </div>
+          <div style="width:100%;background:#17223a;border:1px solid #26355a;border-radius:9px;padding:7px;display:flex;flex-direction:column;gap:5px">
+            <b style="color:#eef3ff;font-size:10px">Bankdrücken</b>
+            <div style="display:flex;gap:4px">
+              <span style="flex:1;font-size:10px;color:#eef3ff;font-weight:700">2/3<br><span style="font-size:6px;color:#8b9bbb;font-weight:500">SATZ</span></span>
+              <span style="flex:1;font-size:10px;color:#eef3ff;font-weight:700;background:#22304d;border-radius:5px;padding:3px 5px">62,5<br><span style="font-size:6px;color:#8b9bbb;font-weight:500">KG</span></span>
+              <span style="flex:1;font-size:10px;color:#eef3ff;font-weight:700;background:#22304d;border-radius:5px;padding:3px 5px">8<br><span style="font-size:6px;color:#8b9bbb;font-weight:500">WDH</span></span>
+            </div>
+          </div>
+          <div style="width:100%;text-align:center;font-size:9px;font-weight:700;color:#05213a;background:#5cc8ff;border-radius:999px;padding:6px 0">Satz beenden</div>
+        </div>
+      </div>
+    </div>`,
 };

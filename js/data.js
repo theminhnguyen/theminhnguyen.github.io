@@ -717,6 +717,42 @@ const PROJECTS = [
     accent2: '#A76D14',
     featured: false,
   },
+  {
+    id: 'satzweise',
+    name: 'satzweise',
+    emoji: '🏋️',
+    tagline: 'Dein Training, Satz für Satz – ohne Zeitplan, ohne Druck.',
+    description:
+      'Trainings-App fürs Fitnessstudio als iPhone-Web-App: eigene Pläne wie in der Whoop-App anlegen, trainieren, wann du willst, und jeden Satz mit einem Tipp abhaken. Die Live-Ansicht zeigt den aktuellen Satz groß mit Satz-Timer und hochzählender Pause, die Übungsliste alles auf einen Blick. Läuft komplett offline im Studio und gleicht sich per E-Mail-Code über alle Geräte ab.',
+    features: [
+      'Pläne wie in der Whoop-App: pro Satz nur Wiederholungen und Gewicht',
+      'Live-Ansicht mit Satz-Timer und hochzählender Pause – oder klassisch als Liste',
+      'Vorschlag „+2,5 kg“, sobald alle Wiederholungen sitzen; der Plan passt sich nach dem Training an',
+      'Offline-first auf dem iPhone, Sync per E-Mail-Code, Statistik mit Kraftverlauf und harten Sätzen pro Muskel',
+    ],
+    en: {
+      tagline: 'Your training, set by set – no schedule, no pressure.',
+      description:
+        'A gym training app as an iPhone web app: build your own plans like in the Whoop app, train whenever you like and tick off every set with one tap. The live view shows the current set big with a set timer and a counting-up rest, the exercise list shows everything at a glance. Runs fully offline in the gym and syncs across devices with an email code.',
+      features: [
+        'Plans like in the Whoop app: just reps and weight per set',
+        'Live view with set timer and counting-up rest – or the classic list',
+        '“+2.5 kg” suggestion once all reps are done; the plan adapts after the workout',
+        'Offline-first on the iPhone, sync via email code, stats with strength trends and hard sets per muscle',
+      ],
+      categoryLabel: 'Fitness',
+    },
+    shots: [],
+    shotType: 'mobile',
+    tags: ['React', 'TypeScript', 'PWA', 'IndexedDB', 'Supabase', 'Offline-First'],
+    category: 'health',
+    categoryLabel: 'Fitness',
+    live: 'https://satzweise-tan.vercel.app/',
+    liveKind: 'app',
+    accent: '#5cc8ff',
+    accent2: '#4ade80',
+    featured: false,
+  },
 ];
 
 const FILTERS = [
@@ -737,7 +773,7 @@ const TECH_TICKER = [
   'PWA', 'Leaflet', 'IndexedDB', 'PyObjC', 'Swift', 'Realtime', 'Vercel',
   'TensorFlow.js', 'COCO-SSD', 'Computer Vision', 'WebAudio',
   'Whisper', 'MLX', 'sherpa-onnx', 'Ollama', 'Gemini', 'TMDB', 'AniList',
-  'Zustand',
+  'Zustand', 'Dexie',
 ];
 
 /**
