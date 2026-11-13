@@ -142,18 +142,6 @@ const MOCKUPS = {
       </div>
     </div>`,
 
-  'virtual-world-multiplayer': () => `
-    <div class="mock" style="display:flex;justify-content:center">
-      <div class="m-world">
-        <div class="tiles"></div>
-        <span class="m-boss"></span>
-        <span class="m-player m-p1"></span>
-        <span class="m-player m-p2"></span>
-        <span class="m-player m-p3"></span>
-        <span class="m-tag">◉ 3 online · Boss aktiv</span>
-      </div>
-    </div>`,
-
   'team-arcade': () => `
     <div class="mock">
       <div class="mock-window">
@@ -211,14 +199,25 @@ const MOCKUPS = {
       <span class="m-cs-snitch">✦</span>
     </div>`,
 
+  // Links das Menüleisten-Panel, rechts das iPhone mit Widget und Push.
+  // Beide zeigen dieselben Werte – die Kernidee: einmal gemessen, überall sichtbar.
   'claude-usage-monitor': () => `
-    <div class="mock m-menubar">
-      <div class="m-mb-top"><span class="dot-g"></span><span class="m-line" style="width:40%;height:7px"></span><b>68%</b></div>
-      <div class="m-meter"><label><span>5-Std-Sitzung</span><span>68%</span></label><div class="m-track"><div class="m-fill" style="--to:68%"></div></div></div>
-      <div class="m-meter"><label><span>Woche</span><span>42%</span></label><div class="m-track"><div class="m-fill w2" style="--to:42%"></div></div></div>
-      <div class="m-meter"><label><span>Opus</span><span>81%</span></label><div class="m-track"><div class="m-fill w3" style="--to:81%"></div></div></div>
-      <div class="m-spark">
-        <i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:70%"></i>
+    <div class="mock m-menubar m-cu">
+      <div class="m-cu-mac">
+        <div class="m-mb-top"><span class="dot-g"></span><span class="m-line" style="width:34%;height:7px"></span><b>68% · 42%</b></div>
+        <div class="m-meter"><label><span>5-Std-Sitzung</span><span>68%</span></label><div class="m-track"><div class="m-fill" style="--to:68%"></div></div></div>
+        <div class="m-meter"><label><span>Woche</span><span>42%</span></label><div class="m-track"><div class="m-fill w2" style="--to:42%"></div></div></div>
+        <div class="m-spark">
+          <i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:70%"></i>
+        </div>
+      </div>
+      <div class="m-cu-phone">
+        <span class="m-cu-island"></span>
+        <div class="m-cu-push"><b>Claude ist wieder frei</b><small>5-Std-Fenster zurückgesetzt</small></div>
+        <div class="m-cu-widget">
+          <span class="m-cu-ring" style="--p:68"><b>68%</b></span>
+          <span class="m-cu-wk">Woche 42%</span>
+        </div>
       </div>
     </div>`,
 

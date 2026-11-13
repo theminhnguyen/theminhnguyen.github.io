@@ -801,21 +801,7 @@ section { position: relative; z-index: 2; }
 .m-gb-ab { position: absolute; bottom: 10px; right: 18px; display: flex; gap: 6px; }
 .m-gb-ab i { width: 12px; height: 12px; border-radius: 50%; background: #8b2252; }
 
-/* virtual-world: Multiplayer-Pixelwelt */
-.m-world { position: relative; width: 88%; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-strong); background:
-  linear-gradient(180deg, #0e1a2b, #0a2417);
-  box-shadow: 0 20px 44px -18px rgba(0,0,0,0.9); }
-.m-world .tiles { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 22px 22px; }
-.m-player { position: absolute; width: 14px; height: 14px; border-radius: 4px; box-shadow: 0 0 10px currentColor; }
-.m-player::after { content: ""; position: absolute; top: -6px; left: 3px; width: 8px; height: 6px; border-radius: 3px 3px 0 0; background: currentColor; }
-.m-p1 { color: #22d3ee; background: #22d3ee; top: 40%; left: 26%; animation: wander1 6s var(--ease) infinite; }
-.m-p2 { color: #f472b6; background: #f472b6; top: 60%; left: 60%; animation: wander2 7s var(--ease) infinite; }
-.m-p3 { color: #a3e635; background: #a3e635; top: 30%; left: 66%; animation: wander3 5.5s var(--ease) infinite; }
-.m-boss { position: absolute; top: 20%; left: 45%; width: 30px; height: 30px; border-radius: 8px; background: radial-gradient(circle, #ef4444, #7f1d1d); box-shadow: 0 0 18px #ef4444; animation: bosspulse 2s infinite; }
-@keyframes bosspulse { 50% { transform: scale(1.12); } }
-@keyframes wander1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(30px,18px)} }
-@keyframes wander2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-26px,-16px)} }
-@keyframes wander3 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-18px,22px)} }
+/* Kleines Etikett unten links (mehrere Vorschauen) */
 .m-tag { position: absolute; bottom: 8px; left: 8px; font-family: var(--font-mono); font-size: 9px; color: #fff; background: rgba(0,0,0,0.5); padding: 2px 7px; border-radius: 5px; }
 
 /* team-arcade: Spielauswahl, Boss-Leiste, Team */
@@ -899,11 +885,52 @@ section { position: relative; z-index: 2; }
   animation: fillup 1.4s var(--ease) both;
 }
 .m-fill.w2 { animation-delay: 0.18s; }
-.m-fill.w3 { animation-delay: 0.36s; }
 /* Nur die anfängliche Füll-Geste – Endzustand bleibt exakt --to */
 @keyframes fillup { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 .m-spark { display: flex; align-items: flex-end; gap: 3px; height: 30px; margin-top: 8px; }
 .m-spark i { flex: 1; border-radius: 2px 2px 0 0; background: color-mix(in srgb, var(--card-accent) 60%, transparent); }
+
+/* claude-usage-monitor: Mac-Panel + iPhone mit Widget und Push nebeneinander */
+.m-menubar.m-cu { display: flex; align-items: center; gap: 12px; }
+.m-cu-mac { flex: 1; min-width: 0; }
+.m-cu-mac .m-mb-top { padding: 6px 8px; }
+.m-cu-mac .m-mb-top b { font-size: 10.5px; white-space: nowrap; }
+.m-cu-phone {
+  position: relative; flex: none; width: 88px; height: 162px;
+  border-radius: 20px; border: 4px solid #1d1d28; background: linear-gradient(170deg, #241b36, #0f1426);
+  padding: 22px 6px 8px; display: flex; flex-direction: column; gap: 8px; overflow: hidden;
+  box-shadow: 0 20px 40px -18px rgba(0,0,0,0.9);
+}
+.m-cu-island { position: absolute; top: 6px; left: 50%; width: 30px; height: 8px; margin-left: -15px; border-radius: 6px; background: #000; }
+.m-cu-push {
+  display: flex; flex-direction: column; gap: 1px; padding: 5px 6px; border-radius: 9px;
+  background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.12);
+  animation: cuPush 6s var(--ease) infinite;
+}
+.m-cu-push b { font-size: 7.5px; line-height: 1.15; color: #fff; }
+.m-cu-push small { font-size: 6.5px; line-height: 1.2; color: var(--text-dim); }
+.m-cu-widget {
+  display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 8px 4px;
+  border-radius: 12px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.1);
+}
+/* Ring als eigene Ebene (::before) – so schneidet die Maske nur den Ring aus,
+   nicht die Zahl in der Mitte. Füllstand kommt aus --p im HTML. */
+.m-cu-ring { position: relative; width: 44px; height: 44px; display: grid; place-items: center; }
+.m-cu-ring::before {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: conic-gradient(var(--card-accent) calc(var(--p) * 1%), rgba(255,255,255,0.12) 0);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px));
+          mask: radial-gradient(farthest-side, transparent calc(100% - 6px), #000 calc(100% - 5px));
+}
+.m-cu-ring b { position: relative; font-family: var(--font-mono); font-size: 10px; font-weight: 700; color: #fff; }
+.m-cu-wk { font-family: var(--font-mono); font-size: 7.5px; color: var(--text-dim); }
+/* Push gleitet von oben herein, bleibt lesbar stehen, verschwindet wieder */
+@keyframes cuPush {
+  0%, 8% { transform: translateY(-140%); opacity: 0; }
+  16%, 70% { transform: translateY(0); opacity: 1; }
+  80%, 100% { transform: translateY(-140%); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .m-cu-push { animation: none; transform: none; opacity: 1; } }
 
 /* hogwarts-3d: Schloss-Silhouette bei Nacht */
 .m-castle { position: relative; width: 88%; height: 180px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-strong); background: linear-gradient(180deg, #0a0e22 0%, #131a38 55%, #1d2547 100%); box-shadow: 0 20px 44px -18px rgba(0,0,0,0.9); }

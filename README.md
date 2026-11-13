@@ -20,12 +20,11 @@ vorhanden, echten Screenshots.
 | **Hogwarts 3D** | Prozedural erzeugte, begehbare 3D-Schlosswelt (nicht-kommerzielles Fan-Projekt) | Live |
 | **WHOOPI** | Whoop-4.0-Live-Dashboard über Web Bluetooth | Live |
 | **PixelPost** | Grußkarte als begehbares Game-Boy-Mini-Spiel | Live |
-| **Virtual World** | Browser-Multiplayer für bis zu 50 Spieler | Live |
-| **Team-Arcade** | Teambuilding-Spiele für Online-Meetings (Nachfolger von Virtual World) | Live · in Arbeit |
+| **Team-Arcade** | Teambuilding-Spiele für Online-Meetings (ging aus dem früheren Virtual World hervor) | Live |
 | **TripMate** | Gemeinsame Urlaubsplanung als PWA | Live · pausiert |
 | **KudosEdge** | Werte-basiertes Peer-Recognition-Tool | Live |
 | **Boop** | Physik-Fidget-Ball für die macOS-Menüleiste | Auf Anfrage · pausiert |
-| **Claude Usage Monitor** | macOS-Menüleisten-App für claude.ai-Limits | Auf Anfrage |
+| **Claude Usage Monitor** | macOS-Menüleisten-App für claude.ai-Limits, mit iPhone-Widget und Push | Auf Anfrage |
 | **SideTrack** | Team-Tool für Nebenprojekte: Gantt, Snooze-Audit-Log, Tagesgeschäft-Ampel | Live |
 | **Spielkiste** | Neun ruhige Montessori-Spielzeuge für Kleinkinder, offline als PWA | Live |
 | **Context Studio** | Lern-App für Markdown-Kontextdateien (CLAUDE.md & Co.) mit Budget-Ladeleiste, Linter & Export | Live · pausiert |
