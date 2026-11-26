@@ -1043,6 +1043,32 @@ section { position: relative; z-index: 2; }
 .m-ctx-badge.dim { background: rgba(255,255,255,0.08); color: var(--text-faint); }
 @media (prefers-reduced-motion: reduce) { .m-ctx-seg { animation: none; } }
 
+/* familien-wichteln: das Los im Luftpost-Umschlag, der Streifenrand läuft langsam mit */
+.m-fw { position: relative; display: flex; flex-direction: column; gap: 7px; padding: 0 12px 32px; background: #eef2f8; color: #1b2a4e; }
+.m-fw::before { content: ""; height: 5px; margin: 0 -12px 3px; background: repeating-linear-gradient(135deg, #d0312d 0 7px, #fff 7px 10px, #2f5da8 10px 17px, #fff 17px 20px); }
+.m-fw-head { display: flex; align-items: center; gap: 6px; font-size: 11px; }
+.m-fw-logo { width: 18px; height: 18px; border-radius: 5px; background: #2f5da8; display: grid; place-items: center; font-size: 10px; }
+.m-fw-langs { margin-left: auto; display: flex; gap: 1px; padding: 2px; border-radius: 999px; background: #fff; border: 1px solid #d3dae7; }
+.m-fw-langs i { font-style: normal; font-size: 7px; font-weight: 700; color: #56627e; padding: 1px 4px; border-radius: 999px; }
+.m-fw-langs i.on { background: #1b2a4e; color: #fff; }
+.m-fw-kicker { font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #56627e; }
+.m-fw-letter {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; padding: 9px; border: 5px solid transparent;
+  background: linear-gradient(#fffdf7, #fffdf7) padding-box,
+    repeating-linear-gradient(135deg, #d0312d 0 7px, #fff 7px 10px, #2f5da8 10px 17px, #fff 17px 20px) border-box;
+  animation: m-fw-air 4s linear infinite;
+}
+@keyframes m-fw-air { to { background-position: 0 0, 28.28px 0; } }
+.m-fw-who { display: flex; flex-direction: column; gap: 5px; }
+.m-fw-name { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
+.m-fw-chip { align-self: flex-start; font-size: 8px; padding: 2px 7px; border-radius: 999px; background: #e6ecf6; }
+.m-fw-stamp { width: 32px; height: 38px; flex: none; display: grid; place-items: center; align-content: center; gap: 1px; line-height: 1; font-size: 13px; background: #fff; border: 2px solid #2f5da8; outline: 2px dotted #fff; transform: rotate(6deg); box-shadow: 0 3px 8px rgba(27, 42, 78, 0.2); }
+.m-fw-stamp small { font-size: 7px; font-weight: 800; color: #2f5da8; }
+.m-fw-wish { display: flex; flex-direction: column; gap: 2px; padding: 7px 9px; border-radius: 9px; background: #fff; border: 1px solid #d3dae7; font-size: 10px; }
+.m-fw-wish i { font-style: normal; color: #e4a11b; }
+.m-fw-wish b { font-size: 9px; }
+@media (prefers-reduced-motion: reduce) { .m-fw-letter { animation: none; } }
+
 /* ---------- Story ---------- */
 .story { padding: clamp(70px, 10vw, 120px) clamp(18px, 5vw, 40px); max-width: var(--maxw); margin: 0 auto; }
 .story-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(30px, 6vw, 70px); align-items: center; }

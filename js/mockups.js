@@ -317,4 +317,26 @@ const MOCKUPS = {
         </div>
       </div>
     </div>`,
+  'familien-wichteln': () => `
+    <div class="mock">
+      <div class="mock-window">
+        <div class="mock-bar"><i></i><i></i><i></i></div>
+        <div class="mock-screen m-fw">
+          <div class="m-fw-head">
+            <span class="m-fw-logo">🎁</span><b>Wichteln</b>
+            <span class="m-fw-langs"><i class="on">DE</i><i>EN</i><i>VI</i></span>
+          </div>
+          <span class="m-fw-kicker">Du beschenkst</span>
+          <div class="m-fw-letter">
+            <div class="m-fw-who">
+              <span class="m-fw-name">🌸 Mai</span>
+              <span class="m-fw-chip">🇻🇳 Dort ist es 20:08</span>
+            </div>
+            <span class="m-fw-stamp">🇻🇳<small>VN</small></span>
+          </div>
+          <div class="m-fw-wish"><span><i>★</i> Lebkuchen aus Nürnberg</span><b>350.000 ₫ ≈ 12 €</b></div>
+          <span class="m-tag">🎁 geheim gelost · DE · EN · VI</span>
+        </div>
+      </div>
+    </div>`,
 };

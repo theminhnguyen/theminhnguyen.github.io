@@ -717,6 +717,42 @@ const PROJECTS = [
     accent2: '#4ade80',
     featured: false,
   },
+  {
+    id: 'familien-wichteln',
+    name: 'Familien-Wichteln',
+    emoji: '🎁',
+    tagline: 'Eine Familie, mehrere Länder, drei Sprachen – und niemand verrät, wer wen zieht.',
+    description:
+      'Wie wichtelt eine Familie, die über mehrere Länder verteilt ist? Zettel aus dem Hut ziehen geht nicht, im Gruppenchat wäre die Überraschung dahin, und wer organisiert, wüsste sonst alles. Also übernimmt der Server die Auslosung: eine einzige Geschenke-Kette, in der sich Paare und Haushalte nie gegenseitig ziehen. Jede Person bekommt einen privaten Link per WhatsApp, Zalo oder QR-Code und trägt ihre Wünsche ein – sehen kann sie nur, wer sie gezogen hat, nicht einmal die Organisation. Fragen an den Wichtel bleiben anonym, das Budget erscheint in jeder Landeswährung und die Bescherung in jeder Zeitzone. Auf Deutsch, Englisch und Vietnamesisch, in drei Looks von Luftpost bis Laterne.',
+    features: [
+      'Geheime Auslosung auf dem Server: eine einzige Geschenke-Kette, Paare und Haushalte ziehen sich nie gegenseitig',
+      'Wünsche sieht nur, wer dich gezogen hat – nicht einmal die Organisation; Fragen an den Wichtel bleiben anonym',
+      'Drei Sprachen, Budget in jeder Landeswährung, Bescherung und Familien-Uhr in jeder Zeitzone',
+      'Kein Konto: ein Link pro Person, optional mit PIN, als App auf dem iPhone – nächstes Jahr ohne dieselben Paare',
+    ],
+    en: {
+      tagline: 'One family, several countries, three languages – and nobody gives away who drew whom.',
+      description:
+        'How does a family spread across several countries do Secret Santa? Drawing names from a hat doesn’t work, the group chat would spoil the surprise, and whoever organises it would know everything. So the server does the draw: one single gift chain in which couples and households never draw each other. Everyone gets a private link via WhatsApp, Zalo or QR code and adds their wishes – only the person who drew them can see those, not even the organiser. Questions to your Secret Santa stay anonymous, the budget shows up in every local currency and the gift exchange in every time zone. In German, English and Vietnamese, with three looks from airmail to lanterns.',
+      features: [
+        'Secret draw on the server: one single gift chain, couples and households never draw each other',
+        'Only the person who drew you sees your wishes – not even the organiser; questions to your Secret Santa stay anonymous',
+        'Three languages, budget in every local currency, gift exchange and family clock in every time zone',
+        'No account: one link per person, optional PIN, works as an app on the iPhone – next year without repeat pairs',
+      ],
+      categoryLabel: 'Family',
+    },
+    shots: ['assets/shots/familien-wichteln-1.jpg', 'assets/shots/familien-wichteln-2.jpg', 'assets/shots/familien-wichteln-3.jpg'],
+    shotType: 'mobile',
+    tags: ['Supabase', 'PostgreSQL', 'PWA', 'Vanilla JS', 'Vercel'],
+    category: 'apps',
+    categoryLabel: 'Familie',
+    live: 'https://familien-wichteln-amber.vercel.app/',
+    liveKind: 'app',
+    accent: '#D0312D',
+    accent2: '#2F5DA8',
+    featured: false,
+  },
 ];
 
 const FILTERS = [
@@ -737,7 +773,7 @@ const TECH_TICKER = [
   'PWA', 'Leaflet', 'IndexedDB', 'PyObjC', 'Swift', 'Realtime', 'Vercel',
   'TensorFlow.js', 'COCO-SSD', 'Computer Vision', 'WebAudio',
   'Whisper', 'MLX', 'sherpa-onnx', 'Ollama', 'Gemini', 'TMDB', 'AniList',
-  'Zustand', 'Dexie',
+  'Zustand', 'Dexie', 'PostgreSQL',
 ];
 
 /**

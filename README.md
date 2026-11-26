@@ -29,6 +29,7 @@ vorhanden, echten Screenshots.
 | **Spielkiste** | Neun ruhige Montessori-Spielzeuge für Kleinkinder, offline als PWA | Live |
 | **Context Studio** | Lern-App für Markdown-Kontextdateien (CLAUDE.md & Co.) mit Budget-Ladeleiste, Linter & Export | Live · pausiert |
 | **satzweise** | Trainings-App fürs Studio: Pläne wie in Whoop, Live-Ansicht mit Satz-Timer, offline als iPhone-PWA (React + Dexie + Supabase) | Live |
+| **Familien-Wichteln** | Wichteln für eine Familie über Ländergrenzen: geheime Auslosung auf dem Server, drei Sprachen, Budget in jeder Währung, iPhone-PWA (Supabase) | Live |
 
 > Die Zahlen im Hero (Produkte, Live-Demos, Technologien) werden zur Laufzeit aus
 > `js/data.js` berechnet – beim Hinzufügen eines Produkts stimmen sie automatisch.
