@@ -728,7 +728,7 @@ const PROJECTS = [
       'Geheime Auslosung auf dem Server: eine einzige Geschenke-Kette, Paare und Haushalte ziehen sich nie gegenseitig',
       'Wünsche sieht nur, wer dich gezogen hat – nicht einmal die Organisation; Fragen an den Wichtel bleiben anonym',
       'Drei Sprachen, Budget in jeder Landeswährung, Bescherung und Familien-Uhr in jeder Zeitzone',
-      'Kein Konto: ein Link pro Person, optional mit PIN, als App auf dem iPhone – nächstes Jahr ohne dieselben Paare',
+      'Kein Konto: ein Link pro Person, optional mit PIN, als App auf dem iPhone mit Mitteilungen – nächstes Jahr ohne dieselben Paare',
     ],
     en: {
       tagline: 'One family, several countries, three languages – and nobody gives away who drew whom.',
@@ -738,7 +738,7 @@ const PROJECTS = [
         'Secret draw on the server: one single gift chain, couples and households never draw each other',
         'Only the person who drew you sees your wishes – not even the organiser; questions to your Secret Santa stay anonymous',
         'Three languages, budget in every local currency, gift exchange and family clock in every time zone',
-        'No account: one link per person, optional PIN, works as an app on the iPhone – next year without repeat pairs',
+        'No account: one link per person, optional PIN, works as an app on the iPhone with notifications – next year without repeat pairs',
       ],
       categoryLabel: 'Family',
     },
